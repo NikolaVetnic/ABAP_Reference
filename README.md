@@ -45,7 +45,7 @@ Declaration:
 ```
 	DATA: 	
 		d_chars TYPE c LENGTH 5 VALUE 'fiver',
-      	ld_single_char TYPE c VALUE 'A',
+		ld_single_char TYPE c VALUE 'A',
 		d_string TYPE string VALUE 'Hello World'.
 ```
 
