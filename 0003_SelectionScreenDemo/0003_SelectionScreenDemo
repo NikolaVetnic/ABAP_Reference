@@ -1,0 +1,36 @@
+*&---------------------------------------------------------------------*
+*& Report znv_hello_world_input
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+
+REPORT znv_hello_world_input.
+
+DATA:
+    ld_airportid TYPE sairport-id.
+
+SELECTION-SCREEN BEGIN OF BLOCK selection WITH FRAME TITLE TEXT-001.
+  PARAMETERS:
+    p_input1 TYPE string,
+    p_input2 TYPE boolean AS LISTBOX VISIBLE LENGTH 10,
+    p_input3 TYPE boolean AS CHECKBOX,
+    p_input4 TYPE boolean RADIOBUTTON GROUP grp DEFAULT 'X',
+    p_input5 TYPE boolean RADIOBUTTON GROUP grp,
+    p_input6 TYPE string OBLIGATORY.
+
+  SELECT-OPTIONS: so_air FOR ld_airportid.
+SELECTION-SCREEN END OF BLOCK selection.
+
+AT SELECTION-SCREEN.
+  " evaluates p_input1 before executing program, throws error if != 'CORRECT INPUT'
+  IF p_input1 <> 'CORRECT INPUT'.
+    MESSAGE e000(38) WITH 'Invalid entry'.
+  ENDIF.
+
+START-OF-SELECTION.
+  WRITE:
+      'p_input1 : ', p_input1, /,
+      'p_input2 : ', p_input2, /,
+      'p_input3 : ', p_input3, /,
+      'radio_buttons : ', p_input4, p_input5, /,
+      'p_input6 : ', p_input6, /.

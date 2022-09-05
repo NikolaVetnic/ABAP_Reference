@@ -1,0 +1,44 @@
+*&---------------------------------------------------------------------*
+*& Report znv_hello_world
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+PROGRAM znv_hello_world.
+
+DATA:
+  d_variable       TYPE i,
+  d_other_variable TYPE string     VALUE 'Hello World!',
+  d_test_0         TYPE i          VALUE 1,
+  d_test_1         TYPE i          VALUE 3.
+
+IF ( d_test_0 = 1 AND d_test_1 = 2 ).
+  WRITE: 'Value of d_test is 1'.
+ELSE.
+  WRITE: 'Value of d_test something other than 1'.
+ENDIF.
+
+WRITE: /.
+
+CASE d_test_0.
+  WHEN 0.
+    WRITE: 'd_test_0 is now 0 in CASE statement', /.
+  WHEN 1.
+    WRITE: 'd_test_0 is now 1 in CASE statement', /.
+ENDCASE.
+
+DO 5 TIMES.
+  WRITE: 'Running a loop...', /.
+ENDDO.
+
+DATA(d_loop_counter) = 0.
+
+WHILE d_loop_counter < 5.
+  WRITE: 'Running a WHILE loop...', /.
+  d_loop_counter = d_loop_counter + 1.
+ENDWHILE.
+
+SELECTION-SCREEN BEGIN OF BLOCK selection WITH FRAME TITLE TEXT-001.
+  PARAMETERS:
+    p_input  TYPE boolean    AS LISTBOX VISIBLE LENGTH 10,
+    p_input2 TYPE boolean    AS CHECKBOX.
+SELECTION-SCREEN END OF BLOCK selection.

@@ -1,0 +1,26 @@
+*&---------------------------------------------------------------------*
+*& Report znv_problem1
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT znv_problem1.
+
+DATA:
+    d_result TYPE decfloat16.
+
+SELECTION-SCREEN BEGIN OF BLOCK selection WITH FRAME.
+  PARAMETERS:
+    p_name  TYPE string,
+    p_cost  TYPE p DECIMALS 2,
+    p_quant TYPE i.
+SELECTION-SCREEN END OF BLOCK selection.
+
+AT SELECTION-SCREEN.
+  IF p_quant > 999.
+    MESSAGE e000(38) WITH 'Please enter quantity less than 999'.
+  ENDIF.
+
+START-OF-SELECTION.
+  d_result = p_quant * p_cost.
+  WRITE:
+  'The cost of ', p_quant, ' ITEM (s) is ', d_result, '.', /.
