@@ -28,8 +28,9 @@ Basic numeric data types:
 
 Declaration:
 ```
-	DATA: 	ld_integer 		TYPE i 					VALUE 200,
-			ld_packed 		TYPE p 		DECIMALS 2 	VALUE '3.115'.
+	DATA:
+		ld_integer TYPE i VALUE 200,
+		ld_packed TYPE p DECIMALS 2 VALUE '3.115'.
 ```
 
 ### Character Data Types
