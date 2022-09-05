@@ -28,9 +28,9 @@ Contents:
 
 -   [Data Types](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/DataTypes.md)
 -   [Operations](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Operations.md)
--   [FlowControll](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/FlowControll.md)
+-   [Flow Controll](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/FlowControll.md)
 -   [Screens](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Screens.md)
--   [ProgramLifecycle](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ProgramLifecycle.md)
+-   [Program Lifecycle](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ProgramLifecycle.md)
 
 ## Bibliography
 
