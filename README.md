@@ -43,9 +43,10 @@ Basic character data types:
 
 Declaration:
 ```
-	DATA: 	d_chars     	TYPE c 		LENGTH 5 	VALUE 'fiver',
-      		ld_single_char 	TYPE c 					VALUE 'A',
-			d_string 		TYPE string 			VALUE 'Hello World'.
+	DATA: 	
+		d_chars TYPE c LENGTH 5 VALUE 'fiver',
+      	ld_single_char TYPE c VALUE 'A',
+		d_string TYPE string VALUE 'Hello World'.
 ```
 
 ### Booleans in ABAP
@@ -53,8 +54,9 @@ When working with Booleans, it is best to use the Boolean data objects `abap_tru
 ```
 	IF true_variable = abap_true.
 	...
-	DATA: 	ld_boolean TYPE boolean.
-			ld_boolean = abap_true.
+	DATA: 	
+		ld_boolean TYPE boolean.
+		ld_boolean = abap_true.
 ```
 
 ### Inline Data Declarations
