@@ -32,6 +32,9 @@ Contents:
 -   [Flow Controll](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/FlowControll.md)
 -   [Screens](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Screens.md)
 -   [Program Lifecycle](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ProgramLifecycle.md)
+-   [Tables](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Tables.md)
+-   [OpenSQL](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/OpenSQL.md)
+
 
 ## Bibliography
 
