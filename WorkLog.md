@@ -12,3 +12,7 @@
 `7 Sept 2022`: completed Chapter 4, cont'd onto Chapter 5
 
 `8 Sept 2022`: completed Chapter 5 up to *Sorted Tables*.
+
+`9 Sept 2022`: completed Chapter 5, cont'd onto Chapter 6.
+
+`12 Sept 2022`: completed Chapter 6, cont'd onto Chapter 7.

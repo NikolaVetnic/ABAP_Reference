@@ -1,0 +1,357 @@
+REPORT znv_ddic_sample.
+
+*=-=-=-= p184
+*DATA:
+*    s_flight TYPE sflight,
+*    s_flight2 LIKE sflight.
+*
+*s_flight-carrid = 'NV'.
+*s_flight-connid = 17.
+*s_flight-fldate = 20150101.
+*
+*MODIFY sflight FROM s_flight.
+
+*=-=-=-= p185
+*TYPES:
+*    BEGIN OF ynv_my_type,
+*        carrid TYPE sflight-carrid,
+*        connid TYPE sflight-connid,
+*    END OF ynv_my_type.
+*
+*DATA:
+*    s_my_type TYPE ynv_my_type.
+*
+*SELECT SINGLE carrid connid
+*INTO s_my_type
+*FROM sflight.
+*
+*WRITE: s_my_type-carrid, ' - ', s_my_type-connid.
+
+*=-=-=-= p187
+*DATA:
+*    s_flight TYPE sflight.
+*FIELD-SYMBOLS:
+*    <s_flight> TYPE sflight.
+*
+*ASSIGN s_flight TO <s_flight>.
+*
+*s_flight-carrid = 'AA'.
+*WRITE: 's_flight-carrid : ', s_flight-carrid, /.
+*
+*<s_flight>-carrid = ''.
+*WRITE: 's_flight-carrid : ', s_flight-carrid, /.
+
+*=-=-=-= p190
+*TYPES:
+*    BEGIN OF ynv_my_type,
+*        carrid TYPE sflight-carrid,
+*        connid TYPE sflight-connid,
+*    END OF ynv_my_type.
+*
+*DATA:
+*    t_my_type TYPE STANDARD TABLE OF ynv_my_type.
+*
+*SELECT carrid connid
+*INTO TABLE t_my_type
+*FROM sflight.
+
+*=-=-=-= p190
+*DATA:
+*    t_flights TYPE STANDARD TABLE OF sflight,
+*    s_flight TYPE sflight.
+*
+*FIELD-SYMBOLS:
+*    <s_flight> TYPE sflight.
+*
+*SELECT *
+*FROM sflight
+*INTO TABLE t_flights.
+*
+*READ TABLE t_flights INTO s_flight INDEX 1.
+*READ TABLE t_flights ASSIGNING <s_flight> INDEX 1.
+*
+*WRITE: 's_flight-carrid : ', s_flight-carrid, /.
+*WRITE: 's_flight-carrid : ', <s_flight>-carrid, /.
+
+*=-=-=-= p190
+*SELECT *
+*FROM sflight
+*INTO TABLE @DATA(t_flights).
+*
+*READ TABLE t_flights INTO DATA(s_flight) INDEX 1.
+*READ TABLE t_flights ASSIGNING FIELD-SYMBOL(<s_flight>) INDEX 1.
+*
+*WRITE: 's_flight-carrid : ', s_flight-carrid, /.
+*WRITE: 's_flight-carrid : ', <s_flight>-carrid, /.
+
+*=-=-=-= p194
+*DATA:
+*    t_flights TYPE STANDARD TABLE OF sflight,
+*    s_flight TYPE sflight.
+*
+*FIELD-SYMBOLS:
+*    <s_flight> TYPE sflight.
+*
+*SELECT *
+*FROM sflight
+*INTO TABLE t_flights.
+*
+*LOOP AT t_flights INTO s_flight.
+*    s_flight-carrid = 'AZ'.
+*ENDLOOP.
+*
+*" changes every row of the standard table to have a carrid of AZ
+*LOOP AT t_flights ASSIGNING <s_flight>.
+*    <s_flight>-carrid = 'AZ'.
+*ENDLOOP.
+
+*=-=-=-= p194
+*SELECT *
+*FROM sflight
+*INTO TABLE @DATA(t_flights).
+*
+*" limit the rows that will be looped with the WHERE
+*LOOP AT t_flights INTO DATA(s_flight) WHERE fldate > '20150101'.
+*    s_flight-carrid = 'AZ'.
+*ENDLOOP.
+*
+*LOOP AT t_flights ASSIGNING FIELD-SYMBOL(<s_flight>) WHERE fldate > '20150101'.
+*    <s_flight>-carrid = 'AZ'.
+*ENDLOOP.
+
+*=-=-=-= p195
+*DATA:
+*    s_flight_row TYPE sflight,
+*    s_flight_fetch TYPE sflight,
+*    t_flights TYPE STANDARD TABLE OF sflight.
+*
+*s_flight_row-carrid = 'NV'.
+*s_flight_row-connid = '017'.
+*
+*INSERT s_flight_row INTO TABLE t_flights.
+*
+*READ TABLE t_flights INTO s_flight_fetch INDEX 1.
+*
+*WRITE: s_flight_fetch-carrid, /.
+
+*=-=-=-= p196
+*DATA:
+*    t_flights1 TYPE STANDARD TABLE OF sflight,
+*    t_flights2 TYPE STANDARD TABLE OF sflight,
+*    d_flight   TYPE sflight.
+*
+*d_flight-carrid = 'NV'.
+*d_flight-connid = '019'.
+*INSERT d_flight INTO TABLE t_flights1.
+*
+*d_flight-carrid = 'VV'.
+*INSERT d_flight INTO TABLE t_flights1.
+*
+*INSERT LINES OF t_flights1 INTO TABLE t_flights2.
+
+*=-=-=-= p196
+*DATA:
+*    t_flights TYPE STANDARD TABLE OF sflight,
+*    s_flight TYPE sflight.
+*
+*SELECT *
+*INTO TABLE t_flights
+*FROM sflight.
+*
+*s_flight-price = 500.
+*
+*MODIFY t_flights FROM s_flight
+*    TRANSPORTING price WHERE carrid = 'AA'.
+
+*=-=-=-= p198
+*DATA:
+*    t_flights TYPE STANDARD TABLE OF sflight.
+*
+*FIELD-SYMBOLS:
+*    <s_flight> TYPE sflight.
+*
+*SELECT *
+*INTO TABLE t_flights
+*FROM sflight.
+*
+*READ TABLE t_flights ASSIGNING <s_flight> INDEX 2.
+*DELETE TABLE t_flights FROM <s_flight>.
+
+*=-=-=-= p198
+*DATA:
+*    t_flights TYPE STANDARD TABLE OF sflight WITH KEY carrid connid fldate,
+*    s_flight TYPE sflight.
+*
+*SELECT *
+*INTO TABLE t_flights
+*FROM sflight.
+*
+*s_flight-carrid = 'AA'.
+*s_flight-connid = 17.
+*s_flight-fldate = '20150107'.
+*
+*DELETE TABLE t_flights FROM s_flight.
+
+*=-=-=-= p198
+*DATA:
+*    t_flights TYPE STANDARD TABLE OF sflight WITH KEY carrid connid fldate.
+*
+*SELECT *
+*INTO TABLE t_flights
+*FROM sflight.
+*
+*DELETE TABLE t_flights WITH TABLE KEY carrid = 'AA' connid = 17 fldate = '20150107'.
+
+*=-=-=-= p199
+*DATA:
+*    t_sorted_flights1 TYPE SORTED TABLE OF sflight
+*        WITH UNIQUE KEY carrid connid fldate,
+*    t_sorted_flights2 TYPE SORTED TABLE OF sflight
+*        WITH NON-UNIQUE KEY carrid connid.
+
+*=-=-=-= p200
+*DATA:
+*    t_flights TYPE STANDARD TABLE OF sflight.
+*
+*SELECT *
+*FROM sflight
+*INTO TABLE t_flights.
+*
+*SORT t_flights BY carrid connid ASCENDING fldate DESCENDING.
+
+*=-=-=-= p201
+*DATA:
+*    t_flights TYPE SORTED TABLE OF sflight
+*        WITH NON-UNIQUE KEY carrid connid fldate,
+*    s_flight TYPE sflight.
+*
+*SELECT *
+*FROM sflight
+*INTO TABLE t_flights.
+*
+*s_flight-carrid = 'VN'.
+*s_flight-connid = 19.
+*s_flight-fldate = '20150404'.
+*
+*INSERT s_flight INTO TABLE t_flights. " uses the key
+
+*=-=-=-= p201
+*DATA:
+*    t_flights TYPE SORTED TABLE OF sflight
+*        WITH NON-UNIQUE KEY carrid connid fldate,
+*    s_flight TYPE sflight.
+*
+*SELECT *
+*FROM sflight
+*INTO TABLE t_flights.
+*
+*s_flight-carrid = 'AA'.
+*s_flight-connid = 17.
+*s_flight-fldate = '20150505'.
+*
+*MODIFY TABLE t_flights FROM s_flight. " uses primary key
+
+*=-=-=-= p203
+*DATA:
+*    t_flights TYPE SORTED TABLE OF sflight
+*        WITH UNIQUE KEY carrid connid fldate.
+*FIELD-SYMBOLS:
+*    <s_flight> TYPE sflight.
+*
+*SELECT *
+*INTO TABLE t_flights
+*FROM sflight.
+*
+*READ TABLE t_flights ASSIGNING <s_flight>
+*WITH KEY carrid = 'AA' connid = '0017' fldate = '20140423' BINARY SEARCH.
+*
+*IF sy-subrc = 0.
+*    WRITE: 'Record found.'.
+*ELSE.
+*    WRITE: 'Record NOT found.'.
+*ENDIF.
+
+*=-=-=-= p206
+*DATA:
+*    t_flights TYPE HASHED TABLE OF sflight
+*        WITH UNIQUE KEY carrid connid fldate.
+*
+*SELECT *
+*INTO TABLE t_flights
+*FROM sflight.
+*
+*SORT t_flights BY price.
+
+*=-=-=-= p207
+*DATA:
+*    t_flights TYPE HASHED TABLE OF sflight
+*        WITH UNIQUE KEY carrid connid fldate.
+*FIELD-SYMBOLS:
+*    <s_flight> TYPE sflight.
+*
+*SELECT * INTO TABLE t_flights FROM sflight.
+*
+*READ TABLE t_flights ASSIGNING <s_flight>
+*WITH TABLE KEY carrid = 'AA' connid = '0017' fldate = '20140423'.
+
+*=-=-=-= p207
+*DATA:
+*    t_flights TYPE HASHED TABLE OF sflight
+*        WITH UNIQUE KEY carrid connid fldate,
+*    s_flight TYPE sflight.
+*
+*s_flight-carrid = 'AA'.
+*s_flight-connid = 17.
+*s_flight-fldate = '20150101'.
+*INSERT s_flight INTO TABLE t_flights.
+*
+*s_flight-fldate = '20150102'.
+*INSERT s_flight INTO TABLE t_flights.
+*
+*s_flight-price = 200.
+*MODIFY TABLE t_flights FROM s_flight.
+
+*=-=-=-= p212
+*DATA:
+*    t_table1 TYPE TABLE OF sflight,
+*    t_table2 TYPE TABLE OF sflight.
+*
+*SELECT *
+*INTO TABLE t_table1
+*FROM sflight.
+*
+*t_table2 = t_table1.
+
+*=-=-=-= p213
+*TYPES:
+*    BEGIN OF ynv_flight_price,
+*        carrid TYPE sflight-carrid,
+*        connid TYPE sflight-connid,
+*        price  TYPE sflight-price,
+*    END OF ynv_flight_price.
+*
+*DATA:
+*    t_sflight TYPE STANDARD TABLE OF sflight,
+*    t_flight_price TYPE STANDARD TABLE OF ynv_flight_price.
+*
+*SELECT * INTO TABLE t_sflight FROM sflight.
+*
+*MOVE-CORRESPONDING t_sflight TO t_flight_price.
+
+*=-=-=-= p214
+*DATA:
+*    t_flights TYPE STANDARD TABLE OF sflight,
+*    gr_alv TYPE REF TO cl_salv_table.
+*
+*SELECT * INTO TABLE t_flights FROM sflight.
+*
+*cl_salv_table=>factory( importing r_salv_table = gr_alv
+*                        changing t_table = t_flights ).
+*gr_alv->display( ).
+
+*=-=-=-= p214
+*SELECT * FROM sflight INTO TABLE @DATA(t_flights).
+*
+*cl_salv_table=>factory( importing r_salv_table = DATA(gr_alv)
+*                        changing t_table = t_flights ).
+*gr_alv->display(  ).

@@ -34,7 +34,8 @@ Contents:
 -   [Program Lifecycle](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ProgramLifecycle.md)
 -   [Tables](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Tables.md)
 -   [OpenSQL](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/OpenSQL.md)
-
+-   [Data Dictionary](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/DataDictionary.md)
+-   [Modularization](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Modularization.md)
 
 ## Bibliography
 
