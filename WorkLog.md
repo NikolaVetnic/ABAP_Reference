@@ -16,3 +16,5 @@
 `9 Sept 2022`: completed Chapter 5, cont'd onto Chapter 6.
 
 `12 Sept 2022`: completed Chapter 6, cont'd onto Chapter 7.
+
+`13 Sept 2022`: completed Chapter 7, cont'd onto Chapter 8.
