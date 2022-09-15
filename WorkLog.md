@@ -18,3 +18,8 @@
 `12 Sept 2022`: completed Chapter 6, cont'd onto Chapter 7.
 
 `13 Sept 2022`: completed Chapter 7, cont'd onto Chapter 8.
+
+`14 Sept 2022`: completed Chapter 8 of **ABAP - An Introduction**, cont'd onto Chapter 9.
+
+`15 Sept 2022`: completed Chapter 9 of **ABAP - An Introduction**, cont'd onto Chapter 11 (10 is 7 in the **Getting Started with ABAP**).
+

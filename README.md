@@ -36,6 +36,8 @@ Contents:
 -   [OpenSQL](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/OpenSQL.md)
 -   [Data Dictionary](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/DataDictionary.md)
 -   [Modularization](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Modularization.md)
+-   [Error Handling](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ErrorHandling.md)
+-   [ALV](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ALV.md)
 
 ## Bibliography
 
