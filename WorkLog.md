@@ -23,3 +23,5 @@
 
 `15 Sept 2022`: completed Chapter 9 of **ABAP - An Introduction**, cont'd onto Chapter 11 (10 is 7 in the **Getting Started with ABAP**).
 
+`16 Sept 2022`: completed Chapter 11 of **ABAP - An Introduction**, cont'd onto Chapter 12.
+

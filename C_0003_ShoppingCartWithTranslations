@@ -1,0 +1,78 @@
+CLASS znvcl_shopping_cart DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    TYPES:
+      BEGIN OF ynv_cart,
+        product     TYPE znv_product-product,
+        description TYPE znv_product_text-description,
+      END OF ynv_cart,
+
+      ynvt_cart TYPE STANDARD TABLE OF ynv_cart WITH KEY product.
+
+    METHODS:
+      constructor IMPORTING ip_customer TYPE scustom-id,
+      add_product IMPORTING ip_product TYPE znv_product-product,
+      remove_product IMPORTING ip_product TYPE znv_product-product,
+      clear_cart,
+      get_cart RETURNING VALUE(rt_cart) TYPE ynvt_cart.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+    DATA:
+      d_customer TYPE scustom-id.
+ENDCLASS.
+
+
+
+CLASS znvcl_shopping_cart IMPLEMENTATION.
+
+
+  METHOD add_product.
+    " =-=-= create structure
+    DATA:
+        ls_cart TYPE znv_cart.
+    ls_cart-customer = d_customer.
+    ls_cart-product = ip_product.
+    " =-=-= MODIFY database with structure
+    INSERT znv_cart FROM ls_cart.
+  ENDMETHOD.
+
+
+  METHOD clear_cart.
+    " =-=-= DELETE database using customer attribute
+    DELETE FROM znv_cart WHERE customer = d_customer.
+  ENDMETHOD.
+
+
+  METHOD constructor.
+    d_customer = ip_customer.
+  ENDMETHOD.
+
+
+  METHOD get_cart.
+    " =-=-= SELECT database using customer attribute (new OpenSQL)
+    SELECT znv_cart~product, description
+    FROM znv_cart
+    INNER JOIN zproduct
+    ON znv_cart~product = zproduct~product
+    INNER JOIN znv_product_text
+    ON znv_cart~product = znv_product_text~product
+    WHERE znv_product_text~language = @sy-langu
+    AND znv_cart~customer = @d_customer
+    INTO TABLE @rt_cart.
+  ENDMETHOD.
+
+
+  METHOD remove_product.
+    " =-=-= create structure
+    DATA:
+        ls_cart TYPE znv_cart.
+    ls_cart-customer = d_customer.
+    ls_cart-product = ip_product.
+    " =-=-= DELETE database using parameter
+    DELETE znv_cart FROM ls_cart.
+  ENDMETHOD.
+ENDCLASS.
