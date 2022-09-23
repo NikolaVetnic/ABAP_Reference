@@ -39,6 +39,9 @@ Contents:
 -   [Error Handling](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ErrorHandling.md)
 -   [ALV](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ALV.md)
 -   [Strings](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Strings.md)
+-   [Dates, Times, Quantities and Currencies](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/DatesTimesQuantitiesCurrencies.md)
+-   [Working with ABAP Professionally](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/WorkingProfessionally.md)
+-   [Often Used Transactions](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Transactions.md)
 
 ## Bibliography
 

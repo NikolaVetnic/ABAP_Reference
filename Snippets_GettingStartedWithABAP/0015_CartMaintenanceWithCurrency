@@ -1,0 +1,46 @@
+REPORT znv_cart_mainten.
+
+SELECTION-SCREEN BEGIN OF BLOCK cart WITH FRAME TITLE TEXT-001.
+  PARAMETERS:
+    p_cust TYPE znv_cart-customer OBLIGATORY,
+    p_prod TYPE znv_cart-product,
+    p_qty  TYPE znv_cart-quantity.
+SELECTION-SCREEN END OF BLOCK cart.
+
+SELECTION-SCREEN BEGIN OF BLOCK action WITH FRAME TITLE TEXT-002.
+  PARAMETERS:
+    p_view  TYPE abap_bool RADIOBUTTON GROUP act,
+    p_add   TYPE abap_bool RADIOBUTTON GROUP act,
+    p_rem   TYPE abap_bool RADIOBUTTON GROUP act,
+    p_clear TYPE abap_bool RADIOBUTTON GROUP act.
+SELECTION-SCREEN END OF BLOCK action.
+
+INITIALIZATION.
+  DATA:
+      cart TYPE REF TO znvcl_shopping_cart.
+
+AT SELECTION-SCREEN.
+  " instantiate the shopping cart object
+  TRY.
+      CREATE OBJECT cart
+        EXPORTING
+          ip_customer = p_cust.
+    CATCH znvcx_shopping_cart.
+      MESSAGE e000(znv_cart) WITH p_cust.
+  ENDTRY.
+
+START-OF-SELECTION.
+  IF p_view = abap_true.
+    DATA(cart_contents) = cart->get_cart( ).
+    cl_salv_table=>factory(
+        IMPORTING r_salv_table = DATA(alv_table)
+        CHANGING t_table = cart_contents ).
+    alv_table->display( ).
+  ELSEIF p_add = abap_true.
+    cart->add_product( ip_product = p_prod ip_quantity = p_qty ).
+  ELSEIF p_rem = abap_true.
+    cart->remove_product( p_prod ).
+  ELSEIF p_clear = abap_true.
+    cart->clear_cart( ).
+    MESSAGE i005(znv_cart).
+  ENDIF.

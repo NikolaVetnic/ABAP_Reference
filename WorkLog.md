@@ -25,3 +25,13 @@
 
 `16 Sept 2022`: completed Chapter 11 of **ABAP - An Introduction**, cont'd onto Chapter 12.
 
+`19 Sept 2022`: completed Chapter 12 of **ABAP - An Introduction**, cont'd onto Chapter 13.
+
+`20 Sept 2022`: completed Chapter 13 and browsed through Chapter 14 of **ABAP - An Introduction**, cont'd onto SAP Learning Hub.
+
+`21 Sept 2022`: completed Chapter 1 of **SAP ABAP Objects** book, cont'd onto Chapter 2.
+
+`22 Sept 2022`: reviewed Chapter 1 and completed Chapter 2 of **SAP ABAP Objects** book, cont'd onto Chapter 3.
+
+`23 Sept 2022`: meeting with **j&s-soft Balkan**, worked on the internship task set by Daniel..
+

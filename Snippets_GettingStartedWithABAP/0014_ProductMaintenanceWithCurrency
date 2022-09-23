@@ -1,0 +1,62 @@
+REPORT znv_product_mainten.
+
+SELECTION-SCREEN BEGIN OF BLOCK product WITH FRAME TITLE TEXT-001.
+  PARAMETERS:
+    p_prod  TYPE znv_product-product,
+    p_desc  TYPE znv_product_text-description LOWER CASE,
+    p_price TYPE znv_product-price,
+    p_curr  TYPE znv_product-currency,
+    p_uom   TYPE znv_product-uom.
+SELECTION-SCREEN END OF BLOCK product.
+
+SELECTION-SCREEN BEGIN OF BLOCK action WITH FRAME TITLE TEXT-002.
+  PARAMETERS:
+    p_upd TYPE boolean RADIOBUTTON GROUP act, " add/update product
+    p_rem TYPE boolean RADIOBUTTON GROUP act, " remove product
+    p_dis TYPE boolean RADIOBUTTON GROUP act. " display products
+SELECTION-SCREEN END OF BLOCK action.
+
+DATA:
+  product      TYPE znv_product,
+  product_text TYPE znv_product_text.
+
+product-product = p_prod.
+product-price = p_price.
+product-currency = p_curr.
+product-uom = p_uom.
+product_text-product = p_prod.
+product_text-language = sy-langu.
+product_text-description = p_desc.
+
+IF p_upd = abap_true.
+  INSERT znv_product FROM product.
+  MODIFY znv_product_text FROM product_text.
+  IF sy-subrc = 0.
+    MESSAGE i001(znv_cart).
+  ELSE.
+    MESSAGE e006(znv_cart).
+  ENDIF.
+
+ELSEIF p_rem = abap_true.
+  DELETE FROM znv_product_text WHERE product = p_prod.
+  DELETE znv_product FROM product.
+  IF sy-subrc = 0.
+    MESSAGE i002(znv_cart).
+  ELSE.
+    MESSAGE e006(znv_cart).
+  ENDIF.
+
+ELSEIF p_dis = abap_true.
+  SELECT znv_product~product, description, price, currency, uom
+  FROM znv_product
+  INNER JOIN znv_product_text
+  ON znv_product~product = znv_product_text~product
+  WHERE language = @sy-langu
+  INTO TABLE @DATA(products).
+
+  cl_salv_table=>factory(
+      IMPORTING r_salv_table = DATA(alv_table)
+      CHANGING t_table = products ).
+
+  alv_table->display( ).
+ENDIF.
