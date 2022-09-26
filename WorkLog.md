@@ -39,6 +39,9 @@
 
 `22 Sept 2022`: reviewed Chapter 1 and completed Chapter 2 of **SAP ABAP Objects** book, cont'd onto Chapter 3.
 
-`23 Sept 2022`: meeting with **j&s-soft Balkan**, worked on the internship task set by Daniel..
+`23 Sept 2022`: meeting with **j&s-soft Balkan**, worked on the internship task set by Daniel.
 
 ---
+
+`26 Sept 2022`: completed the **Introduction to Programming with ABAP** course, specifically the *BC100_EN_Col18* e-book.
+

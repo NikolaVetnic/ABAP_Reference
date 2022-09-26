@@ -342,4 +342,10 @@ Global class structure:
 	ENDCLASS.
 ```
 
-The only change is the addition of the `PUBLIC` keyword, indicating a global class. Additionally, `FINAL` keyword is optional and indicates that the class cannot be inherited from and the `CREATE PUBLIC` keyword, allows an object to be created from the class anywhere where the class is visible.
+The only change is the addition of the `PUBLIC` keyword, indicating a global class. Additionally, `FINAL` keyword is optional and indicates that the class cannot be inherited from and the `CREATE PUBLIC` keyword, allows an object to be created from the class anywhere where the class is visible
+
+### Functions
+
+Start by inspecting the function using transaction `SE37` and checking out the *Attributes* tab page. Next, examine the function module interface: it consist of *Import*, *Export*, and *Changing* parameters, and can also include *Exceptions*. 
+
+*Import* parameters specify the data that the function module requires from the calling program. *Export* parameters specify the data that is returned to the calling program. 

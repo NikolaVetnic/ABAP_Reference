@@ -17,6 +17,14 @@ Anytime you store data from a SELECT statement in a table created using inline d
 	FROM sflight.
 ```
 
+The `SELECT` statement parts:
+```
+	SELECT <fields> " which columns?
+	FROM <table> " which tables?
+	INTO <target> " where to?
+	WHERE <condition>. " which rows?
+```
+
 Creating a standard table containing the same structure of the `sflight` table:
 ```
 	DATA: 

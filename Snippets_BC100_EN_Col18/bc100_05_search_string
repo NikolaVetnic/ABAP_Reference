@@ -1,0 +1,12 @@
+REPORT znv_bc100_05_search_string.
+
+PARAMETERS:
+    pa_name TYPE string.
+
+FIND 'Smith' IN pa_name IGNORING CASE.
+
+IF sy-subrc = 0.
+  WRITE: 'Name contains "Smith".', /.
+ELSE.
+  WRITE: 'Name does not contain "Smith".', /.
+ENDIF.

@@ -27,7 +27,9 @@ Various notes:
 
 Contents:
 
+-   [ABAP](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ABAP.md)
 -   [Data Types](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/DataTypes.md)
+-   [Text Symbols](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/TextSymbols.md)
 -   [Operations](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Operations.md)
 -   [Flow Controll](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/FlowControll.md)
 -   [Screens](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Screens.md)

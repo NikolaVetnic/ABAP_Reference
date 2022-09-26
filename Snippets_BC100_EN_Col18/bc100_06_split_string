@@ -1,0 +1,11 @@
+REPORT znv_bc100_06_split_string.
+
+DATA:
+    gv_text TYPE string VALUE 'Hugo Mueller',
+    gv_fname TYPE string,
+    gv_lname TYPE string.
+
+SPLIT gv_text AT ` ` INTO gv_fname gv_lname.
+
+WRITE: / 'First name : ', gv_fname.
+WRITE: / 'Last name : ', gv_lname.

@@ -1,0 +1,16 @@
+REPORT znv_bc100_04_concatenation.
+
+PARAMETERS:
+    pa_fname TYPE c LENGTH 30,
+    pa_lname TYPE c LENGTH 30.
+
+DATA gv_full TYPE string.
+
+CONSTANTS
+    gc_comma TYPE c LENGTH 1 VALUE ','.
+
+CONCATENATE pa_fname pa_lname INTO gv_full SEPARATED BY space.
+write: gv_full, /.
+
+CONCATENATE pa_fname pa_lname INTO gv_full SEPARATED BY gc_comma.
+write: gv_full, /.

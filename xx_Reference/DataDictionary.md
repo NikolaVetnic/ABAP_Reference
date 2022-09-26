@@ -17,6 +17,11 @@ Create a variable based on a transparent table (equivalent to a single row of th
 
 In the above snippet `LIKE` is used to create another variable of the type of `s_flight`.
 
+One can also define variables and parameters based on types of table's individual fields:
+```
+	PARAMETERS pa_carrid TYPE sflight-carrid.
+```
+
 You can create your own structures within your ABAP code using the `TYPES` keyword instead of the `DATA` keyword that we used for defining variables. The fields of a structure are defined in between the `BEGIN OF <name>` and `END OF <name>` keywords. Each field is defined with a type, which works just like defining any other variable type, so you can use a basic data type or an ABAP Data Dictionary-based data type. Note that the name is prefixed with `y_` indicating that it is a structure defined in our code. A common use for your own structure data types is to save the results of a `SELECT` statement that doesn’t use all of the fields in the table (when we cannot use inline data declarations):
 ```
 	TYPES:

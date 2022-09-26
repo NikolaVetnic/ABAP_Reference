@@ -20,6 +20,8 @@ Declaration:
 		ld_packed TYPE p DECIMALS 2 VALUE '3.115'.
 ```
 
+Type `p` (*packed*, packs two digits into each byte) is one of the most important and common ABAP data types. It can be used for business calculations where the result must be accurate. A variable of this type has no decimal places - if those are needed they are to be declared with `DECIMALS` addition.
+
 ### Character Data Types
 
 Basic character data types:
@@ -38,6 +40,12 @@ Declaration:
 		ld_single_char TYPE c VALUE 'A',
 		d_string TYPE string VALUE 'Hello World'.
 ```
+
+Variables of type `c` or type `string` can both hold character strings. Variables of type `string` can be any length (not necessary to specify length), while those of type `c` have specific length specified with the `LENGTH` keyword.
+
+Type `d` is used to hold dates. In ABAP, a date is always stored internally in the format `YYYYMMDD`, however a user types in the date in a default data format configured for his/her profile and then the system converts it to `YYYYMMDD`.
+
+Variables of type `t` are used to hold times. These are stored internally in the format `HHMMTT` and are always 6 characters in length (and therefore `LENGTH` is not specified).
 
 ### Booleans in ABAP
 
@@ -64,4 +72,17 @@ Equivalent to:
 ```
 	DATA: d_integer TYPE integer.
 	d_integer = 10.
+```
+
+### Literals
+
+Literals are strings of characters without a name. Their values cannot be changed, since they are essentially hard-coded values. Numeric literals consist of continuous sequences of numbers, and text literals are character strings.
+
+### Constants
+
+We recommend that you avoid using literals to specify values in your source code. Instead, define constants with those values and use the constants in place of literals:
+```
+	CONSTANTS:
+		c_hello  TYPE string VALUE 'Hello World',
+		c_number TYPE i VALUE 123.
 ```

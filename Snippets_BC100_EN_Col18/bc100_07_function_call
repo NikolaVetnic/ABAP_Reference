@@ -1,0 +1,17 @@
+REPORT znv_bc100_07_function_call.
+
+PARAMETERS:
+  pa_total TYPE i, " total days annual vacation
+  pa_used  TYPE i. " no of days vacation already used
+
+DATA
+    gv_remaining TYPE i. " variable for remaining days vacation
+
+CALL FUNCTION 'BC100_CALC_HOLS'
+  EXPORTING
+    iv_total     = pa_total
+    iv_used      = pa_used
+  IMPORTING
+    ev_remaining = gv_remaining.
+
+WRITE: / 'Remaining days vacation : ', gv_remaining.
