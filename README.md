@@ -48,3 +48,5 @@ Contents:
 ## Bibliography
 
 [O'Neill Brian. Getting Started with ABAP, 1st Edition. SAP PRESS, 2015](https://drive.google.com/file/d/1LFz36ssem7Nf19USjY3ylfqtzN-RAPcY/view?usp=sharing)
+
+[O'Neill Brian. ABAP - An Introduction, 2nd Edition. SAP PRESS, 2019](https://www.amazon.com/ABAP-Introduction-Beginners-Programming-Second/dp/1493218808)
