@@ -43,5 +43,5 @@
 
 ---
 
-`26 Sept 2022`: completed the **Introduction to Programming with ABAP** course, specifically the *BC100_EN_Col18* e-book; wrote a miniature *Using Mylyn 3.23 with Eclipse ADT* tutorial; solved the homework question regarding `BOOLEAN` type in **ABAP**.
+`26 Sept 2022`: completed the **Introduction to Programming with ABAP** course, specifically the *BC100_EN_Col18* e-book; wrote a miniature [Using Mylyn 3.23 with Eclipse ADT](http://nikolapacekvetnic.rs/?p=1685) tutorial; solved the homework question regarding `BOOLEAN` type in **ABAP**.
 
