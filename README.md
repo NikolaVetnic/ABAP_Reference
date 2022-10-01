@@ -50,7 +50,7 @@ Contents:
 
 - [an example of a basic `COUNTER` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_01_znvcl_counter) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_02_znv_counter_class_usage)
 - [a `COUNTER_COMP` class using two counter objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_03_znvcl_counter_comp) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_04_znv_counter_comp_usage)
-- [object-oriented `EMPLOYEE` table task implementation](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/C_0001_ZNVCL_TASK1_EMPLOYEE) alongisde [program that uses the mentioned `ZNVCL_TASK1_EMPLOYEE` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/0001_ZNV_TASK1_EMPLOYEE_MAN_ADV)
+- [object-oriented `EMPLOYEE` table task implementation](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/C_0001_ZNVCL_TASK1_EMPLOYEE) alongside [program that uses the mentioned `ZNVCL_TASK1_EMPLOYEE` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/0001_ZNV_TASK1_EMPLOYEE_MAN_ADV)
 
 ## Bibliography
 
