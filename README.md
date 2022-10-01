@@ -22,6 +22,7 @@ Various notes:
 -   whitespace **IS IMPORTANT** for ABAP compiler, e.g. `(3*3)` is considered bad while `( 3 * 3 )` is considered good practice
 -   `CTRL + 7` - comment out a block of code (in Eclipse ADT)
 - SAP term for a table is **transparent table** - a transparent table is defined in the data dictionary and stored in your database system
+- **input help**: within SAP GUI you can choose `F4` to display possible input values (one can also call up the input help for a field using the button immediately to the right of the selected field)
 
 ## Topics Covered in More Detail
 
