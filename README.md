@@ -4,7 +4,7 @@ Code snippets and cheat sheets used for learning ABAP programming.
 
 ## Topics Covered in More Detail
 
--   [ABAP](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ABAP.md)
+-   [ABAP - both procedural and object-oriented](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ABAP.md)
 -   [ALV](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ALV.md)
 -   [Data Types](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/DataTypes.md)
 -   [Dates, Times, Quantities and Currencies](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/DatesTimesQuantitiesCurrencies.md)
