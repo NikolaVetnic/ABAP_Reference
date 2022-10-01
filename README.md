@@ -48,7 +48,7 @@ Contents:
 
 ## Highlighted Examples
 
-- [an example of a basic `COUNTER` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC100_EN_Col18/bc401_01_znvcl_counter) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Refere    nce/blob/master/Snippets_BC100_EN_Col18/bc401_02_znv_counter_class_usage)
+- [an example of a basic `COUNTER` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC100_EN_Col18/bc401_01_znvcl_counter) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC100_EN_Col18/bc401_02_znv_counter_class_usage)
 
 ## Bibliography
 
