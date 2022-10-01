@@ -1,0 +1,20 @@
+REPORT znv_counter_class_usage.
+
+INITIALIZATION.
+  DATA:
+      counter TYPE REF TO znvcl_counter.
+
+START-OF-SELECTION.
+  CREATE OBJECT counter
+    EXPORTING
+      ip_init_val = 0.
+
+  counter->inc( ).          " ==  1
+  counter->inc( ).          " ==  2
+
+  counter->inc_by_val( 5 ). " ==  7
+  counter->dec_by_val( 9 ). " == -2
+
+  counter->dec( ).          " == -3
+
+  counter->console_print( ).

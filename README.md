@@ -46,6 +46,10 @@ Contents:
 -   [Working with ABAP Professionally](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/WorkingProfessionally.md)
 -   [Often Used Transactions](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Transactions.md)
 
+## Highlighted Examples
+
+- [an example of a basic `COUNTER` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC100_EN_Col18/bc401_01_znvcl_counter) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Refere    nce/blob/master/Snippets_BC100_EN_Col18/bc401_02_znv_counter_class_usage)
+
 ## Bibliography
 
 [O'Neill Brian. Getting Started with ABAP, 1st Edition. SAP PRESS, 2015](https://drive.google.com/file/d/1LFz36ssem7Nf19USjY3ylfqtzN-RAPcY/view?usp=sharing)

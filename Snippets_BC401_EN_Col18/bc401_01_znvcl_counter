@@ -1,0 +1,64 @@
+CLASS znvcl_counter DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor
+        IMPORTING ip_init_val TYPE i,
+      inc,
+      dec,
+      inc_by_val
+        IMPORTING ip_inc_val TYPE i,
+      dec_by_val
+        IMPORTING ip_dec_val TYPE i,
+
+      get_counter
+        RETURNING VALUE(rt_counter) TYPE i,
+      set_counter
+        IMPORTING ip_val TYPE i,
+      console_print.
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+    DATA:
+        d_counter TYPE i.
+ENDCLASS.
+
+
+
+CLASS znvcl_counter IMPLEMENTATION.
+  METHOD constructor.
+    d_counter = ip_init_val.
+  ENDMETHOD.
+
+  METHOD inc.
+    d_counter = d_counter + 1.
+  ENDMETHOD.
+
+  METHOD dec.
+    d_counter = d_counter - 1.
+  ENDMETHOD.
+
+  METHOD inc_by_val.
+    d_counter = d_counter + ip_inc_val.
+  ENDMETHOD.
+
+  METHOD dec_by_val.
+    d_counter = d_counter - ip_dec_val.
+  ENDMETHOD.
+
+  METHOD get_counter.
+    rt_counter = d_counter.
+  ENDMETHOD.
+
+  METHOD set_counter.
+    d_counter = ip_val.
+  ENDMETHOD.
+
+  METHOD console_print.
+    WRITE: / 'counter : ', d_counter.
+  ENDMETHOD.
+ENDCLASS.
