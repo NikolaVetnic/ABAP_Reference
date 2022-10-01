@@ -1,0 +1,73 @@
+CLASS znvcl_counter_comp DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor
+        IMPORTING
+          ip_init_val1 TYPE i
+          ip_init_val2 TYPE i,
+      inc
+        IMPORTING
+          ip_idx TYPE i,
+      dec
+        IMPORTING
+          ip_idx TYPE i,
+
+      get_val
+        IMPORTING
+                  ip_idx        TYPE i
+        RETURNING VALUE(rt_val) TYPE i,
+      console_print.
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+    DATA:
+      cnt1 TYPE REF TO znvcl_counter,
+      cnt2 TYPE REF TO znvcl_counter.
+ENDCLASS.
+
+
+
+CLASS znvcl_counter_comp IMPLEMENTATION.
+  METHOD constructor.
+    CREATE OBJECT cnt1
+      EXPORTING
+        ip_init_val = ip_init_val1.
+    CREATE OBJECT cnt2
+      EXPORTING
+        ip_init_val = ip_init_val2.
+  ENDMETHOD.
+
+  METHOD inc.
+    IF ip_idx = 1.
+      cnt1->inc( ).
+    ELSEIF ip_idx = 2.
+      cnt2->inc( ).
+    ENDIF.
+  ENDMETHOD.
+
+  METHOD dec.
+    IF ip_idx = 1.
+      cnt1->dec( ).
+    ELSEIF ip_idx = 2.
+      cnt2->dec( ).
+    ENDIF.
+  ENDMETHOD.
+
+  METHOD get_val.
+    IF ip_idx = 1.
+      rt_val = cnt1->get_counter( ).
+    ELSEIF ip_idx = 2.
+      rt_val = cnt2->get_counter( ).
+    ENDIF.
+  ENDMETHOD.
+
+  METHOD console_print.
+    WRITE: / 'cnt1 : ', get_val( 1 ), ' | ',
+             'cnt2 : ', get_val( 2 ).
+  ENDMETHOD.
+ENDCLASS.

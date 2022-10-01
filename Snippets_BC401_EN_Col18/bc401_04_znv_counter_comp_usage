@@ -1,0 +1,20 @@
+REPORT znv_counter_comp_usage.
+
+INITIALIZATION.
+  DATA:
+      comp_counter TYPE REF TO znvcl_counter_comp.
+
+START-OF-SELECTION.
+  CREATE OBJECT comp_counter
+    EXPORTING
+      ip_init_val1 = 0      " cnt1 == 0
+      ip_init_val2 = 0.     " cnt2 == 0
+
+  comp_counter->inc( 1 ).   " cnt1 == 1
+  comp_counter->inc( 1 ).   " cnt1 == 2
+
+  comp_counter->inc( 2 ).   " cnt2 == 1
+
+  comp_counter->inc( 3 ).   " does nothing
+
+  comp_counter->console_print( ).
