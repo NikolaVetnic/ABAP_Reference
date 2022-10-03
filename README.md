@@ -13,6 +13,7 @@ Code snippets and cheat sheets used for learning ABAP programming.
 -   [Flow Controll](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/FlowControll.md)
 -   [Modularization](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Modularization.md)
 -   [Notes](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Notes.md)
+-   [Object Oriented Programming in ABAP](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects.md)
 -   [Often Used Transactions](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Transactions.md)
 -   [OpenSQL](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/OpenSQL.md)
 -   [Operations](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Operations.md)

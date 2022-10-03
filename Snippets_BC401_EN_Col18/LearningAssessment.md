@@ -40,6 +40,26 @@
 
 13. The instance constructor’s signature can have importing parameters or exceptions.**Answer:** true.
 
+## Unit 3
+
+1. Which of the following are the characteristics of inheritance? **Answer:** Common components can only exist once in the superclass, subclasses contain extensions or changes.
+
+2. A superclass is a generalization of its subclasses. **Answer:** true.
+
+3. Suppose that you have a class `X` that inherits from class `Y`. After an up-cast a reference variable that is statically typed `TYPE REF TO Y` points to an instance of class `X`. Which of the following components of class `X` can you access with this reference variable? **Answer:** components inherited from class `Y`, components redefined in class `X`.
+
+4. When objects from different classes react differently to the same method calls, this is known as `__________`. **Answer:** polymorphism.
+
+5. A typical use for `________` assignments is to prepare for generic access. **Answer:** upcast.
+
+6. Which of the following is used to assign a superclass reference to a subclass reference? **Answer:** narrowing cast.
+
+7. Which of the following is the downcast assignment operator? **Answer:** `?=`.
+
+8. Suppose that you have the same class `X` that inherits from class `Y`. After a down-cast, a reference variable that is statically typed `TYPE REF TO X` points to an instance of class `X`. Which of the following components of class `X` can you access with this reference variable? **Answer:** components defined in class `X`, components inherited from class `Y`, components redefined in class `X`, components defined in class `X` and redefined in its subclasses.
+
+9. Which of the following are advantages of correctly using class hierarchies? **Answer:** centralized maintenance, safe and generic method of access.
+
 ### In More Detail...
 
 #### Unit 1
@@ -86,3 +106,23 @@ When you define static constructors, always consider the following points:
 Read more in the task, Static Constructor of the lesson, Implementing Class Constructors in Local Classes, in course BC401.
 
 The instance constructor signature can only include importing parameters and exceptions. Read more in the task, Static Constructor of the lesson, Implementing Class Constructors in Local Classes, in course BC401.
+
+#### Unit 3
+
+The common components of the subclasses only need to be defined and implemented in the superclass and they are inherited by all the subclasses. The subclasses are in turn different specializations of their superclasses. Therefore, additions (extensions) or changes are permitted in the subclasses. Read more in the task, Characteristics of Generalization and Specialization, in the lesson, Implementing Inheritance, in the course, BC401.
+
+Inheritance must be used to implement generalization and specialization relationships. A superclass is a generalization of its subclasses. Read more in task, Implementation of Inheritance, in the lesson, Implementing Inheritance, of course BC401.
+
+If you assign a subclass reference to a superclass reference, this subclass ensures that all components that you can access syntactically after the cast assignment are actually available in the instance. The subclass always contains at least the same components as the superclass always the name and the signature of redefined methods are identical. Read more in the task, Upcasts, in the lesson, Implementing Up-casts using Inheritance, of course BC401.
+
+When objects of different classes react differently to the same method calls, this is known as polymorphism. A client can handle different classes uniformly, irrespective of their implementation. The runtime system searches for the right implementation of a method on behalf of the client. Read more in the lessons, Implementing Up-casts using Inheritance and Implementing Polymorphism Using Inheritance, of the course, BC401.
+
+A typical use for up-cast assignments is to prepare for generic access. A user who is not interested in the finer points of the instances of the subclasses but simply needs to address the shared components can use a superclass reference for this access. Read more in the task, Generic Access to Objects, in the lesson, Implementing Polymorphism Using Inheritance, of the course, BC401.
+
+To assign a superclass reference to a subclass reference, you must use the downcast assignment, also called narrowing cast. Read more in the task, Downcasts, in the lesson, Implementing Downcast Using Inheritance, of course BC401.
+
+The downcast assignment operator is `MOVE ... ?TO ...` or its short form `?=`. Read more in the task, Downcasts, in the lesson, Implementing Downcast Using Inheritance, of course BC401.
+
+After assigning a superclass type of reference to a subclass reference, clients are no longer limited to inherited components. Read more in the task, Downcasts, in the lesson, Implementing Downcast Using Inheritance, of course BC401.
+
+Commonly used elements only need to be stored once in a central location (in the superclass). These elements are then automatically available to all subclasses. Changes made at a later stage have an immediate effect on the subclasses. Implementing Polyphormism using inheritance provides the generic access – one call, multiple implementations. Read more in the task, Usage of Class Hierarchies, in the lesson, Implementing Downcast Using Inheritance, of course BC401.
