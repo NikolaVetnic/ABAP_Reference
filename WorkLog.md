@@ -46,3 +46,13 @@
 `26 Sept 2022`: completed the **Introduction to Programming with ABAP** course, specifically the *BC100_EN_Col18* e-book; wrote a miniature [Using Mylyn 3.23 with Eclipse ADT](http://nikolapacekvetnic.rs/?p=1685) tutorial; solved the homework question regarding `BOOLEAN` type in **ABAP**.
 
 `27 Sept 2022`: worked on **Technology Fundamentals for SAP S/4HANA & SAP Business Suite** course up to p89; helped out colleague's of j&s-soft Balkan with SAP Learning Hub code redemption.
+
+`28 Sep 2022`: worked on **Technology Fundamentals for SAP S/4HANA & SAP Business Suite** course up to p169.
+
+`29 Sep 2022`: switched to **ABAP Objects** e-book from SAP Learning Hub as I considered that a more immediate necessity, progressed up to p77; had a j&s-soft Balkan meeting.
+
+`30 Sep 2022`: practiced the concepts and code presented in Ch1 & Ch2 of **ABAP Objects** e-book, modified the last week's assignment we got from Daniel as per new requests.
+
+## October 2022
+
+`01 Oct 2022`: 
