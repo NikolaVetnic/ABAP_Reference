@@ -55,4 +55,8 @@
 
 ## October 2022
 
-`01 Oct 2022`: 
+`01 Oct 2022`: completed UNIT 3 of **ABAP Objects** e-book, progressed up to p112; worked on the *Heroes and Monsters* object-oriented assignment (marked as `TASK2` in the SAP system). 
+
+`02 Oct 2022`: completed UNIT 4 of **ABAP Objects** e-book, progressed up to p145; completed the *Heroes and Monsters* object-oriented assignment.
+
+`03 Oct 2022`: 

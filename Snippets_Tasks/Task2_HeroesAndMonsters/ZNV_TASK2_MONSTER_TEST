@@ -1,0 +1,11 @@
+REPORT znv_task2_monster_test.
+
+DATA:
+    o_monster TYPE REF TO znvcl_task2_monster.
+
+CREATE OBJECT o_monster
+  EXPORTING
+    ip_name       = 'Ebrietas'
+    ip_max_health = 15000.
+
+o_monster->znvif_monster~get_random_attack( ).

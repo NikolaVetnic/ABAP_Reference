@@ -1,0 +1,42 @@
+REPORT znv_task2_main.
+
+DATA:
+  o_wpn1          TYPE REF TO znvcl_task2_weapon,
+  o_wpn2          TYPE REF TO znvcl_task2_weapon,
+  o_swordsman_tmp TYPE REF TO znvcl_task2_hr_swordsman,
+  o_hero          TYPE REF TO znvcl_task2_hero,
+
+  o_mon1          TYPE REF TO znvcl_task2_monster,
+  o_mon2          TYPE REF TO znvcl_task2_monster.
+
+o_wpn1 = znvcl_task2_weapon_factory=>new_weapon( ip_weapon_type = 'SWORD' ip_weapon_name = 'Ludwig''s Holy Blade' ).
+o_wpn2 = znvcl_task2_weapon_factory=>new_weapon( ip_weapon_type = 'SWORD' ip_weapon_name = 'Holy Moonlight Sword' ).
+
+CREATE OBJECT o_swordsman_tmp
+  EXPORTING
+    ip_swordsman_name = 'Veleszar'.
+o_hero = o_swordsman_tmp.
+
+CREATE OBJECT o_mon1
+  EXPORTING
+    ip_name       = 'Ebrietas'
+    ip_max_health = 15000.
+
+CREATE OBJECT o_mon2
+  EXPORTING
+    ip_name       = 'The One Reborn'
+    ip_max_health = 8000.
+
+o_hero->znvif_hero~take_weapon( EXPORTING ip_weapon = o_wpn1 ).
+o_hero->znvif_hero~take_weapon( EXPORTING ip_weapon = o_wpn2 ).
+
+WRITE: / '=-=-=-= ROUND 1'.
+
+o_mon1->znvif_game_character~take_damage( o_hero->znvif_game_character~get_damage( ) ).
+o_mon2->znvif_game_character~take_damage( o_hero->znvif_game_character~get_damage( ) ).
+
+o_hero->znvif_game_character~take_damage( o_mon1->znvif_game_character~get_damage( ) ).
+
+o_hero->znvif_game_character~console_print( ).
+o_mon1->znvif_game_character~console_print( ).
+o_mon2->znvif_game_character~console_print( ).

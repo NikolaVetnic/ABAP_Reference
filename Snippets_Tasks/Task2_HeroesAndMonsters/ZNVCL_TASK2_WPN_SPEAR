@@ -1,0 +1,27 @@
+CLASS znvcl_task2_wpn_spear DEFINITION
+  INHERITING FROM znvcl_task2_weapon
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor
+        IMPORTING
+          ip_spear_name TYPE string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS znvcl_task2_wpn_spear IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor(
+    EXPORTING
+    ip_name = ip_spear_name
+    ip_hero_type = 'SWORDSMAN'
+    ip_weapon_type = 'SPEAR'
+    ip_damage = 15 ).
+  ENDMETHOD.
+ENDCLASS.

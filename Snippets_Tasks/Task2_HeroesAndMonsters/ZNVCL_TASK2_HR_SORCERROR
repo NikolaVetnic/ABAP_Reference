@@ -1,0 +1,26 @@
+CLASS znvcl_task2_hr_sorcerror DEFINITION
+  INHERITING FROM znvcl_task2_hero
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor
+        IMPORTING
+          ip_sorcerror_name TYPE string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS znvcl_task2_hr_sorcerror IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor(
+    EXPORTING
+    ip_max_health = 180
+    ip_hero_type = 'SORCERROR'
+    ip_name = ip_sorcerror_name ).
+  ENDMETHOD.
+ENDCLASS.

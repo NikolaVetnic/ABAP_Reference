@@ -1,0 +1,59 @@
+CLASS znvcl_task2_weapon DEFINITION ABSTRACT
+  PUBLIC
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES:
+      znvif_weapon.
+    METHODS:
+      constructor
+        IMPORTING
+          ip_hero_type   TYPE znv_task2_hero_type
+          ip_weapon_type TYPE znv_task2_weapon_type
+          ip_name        TYPE string
+          ip_damage      TYPE i.
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+    DATA:
+      d_hero_type   TYPE znv_task2_hero_type,
+      d_weapon_type TYPE znv_task2_weapon_type,
+      d_name        TYPE string,
+      d_damage      TYPE i.
+ENDCLASS.
+
+
+
+CLASS znvcl_task2_weapon IMPLEMENTATION.
+  METHOD constructor.
+    d_hero_type = ip_hero_type.
+    d_weapon_type = ip_weapon_type.
+    d_name = ip_name.
+    d_damage = ip_damage.
+  ENDMETHOD.
+
+
+
+  METHOD znvif_weapon~get_hero_type.
+    rt_val = d_hero_type.
+  ENDMETHOD.
+
+  METHOD znvif_weapon~get_weapon_type.
+    rt_val = d_weapon_type.
+  ENDMETHOD.
+
+  METHOD znvif_weapon~get_weapon_name.
+    rt_val = d_name.
+  ENDMETHOD.
+
+  METHOD znvif_weapon~get_damage.
+    rt_val = d_damage.
+  ENDMETHOD.
+
+
+
+  METHOD znvif_weapon~console_print.
+    WRITE: / d_name, ' (dmg: ', d_damage, ')'.
+  ENDMETHOD.
+ENDCLASS.

@@ -1,0 +1,14 @@
+INTERFACE znvif_game_character
+  PUBLIC .
+  METHODS:
+    get_name RETURNING VALUE(rt_val) TYPE string,
+
+    get_curr_health RETURNING VALUE(rt_val) TYPE i,
+    get_max_health RETURNING VALUE(rt_val) TYPE i,
+
+    get_damage RETURNING VALUE(rt_val) TYPE i,
+    take_damage IMPORTING ip_damage TYPE i,
+
+    is_alive RETURNING VALUE(rt_val) TYPE abap_bool,
+    console_print.
+ENDINTERFACE.

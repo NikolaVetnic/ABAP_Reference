@@ -1,0 +1,22 @@
+REPORT znv_task2_populate_mon_attacks.
+
+DATA:
+    d_att TYPE znv_task2_m_att.
+
+d_att-id = 'MA01'.
+d_att-type = 'STRIKE'.
+d_att-damage = 10.
+
+MODIFY znv_task2_m_att FROM d_att.
+
+d_att-id = 'MA02'.
+d_att-type = 'FIRE'.
+d_att-damage = 20.
+
+MODIFY znv_task2_m_att FROM d_att.
+
+d_att-id = 'MA03'.
+d_att-type = 'BITE'.
+d_att-damage = 8.
+
+MODIFY znv_task2_m_att FROM d_att.

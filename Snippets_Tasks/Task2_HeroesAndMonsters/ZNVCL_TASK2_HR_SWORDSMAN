@@ -1,0 +1,26 @@
+CLASS znvcl_task2_hr_swordsman DEFINITION
+  INHERITING FROM znvcl_task2_hero
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor
+        IMPORTING
+          ip_swordsman_name TYPE string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS znvcl_task2_hr_swordsman IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor(
+    EXPORTING
+    ip_max_health = 220
+    ip_hero_type = 'SWORDSMAN'
+    ip_name = ip_swordsman_name ).
+  ENDMETHOD.
+ENDCLASS.

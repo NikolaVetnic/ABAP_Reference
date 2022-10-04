@@ -1,0 +1,8 @@
+INTERFACE znvif_monster
+  PUBLIC .
+
+  METHODS:
+    get_random_attack
+      RETURNING VALUE(rt_val) TYPE znv_task2_m_att.
+
+ENDINTERFACE.

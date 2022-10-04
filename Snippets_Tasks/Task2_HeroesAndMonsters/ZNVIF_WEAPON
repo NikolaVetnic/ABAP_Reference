@@ -1,0 +1,12 @@
+INTERFACE znvif_weapon
+  PUBLIC .
+
+  METHODS:
+    get_hero_type RETURNING VALUE(rt_val) TYPE znv_task2_hero_type,
+    get_weapon_type RETURNING VALUE(rt_val) TYPE znv_task2_weapon_type,
+    get_weapon_name RETURNING VALUE(rt_val) TYPE string,
+    get_damage RETURNING VALUE(rt_val) TYPE i,
+
+    console_print.
+
+ENDINTERFACE.

@@ -1,0 +1,23 @@
+REPORT znv_task2_hero_test.
+
+DATA:
+  o_wpn1          TYPE REF TO znvcl_task2_weapon,
+  o_wpn2          TYPE REF TO znvcl_task2_weapon,
+  o_swordsman_tmp TYPE REF TO znvcl_task2_hr_swordsman,
+  o_hero          TYPE REF TO znvcl_task2_hero.
+
+o_wpn1 = znvcl_task2_weapon_factory=>new_weapon( ip_weapon_type = 'SWORD' ip_weapon_name = 'Ludwig''s Holy Blade' ).
+o_wpn2 = znvcl_task2_weapon_factory=>new_weapon( ip_weapon_type = 'SWORD' ip_weapon_name = 'Holy Moonlight Sword' ).
+
+CREATE OBJECT o_swordsman_tmp
+  EXPORTING
+    ip_swordsman_name = 'Veleszar'.
+o_hero = o_swordsman_tmp.
+
+o_hero->znvif_hero~take_weapon( EXPORTING ip_weapon = o_wpn1 ).
+o_hero->znvif_hero~take_weapon( EXPORTING ip_weapon = o_wpn2 ).
+*o_hero->znvif_hero~drop_active_weapon( ).
+o_hero->znvif_hero~change_active_weapon( ).
+
+*o_hero->znvif_game_character~console_print( ).
+o_hero->znvif_hero~print_backpack( ).

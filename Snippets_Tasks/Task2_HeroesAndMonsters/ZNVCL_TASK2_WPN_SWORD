@@ -1,0 +1,27 @@
+CLASS znvcl_task2_wpn_sword DEFINITION
+  INHERITING FROM znvcl_task2_weapon
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor
+        IMPORTING
+          ip_sword_name TYPE string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS znvcl_task2_wpn_sword IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor(
+    EXPORTING
+    ip_name = ip_sword_name
+    ip_hero_type = 'SWORDSMAN'
+    ip_weapon_type = 'SWORD'
+    ip_damage = 10 ).
+  ENDMETHOD.
+ENDCLASS.

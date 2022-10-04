@@ -1,0 +1,42 @@
+CLASS znvcl_task2_weapon_factory DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    CLASS-METHODS:
+      new_weapon
+        IMPORTING ip_weapon_type TYPE znv_task2_weapon_type
+                  ip_weapon_name TYPE string
+        RETURNING VALUE(rt_val)  TYPE REF TO znvcl_task2_weapon.
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS znvcl_task2_weapon_factory IMPLEMENTATION.
+  METHOD new_weapon.
+    IF ip_weapon_type = 'SPEAR'.
+      DATA o_spear TYPE REF TO znvcl_task2_wpn_spear.
+      CREATE OBJECT o_spear
+        EXPORTING
+          ip_spear_name = ip_weapon_name.
+      rt_val = o_spear.
+    ELSEIF ip_weapon_type = 'SWORD'.
+      DATA o_sword TYPE REF TO znvcl_task2_wpn_sword.
+      CREATE OBJECT o_sword
+        EXPORTING
+          ip_sword_name = ip_weapon_name.
+      rt_val = o_sword.
+    ELSEIF ip_weapon_type = 'SPELL'.
+      DATA o_spell TYPE REF TO znvcl_task2_wpn_spell.
+      CREATE OBJECT o_spell
+        EXPORTING
+          ip_spell_name = ip_weapon_name.
+      rt_val = o_spell.
+    ENDIF.
+  ENDMETHOD.
+ENDCLASS.

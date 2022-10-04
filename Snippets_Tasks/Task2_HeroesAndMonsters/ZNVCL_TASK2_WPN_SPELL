@@ -1,0 +1,27 @@
+CLASS znvcl_task2_wpn_spell DEFINITION
+  INHERITING FROM znvcl_task2_weapon
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor
+        IMPORTING
+          ip_spell_name TYPE string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS znvcl_task2_wpn_spell IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor(
+    EXPORTING
+    ip_name = ip_spell_name
+    ip_hero_type = 'SORCERROR'
+    ip_weapon_type = 'SPELL'
+    ip_damage = 20 ).
+  ENDMETHOD.
+ENDCLASS.

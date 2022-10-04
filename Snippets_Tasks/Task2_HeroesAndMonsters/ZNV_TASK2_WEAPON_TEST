@@ -1,0 +1,16 @@
+REPORT znv_task2_weapon_test.
+
+DATA:
+  o_weapon TYPE REF TO znvcl_task2_weapon,
+  o_sword  TYPE REF TO znvcl_task2_wpn_sword.
+
+CREATE OBJECT o_sword
+  EXPORTING
+    ip_sword_name = 'Narsil'.
+
+o_sword->znvif_weapon~console_print( ).
+
+o_weapon = znvcl_task2_weapon_factory=>new_weapon( ip_weapon_type = 'SWORD' ip_weapon_name = 'Excalibur' ).
+o_weapon->znvif_weapon~console_print( ).
+
+WRITE: / 'complete'.

@@ -1,0 +1,176 @@
+CLASS znvcl_task2_hero DEFINITION ABSTRACT
+  PUBLIC
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES:
+      znvif_game_character,
+      znvif_hero.
+    METHODS:
+      constructor
+        IMPORTING
+          ip_max_health TYPE i
+          ip_hero_type  TYPE znv_task2_hero_type
+          ip_name       TYPE string.
+
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+    DATA:
+      d_name              TYPE string,
+      d_max_health        TYPE i,
+      d_curr_health       TYPE i,
+      d_hero_type         TYPE znv_task2_hero_type,
+      dt_weapons          TYPE TABLE OF REF TO znvcl_task2_weapon,
+      d_backpack_idx      TYPE i,
+      d_backpack_capacity TYPE i,
+      d_active_idx        TYPE i.
+ENDCLASS.
+
+
+
+CLASS znvcl_task2_hero IMPLEMENTATION.
+  METHOD constructor.
+    d_max_health = ip_max_health.
+    d_curr_health = d_max_health.
+    d_hero_type = ip_hero_type.
+    d_name = ip_name.
+
+    d_backpack_idx = 0.
+    d_backpack_capacity = 2.
+    d_active_idx = 0.
+  ENDMETHOD.
+
+
+
+  METHOD znvif_game_character~get_name.
+    rt_val = d_name.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~get_max_health.
+    rt_val = d_max_health.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~get_curr_health.
+    rt_val = d_curr_health.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~get_damage.
+    " TODO: add exception checks
+    DATA(lo_act_weapon) = znvif_hero~get_active_weapon( ).
+    rt_val = lo_act_weapon->znvif_weapon~get_damage( ).
+  ENDMETHOD.
+
+  METHOD znvif_game_character~take_damage.
+    d_curr_health = d_curr_health - ip_damage.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~is_alive.
+    IF d_curr_health > 0.
+      rt_val = abap_true.
+    ELSE.
+      rt_val = abap_false.
+    ENDIF.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~console_print.
+    DATA:
+      l_act_wpn  TYPE REF TO znvcl_task2_weapon,
+      l_wpn_name TYPE string VALUE 'none                        '.
+
+    l_act_wpn = znvif_hero~get_active_weapon( ).
+
+    IF l_act_wpn IS NOT INITIAL.
+      l_wpn_name = l_act_wpn->znvif_weapon~get_weapon_name( ).
+    ENDIF.
+
+    WRITE: / d_name, ', HP : ', d_curr_health, ' (', l_wpn_name, ' equipped)'.
+  ENDMETHOD.
+
+
+
+  METHOD znvif_hero~get_hero_class.
+    rt_val = d_hero_type.
+  ENDMETHOD.
+
+  METHOD znvif_hero~take_weapon.
+    " ip_weapon cannot be used by hero of d_hero_type class
+    IF ip_weapon->znvif_weapon~get_hero_type( ) <> d_hero_type.
+      " TODO: add exceptions
+      RETURN.
+    ENDIF.
+
+    " no space left in the backpack
+    IF d_backpack_idx = d_backpack_capacity.
+      " TODO: add exceptions
+      RETURN.
+    ENDIF.
+
+    " add weapon to backpack and set it as active weapon
+    APPEND ip_weapon TO dt_weapons.
+    d_backpack_idx = d_backpack_idx + 1.
+    d_active_idx = d_backpack_idx.
+  ENDMETHOD.
+
+  METHOD znvif_hero~drop_active_weapon.
+    " no weapons in the backpack
+    IF d_backpack_idx = 0.
+      " TODO: add exceptions
+      RETURN.
+    ENDIF.
+
+    rt_val = znvif_hero~get_active_weapon( ).
+
+    DELETE dt_weapons INDEX d_active_idx.
+    d_backpack_idx = d_backpack_idx - 1.
+    d_active_idx = d_backpack_idx.
+  ENDMETHOD.
+
+  METHOD znvif_hero~get_active_weapon.
+    " TODO: add exceptions
+    IF d_active_idx <> -1.
+      READ TABLE dt_weapons INDEX d_active_idx INTO rt_val.
+    ENDIF.
+  ENDMETHOD.
+
+  METHOD znvif_hero~change_active_weapon.
+    " changes between two weapons in the backpack
+    IF d_backpack_idx = 0.
+      " no weapons
+      " TODO: add exceptions
+      RETURN.
+    ELSEIF d_backpack_idx = 1.
+      " one weapon - nothing to change
+    ELSE.
+      " dirtiest hack EVER :)
+      DATA:
+        o_wpn1 TYPE REF TO znvcl_task2_weapon,
+        o_wpn2 TYPE REF TO znvcl_task2_weapon.
+
+      " get first and second weapons out of the list, insert them back in reverse order
+      o_wpn1 = znvif_hero~get_active_weapon( ).
+      znvif_hero~drop_active_weapon( ).
+
+      o_wpn2 = znvif_hero~get_active_weapon( ).
+      znvif_hero~drop_active_weapon( ).
+
+      znvif_hero~take_weapon( EXPORTING ip_weapon = o_wpn1 ).
+      znvif_hero~take_weapon( EXPORTING ip_weapon = o_wpn2 ).
+    ENDIF.
+
+    rt_val = znvif_hero~get_active_weapon( ).
+  ENDMETHOD.
+
+  METHOD znvif_hero~get_backpack_size.
+    rt_val = d_backpack_capacity.
+  ENDMETHOD.
+
+  METHOD znvif_hero~print_backpack.
+    DATA o_wpn TYPE REF TO znvcl_task2_weapon.
+    WRITE: / 'Backpack : '.
+    LOOP AT dt_weapons INTO o_wpn.
+      o_wpn->znvif_weapon~console_print( ).
+    ENDLOOP.
+  ENDMETHOD.
+ENDCLASS.
