@@ -1,26 +1,98 @@
-CLASS znvcl_task2_hr_swordsman DEFINITION
-  INHERITING FROM znvcl_task2_hero
+CLASS znvcl_task2_monster DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.
+    INTERFACES:
+      znvif_game_character,
+      znvif_monster.
     METHODS:
       constructor
         IMPORTING
-          ip_swordsman_name TYPE string.
+          ip_max_health TYPE i
+          ip_name       TYPE string.
+
   PROTECTED SECTION.
+
   PRIVATE SECTION.
+    DATA:
+      d_name        TYPE string,
+      d_max_health  TYPE i,
+      d_curr_health TYPE i.
 ENDCLASS.
 
 
 
-CLASS znvcl_task2_hr_swordsman IMPLEMENTATION.
+CLASS znvcl_task2_monster IMPLEMENTATION.
   METHOD constructor.
-    super->constructor(
-    EXPORTING
-    ip_max_health = 220
-    ip_hero_type = 'SWORDSMAN'
-    ip_name = ip_swordsman_name ).
+    d_name = ip_name.
+    d_max_health = ip_max_health.
+    d_curr_health = ip_max_health.
+  ENDMETHOD.
+
+
+
+  METHOD znvif_game_character~get_name.
+    rt_val = d_name.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~get_curr_health.
+    rt_val = d_curr_health.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~get_max_health.
+    rt_val = d_max_health.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~get_damage.
+    DATA(l_rnd_att) = znvif_monster~get_random_attack( ).
+    rt_val = l_rnd_att-damage.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~take_damage.
+    d_curr_health = d_curr_health - ip_damage.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~is_alive.
+    IF d_curr_health > 0.
+      rt_val = abap_true.
+    ELSE.
+      rt_val = abap_false.
+    ENDIF.
+  ENDMETHOD.
+
+  METHOD znvif_game_character~console_print.
+    WRITE: / d_name, ', HP : ', d_curr_health.
+  ENDMETHOD.
+
+
+
+  METHOD znvif_monster~get_random_attack.
+    DATA:
+      l_cnt     TYPE i,
+      l_rnd     TYPE i,
+      t_attacks TYPE STANDARD TABLE OF znv_task2_m_att.
+
+    SELECT COUNT( * )
+    INTO l_cnt
+    FROM znv_task2_m_att.
+
+    SELECT *
+    FROM znv_task2_m_att
+    INTO TABLE t_attacks.
+
+    CALL FUNCTION 'QF05_RANDOM_INTEGER'
+      EXPORTING
+        ran_int_max   = l_cnt
+        ran_int_min   = 1
+      IMPORTING
+        ran_int       = l_rnd
+      EXCEPTIONS
+        invalid_input = 1
+        OTHERS        = 2.
+
+    READ TABLE t_attacks INTO rt_val INDEX l_rnd.
+
   ENDMETHOD.
 ENDCLASS.
