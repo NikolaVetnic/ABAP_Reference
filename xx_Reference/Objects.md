@@ -808,4 +808,12 @@ The visibility of an event handler defines where the handler method can be regis
 
 Events can be defined as interface components - triggering and handling events are done the same way as in classes: **1)** define event in an interface, **2** trigger the interface event in implementing classes, **3)** handle interface event in handler class (client class), **4)** register event handling.
 
+### Global Classes
+
+Local classes and interfaces are used only within the program in which they are defined and implemented. The `CLASS` statement is a local declarative statement in the program. As the `TYPES` statement defines local data types, the `CLASS` statement defines local object types.
+
+Global classes or global interfaces are individual repository objects with all the standard ABAP Workbench features such as active integration, versioning, transport system. The namespace convention, for example `Y*`, `Z*`, or a special customer namespace is the same as that name used for the namespace of other repository objects.
+
+A special maintenance tool is available in the ABAP Workbench, which is the **Class Builder**.
+
 

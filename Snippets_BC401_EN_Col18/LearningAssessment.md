@@ -88,6 +88,16 @@
 
 6. Which visibility section would an event need to be defined in, to ensure that it can only be handled in the class itself and its subclasses? **Answer:** `PROTECTED`.
 
+## Unit 6
+
+1. You can only use local classes or interfaces within the same program in which they are defined and implemented. **Answer:** true.
+
+2. The naming convention for SAP Standard Global Interfaces is `ZIF_` or `YIF_`. **Answer:** false.
+
+3. Which of the following buttons in Class Builder is used to override an inherited method? **Answer:** Redefine.
+
+4. Local types of the global class are encapsulated and cannot be accessed from outside. **Answer:** true.
+
 ### In More Detail...
 
 #### Unit 1
@@ -182,3 +192,13 @@ Instance or static methods can be defined within a class to handle events. To do
 Events are registered using the `SET HANDLER` statement. Registration is only active at program runtime. Read more in the task, Registering Event Handling, in the lesson, Implementing Events in Local Classes, in course BC401.
 
 The visibility of an event defines where the event can be handled: `PUBLIC` - Event can be handled anywhere, `PROTECTED` - Event can only be handled within its own class or its subclasses, `PRIVATE` - Event can only be handled within its own class. Read more in the task, Visibility Sections of Events, in the lesson, Implementing Events in Local Classes, in course BC401.
+
+#### Unit 6
+
+As with subroutines, use local classes or local interfaces only within the program in which they are defined and implemented. The CLASS statement is a local declarative statement in the program. Read more in the task, Definition of Global Classes, in the lesson, Creating Global Classes, in course BC401.
+
+The naming convention is IF_ for SAP global interfaces and ZIF_ or YIF_ for user-defined global interfaces. Read more in the task, Definition of Global Interfaces, in the lesson, Defining and Implementing Global Interfaces, in course BC401.
+
+To redefine an inherited method, select the relevant method in the list and choose the Redefine button. Alternatively, you can use the context menu in the navigation area. Read more in the task, Redefinition of a Method in Global Class, in the lesson, Implementing Inheritance in Global Classes, in course BC401.
+
+You can define local types in global classes. All components of the global class have access to these local types, but they are encapsulated if you try to access them from outside. The same applies for local interfaces in global classes. Read more in the task, Local Types in Global Classes, in the lesson, mplementing Inheritance in Global Classes, in course BC401.
