@@ -98,6 +98,24 @@
 
 4. Local types of the global class are encapsulated and cannot be accessed from outside. **Answer:** true.
 
+## Unit 7
+
+1. The ABAP List Viewer (ALV) Grid Control is a tool that you can use to display nonhierarchical lists in a standardized form. **Answer:** true.
+
+2. Container controls provide the technical connection between the screen and the application control. **Answer:** true.
+
+3. To create a handler object for an event, we must first define a `____________`. **Answer:** class.
+
+4. A handler method can be either a class method (static method) or an instance method of an object. **Answer:** true.
+
+5. With a Business Add-In (BAdI), an SAP application program provides the enhancement option through an interface method. **Answer:** true.
+
+6. An object of the BAdI adapter class is instantiated by the call of the static method `GET_INSTANCE` of the class `CL_EXITHANDLER`. **Answer:** true.
+
+7. To implement a Business Add-In (BAdI), the BADI definition name must be determined. **Answer:** true.
+
+8. The code of a BAdI implementation is stored in a `__________` of an automatically generated customer class. **Answer:** method.
+
 ### In More Detail...
 
 #### Unit 1
@@ -202,3 +220,21 @@ The naming convention is IF_ for SAP global interfaces and ZIF_ or YIF_ for user
 To redefine an inherited method, select the relevant method in the list and choose the Redefine button. Alternatively, you can use the context menu in the navigation area. Read more in the task, Redefinition of a Method in Global Class, in the lesson, Implementing Inheritance in Global Classes, in course BC401.
 
 You can define local types in global classes. All components of the global class have access to these local types, but they are encapsulated if you try to access them from outside. The same applies for local interfaces in global classes. Read more in the task, Local Types in Global Classes, in the lesson, mplementing Inheritance in Global Classes, in course BC401.
+
+#### Unit 7
+
+The ALV Grid Control is a tool that you can use to display non-hierarchical lists in a standardized form. Read more in the task, The ALV Grid Control, in the lesson, Using the ABAP List Viewer (ALV), in course BC401.
+
+Container Controls provide the technical connection between the screen and application controls. The application controls ALV Grid Control, Tree Control, and Picture Control are always embedded in the Container Control, which is connected to the screen. Read more in the task, Including an ALV Grid Control Instance in a Dialog Program, in the lesson, Using the ABAP List Viewer (ALV), in course BC401.
+
+To create a handler object for an event, define a class. Read more in the task, ALV Grid Control – Reacting to a Double-Click, in the lesson, Using the ABAP List Viewer (ALV), in course BC401.
+
+A handler method is a class method (static method) or an instance method of an object. If a class method is defined as a handler method, no object of the handled class needs to be instantiated to use the method. Read more in the task, ALV Grid Control – Reacting to a Double-Click, in the lesson, Using the ABAP List Viewer (ALV), in course BC401.
+
+With a BAdI, an SAP application provides the enhancement option through an interface and an adapter class implementing that interface. The interface can be implemented by several users in the delivery chain, thus, multiple BAdI implementations are possible. Read more in this lesson, Describing Business Add-Ins (BAdIs), Describing Business Add-Ins (BAdIs), Task BAdI – Basics, of the course, BC401.
+
+An object of the adapter class is instantiated by the call of the `GET_INSTANCE` static method of the `CL_EXITHANDLER` class. Read more in this lesson, Describing Business Add-Ins (BAdIs), Task The BAdI Calling Program, of the course, BC401.
+
+The name of the BAdl must be investigated before you can implement the BAdI. When the name of the BAdI is determined, the BAdI can be implemented. Read more in this lesson, Describing Business Add-Ins (BAdIs), Task BAdI Implementation, of the course, BC401.
+
+The code of a BAdI implementation is stored in the method of an automatically generated customer class. Read more in this lesson, Describing Business Add-Ins (BAdIs), Task BAdI Implementation, of the course, BC401.
