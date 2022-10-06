@@ -797,4 +797,7 @@ Given the right circumstances, handler methods react to the triggering of this e
 
 This results in a completely different modeling concept. While you are developing the class that triggers the event, you do not need to know anything about the class that is handling it. The triggering class sends a specific message to all classes and, if required, their instances. At the time of development, type of handlers and the number of handlers, which may be used are not known.
 
-
+An example of event emitting and handling can be viewed in these files:
+* [`znvcl_ev_vehicle`](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_05_znvcl_ev_vehicle)
+* [`znvcl_ev_rental`](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_06_znvcl_ev_rental)
+* [`znv_ev_main`](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_07_znv_ev_main)
