@@ -801,3 +801,11 @@ An example of event emitting and handling can be viewed in these files:
 * [`znvcl_ev_vehicle`](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_05_znvcl_ev_vehicle)
 * [`znvcl_ev_rental`](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_06_znvcl_ev_rental)
 * [`znv_ev_main`](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_07_znv_ev_main)
+
+The visibility of an event defines where the event can be handled: `PUBLIC` - can be handled anywhere, `PROTECTED` - can only be handled in its own class or its subclasses, `PRIVATE` - can only be handled in its own class.
+
+The visibility of an event handler defines where the handler method can be registered: `PUBLIC` - can be registered anywhere in the program, `PROTECTED` - can be registered within its own class or its subclasses, `PRIVATE` - can only be registered within its own class.
+
+Events can be defined as interface components - triggering and handling events are done the same way as in classes: **1)** define event in an interface, **2** trigger the interface event in implementing classes, **3)** handle interface event in handler class (client class), **4)** register event handling.
+
+

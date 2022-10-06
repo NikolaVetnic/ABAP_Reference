@@ -74,6 +74,20 @@
 
 6. Interface can include other interfaces. **Answer:** true.
 
+##  Unit 5
+
+1. Which of the following cannot be defined as interface components? **Answer:** Classes.
+
+2. Which of the following statements is used to trigger events? **Answer:** `RAISE EVENT`.
+
+3. You can trigger static events only in static methods. **Answer:** false.
+
+4. Which of the following is specified by the definition of the handler method? **Answer:** Which method will react to which event of which class.
+
+5. Handler methods are registered using the `SET HANDLER` statement. Registration is only active at program runtime. **Answer:** true.
+
+6. Which visibility section would an event need to be defined in, to ensure that it can only be handled in the class itself and its subclasses? **Answer:** `PROTECTED`.
+
 ### In More Detail...
 
 #### Unit 1
@@ -154,3 +168,17 @@ The down-casting view is widened or at least unchanged. This is a switch from a 
 An interface implementation strongly resembles regular inheritance. With regular inheritance, you can define large hierarchies of classes. When we use interfaces instead of classes we call that interface hierarchies. Read more in the task, Implementation of Interface Hierarchies, in the lesson, Integrating Class Models Using Interfaces, in course BC401.
 
 In ABAP Objects, interfaces like regular superclasses can include other interfaces. As with regular inheritance, the interface hierarchies can be of any depth. Read more in the Compound Interface in Unified Modeling Language (UML) Notation, in the lesson, Integrating Class Models Using Interfaces, in course BC401.
+
+#### Unit 5
+
+Attributes and methods can be defined as interface components. Events can also be defined as interface components. Read more in the task, Event-Controlled Method Calls, in the lesson, Implementing Events in Local Classes, in course BC401.
+
+A class or instance can trigger an event at runtime using the `RAISE EVENT` statement. Both instance events and static events can be triggered in instance methods. In static methods, you can only trigger static events. Read more in the task, Event Triggering and Handling, in the lesson, Implementing Events in Local Classes, in course BC401.
+
+You can trigger static events not only in static methods, but as well in instance methods. Read more in the task, Event Triggering and Handling, in the lesson, Implementing Events in Local Classes, in course BC401.
+
+Instance or static methods can be defined within a class to handle events. To do so, you must specify in the definition of the handler the event using the `FOR EVENT` statement, and the class or interface in which the event was defined using the OF statement. Read more in the task, Handling Events, in the lesson, Implementing Events in Local Classes, in course BC401.
+
+Events are registered using the `SET HANDLER` statement. Registration is only active at program runtime. Read more in the task, Registering Event Handling, in the lesson, Implementing Events in Local Classes, in course BC401.
+
+The visibility of an event defines where the event can be handled: `PUBLIC` - Event can be handled anywhere, `PROTECTED` - Event can only be handled within its own class or its subclasses, `PRIVATE` - Event can only be handled within its own class. Read more in the task, Visibility Sections of Events, in the lesson, Implementing Events in Local Classes, in course BC401.
