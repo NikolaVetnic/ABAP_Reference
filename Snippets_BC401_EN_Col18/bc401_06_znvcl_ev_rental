@@ -1,0 +1,26 @@
+CLASS znvcl_ev_rental DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor,
+      on_vehicle_created FOR EVENT vehicle_created OF znvcl_ev_vehicle.
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS znvcl_ev_rental IMPLEMENTATION.
+  METHOD constructor.
+    SET HANDLER me->on_vehicle_created FOR ALL INSTANCES.
+  ENDMETHOD.
+
+  METHOD on_vehicle_created.
+    WRITE: / 'TRIGGERED'.
+  ENDMETHOD.
+ENDCLASS.

@@ -1,0 +1,13 @@
+REPORT znv_ev_main.
+
+DATA:
+    lo_ev_vehicle TYPE REF TO znvcl_ev_vehicle,
+    lo_ev_rental TYPE REF TO znvcl_ev_rental.
+
+CREATE OBJECT lo_ev_rental.
+CREATE OBJECT lo_ev_vehicle
+
+" =-=-=-=
+" CONSOLE OUT:
+" znvcl_ev_vehicle->constructor : vehicle created!
+" TRIGGERED.

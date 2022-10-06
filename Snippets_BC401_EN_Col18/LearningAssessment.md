@@ -60,6 +60,20 @@
 
 9. Which of the following are advantages of correctly using class hierarchies? **Answer:** centralized maintenance, safe and generic method of access.
 
+## Unit 4
+
+1. You can access interface components only by using an object reference. **Answer:** false.
+
+2. Which of the following is the main strength of interfaces? **Answer:** polymorphism.
+
+3. `?=` is the down-cast assignment operator. **Answer:** true.
+
+4. Suppose a reference variable that is typed to an interface contains an instance reference of a class that implements this interface and you copy this to a reference variable that is typed to the class (down-cast). Which of the following components can you access with this reference variable? **Answer:** the components of the interface, the components from the class that are not defined on the interface, all components of the class, the components of the interface for which alias names have been defined.
+
+5. Which of the following strongly resembles inheritance? **Answer:** interface.
+
+6. Interface can include other interfaces. **Answer:** true.
+
 ### In More Detail...
 
 #### Unit 1
@@ -126,3 +140,17 @@ The downcast assignment operator is `MOVE ... ?TO ...` or its short form `?=`. R
 After assigning a superclass type of reference to a subclass reference, clients are no longer limited to inherited components. Read more in the task, Downcasts, in the lesson, Implementing Downcast Using Inheritance, of course BC401.
 
 Commonly used elements only need to be stored once in a central location (in the superclass). These elements are then automatically available to all subclasses. Changes made at a later stage have an immediate effect on the subclasses. Implementing Polyphormism using inheritance provides the generic access – one call, multiple implementations. Read more in the task, Usage of Class Hierarchies, in the lesson, Implementing Downcast Using Inheritance, of course BC401.
+
+#### Unit 4
+
+You can access instance interface components only by using an object reference whose class implements the interface. But you can access static components by using the interface name. Read more in the task, Access to Interface Components, in the lesson, Defining and Implementing Local Interfaces, in course BC401.
+
+The option of performing polymorphism is one of the main strengths of interfaces. A client can handle different classes uniformly, regardless of their implementation. Read more in the task, Generic Access Using the Interface Reference, in the lesson, Implementing Polymorphism Using Interfaces, in course BC401.
+
+To assign an interface reference to a class reference where the class has implemented the interface, you must use the down-cast assignment operator MOVE ... ? TO ... or its short form ?=. Read more in the task, Downcasts with Interfaces, in the lesson, Integrating Class Models Using Interfaces, in course BC401.
+
+The down-casting view is widened or at least unchanged. This is a switch from a view of a few components to a view of more components. The term Narrowing Cast is also used. Read more in the task, Downcasts with Interfaces, in the lesson, Integrating Class Models Using Interfaces, in course BC401.
+
+An interface implementation strongly resembles regular inheritance. With regular inheritance, you can define large hierarchies of classes. When we use interfaces instead of classes we call that interface hierarchies. Read more in the task, Implementation of Interface Hierarchies, in the lesson, Integrating Class Models Using Interfaces, in course BC401.
+
+In ABAP Objects, interfaces like regular superclasses can include other interfaces. As with regular inheritance, the interface hierarchies can be of any depth. Read more in the Compound Interface in Unified Modeling Language (UML) Notation, in the lesson, Integrating Class Models Using Interfaces, in course BC401.

@@ -1,0 +1,24 @@
+CLASS znvcl_ev_vehicle DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS:
+      constructor.
+    EVENTS:
+      vehicle_created.
+
+  PROTECTED SECTION.
+
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS znvcl_ev_vehicle IMPLEMENTATION.
+  METHOD constructor.
+    WRITE: / 'znvcl_ev_vehicle->constructor : vehicle created!'.
+    RAISE EVENT vehicle_created.
+  ENDMETHOD.
+ENDCLASS.
