@@ -32,6 +32,9 @@ Code snippets and cheat sheets used for learning ABAP programming.
 - ['Heroes & Monsters'](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task2_HeroesAndMonsters) object oriented programming assignment
 - [a simple example of ALV grid using objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_08_AlvGridUsingObjects.md)
 
+## Links
+[ABAP Tips by Henrik Frank](http://www.henrikfrank.dk/abaptips/abapindex.htm)
+
 ## Bibliography
 
 [O'Neill Brian. Getting Started with ABAP, 1st Edition. SAP PRESS, 2015](https://drive.google.com/file/d/1LFz36ssem7Nf19USjY3ylfqtzN-RAPcY/view?usp=sharing)
