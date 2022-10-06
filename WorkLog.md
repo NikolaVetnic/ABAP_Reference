@@ -59,4 +59,6 @@
 
 `04 Oct 2022`: completed UNIT 4 of **ABAP Objects** e-book, progressed up to p145; completed the *Heroes and Monsters* object-oriented assignment.
 
-`05 Oct 2022`: 
+`05 Oct 2022`: completed UNIT 6 of **ABAP Objects** e-book, progressed up to p186; practiced concepts discussed in chapters read up to now; helped out colleagues from j&s-soft Balkan.
+
+`06 Oct 2022`: completed UNIT 7 of **ABAP Objects** e-book, progressed up to p219; practiced ALV grid control examples from the book and found online; helped out colleagues from j&s-soft Balkan a bit.
