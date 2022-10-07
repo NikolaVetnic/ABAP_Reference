@@ -816,4 +816,6 @@ Global classes or global interfaces are individual repository objects with all t
 
 A special maintenance tool is available in the ABAP Workbench, which is the **Class Builder**.
 
+### BAdI
 
+With a BAdI (Business Add-Ins), an SAP application provides the enhancement option through an interface and an adapter class implementing that interface.
