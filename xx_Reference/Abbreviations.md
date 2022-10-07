@@ -1,6 +1,7 @@
 ## Abbreviations & Definitions
 
 * AS - Application Server
+* BAdIs - Business Add-Ins
 * BAPI - Business Application Programming Interface
 * FLP - SAP Fiori launchpad, offers a coherent user experience across different enterprise solutions
 * OLAP - on-line analytical processing

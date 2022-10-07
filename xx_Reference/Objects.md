@@ -41,6 +41,9 @@ Advantages of the OO approach in regards to procedural programming model:
 * better integration of the customer or user into the analysis, design, and maintenance process
 * simpler and more secure extension of the software
 
+## Topics Covered in More Detail
+* [Business Add-Ins](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/BAdI.md)
+
 ### Classes
 
 Classes have **public** (usually methods and events, accessible from outside of a class) and **private** (data types and attributes, inaccessible from outside) components. 
@@ -815,7 +818,3 @@ Local classes and interfaces are used only within the program in which they are 
 Global classes or global interfaces are individual repository objects with all the standard ABAP Workbench features such as active integration, versioning, transport system. The namespace convention, for example `Y*`, `Z*`, or a special customer namespace is the same as that name used for the namespace of other repository objects.
 
 A special maintenance tool is available in the ABAP Workbench, which is the **Class Builder**.
-
-### BAdI
-
-With a BAdI (Business Add-Ins), an SAP application provides the enhancement option through an interface and an adapter class implementing that interface.
