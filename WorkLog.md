@@ -62,3 +62,9 @@
 `05 Oct 2022`: completed UNIT 6 of **ABAP Objects** e-book, progressed up to p186; practiced concepts discussed in chapters read up to now; helped out colleagues from j&s-soft Balkan.
 
 `06 Oct 2022`: completed UNIT 7 of **ABAP Objects** e-book, progressed up to p219; practiced ALV grid control examples from the book and found online; helped out colleagues from j&s-soft Balkan a bit.
+
+`07 Oct 2022`: completed Unit 9 of **ABAP Objects** e-book, progressed up to p267; practiced exceptions examples from the book; helped out colleagues from j&s-soft Balkan a little bit.
+
+---
+
+`10 Oct 2022`:
