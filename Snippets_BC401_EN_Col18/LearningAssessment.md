@@ -116,6 +116,14 @@
 
 8. The code of a BAdI implementation is stored in a `__________` of an automatically generated customer class. **Answer:** method.
 
+## Unit 8
+
+1. When you work with ADT, you log onto the ABAP back-end system and remain logged on for your entire session. **Answer:** true.
+
+2. ADT contains native Eclipse editors for which kinds of repository objects? **Answer:** ABAP programs, ABAP classes.
+
+3. You are creating an ABAP class in ADT and have just written the definition of a method in the public section of the class definition. You press `CTRL + 1` to see the available quick fixes. Which of the following quick fixes are available? **Answer:** add the implementation of the method, move the method definition to the protected or private section.
+
 ### In More Detail...
 
 #### Unit 1
@@ -238,3 +246,11 @@ An object of the adapter class is instantiated by the call of the `GET_INSTANCE`
 The name of the BAdl must be investigated before you can implement the BAdI. When the name of the BAdI is determined, the BAdI can be implemented. Read more in this lesson, Describing Business Add-Ins (BAdIs), Task BAdI Implementation, of the course, BC401.
 
 The code of a BAdI implementation is stored in the method of an automatically generated customer class. Read more in this lesson, Describing Business Add-Ins (BAdIs), Task BAdI Implementation, of the course, BC401.
+
+#### Unit 8
+
+When you use ADT, you log on to an SAP back-end system and work directly with its repository objects. Therefore, the development process is the same as when you use the ABAP Workbench, there is no check-out and check-in of the objects. Read more in the task, Creation of an ABAP Project, in the lesson, Developing Eclipse- Based ABAP Programs, in course BC401.
+
+There are two types of editors in the ABAP development tools: Editors for which there is a native Eclipse implementation for example, ABAP Editor, an Eclipse editor, to edit ABAP reports or ABAP classes Editors that are displayed in an in-place SAP graphical user interface (GUI), for example, ABAP transaction editor with the classic SAP GUI visualization appearing within the Eclipse environment. Read more in the task, Task Types of Editors, in the lesson, Developing Eclipse-Based ABAP Programs, in course BC401.
+
+Quick Fixes (for example, add missing method implementations), Method Extraction, Deleting Unused Variables, Renaming (for example, rename an attribute, a method, a variable, an interface), Changing Visibility (for example, turning local variables into attributes, making private components public). Read more in the task, Quick Fixes, in the lesson, Developing Eclipse-Based ABAP Programs, in course BC401.

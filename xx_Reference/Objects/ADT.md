@@ -13,3 +13,15 @@ Types of editors:
 	* no new features
 	* SAP GUI look and feel
 	* used where no native editor is available (e.g. Transactions, Dictionary Objects, Screens, etc.)
+
+### Overview of Refactoring Options
+
+In Eclipse, **Quick Fixes** are shortcuts to complete tasks or resolve errors that are proposed automatically by the editor (the key combination `CTRL + 1` shows you available quick fixes in a dialog box):
+* add missing implementation (for entire class or individual method)
+* generate method (for example instance constructor or setter/getter method for an attribute)
+* change visibility (for example, turn local variable into attribute, make private component public)
+* rename component ( attribute, method, variable, interface)
+
+Method extraction involves moving a code block to a new method and replacing the block with a call to that new method. To perform method extraction, you must be editing a global or local ABAP class in a class pool, a program, or another type of ABAP program. Your code must be free of syntax errors before you begin. Note that method extraction is not supported in code outside of classes and that you can only extract a method within the start and end area of another method.
+
+Another key refactoring technique is the deletion of the unused variables that can accumulate in code over time.

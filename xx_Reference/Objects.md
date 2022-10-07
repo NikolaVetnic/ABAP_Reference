@@ -49,3 +49,5 @@ Advantages of the OO approach in regards to procedural programming model:
 * [Global Classes](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/GlobalClasses.md)
 * [Business Add-Ins](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/BAdI.md)
 * [ABAP Development Tools (for Eclipse)](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/ADT.md)
+* [Class-Based Exceptions](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/ClassBasedExceptions.md)
+
