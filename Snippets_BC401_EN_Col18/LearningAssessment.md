@@ -124,6 +124,30 @@
 
 3. You are creating an ABAP class in ADT and have just written the definition of a method in the public section of the class definition. You press `CTRL + 1` to see the available quick fixes. Which of the following quick fixes are available? **Answer:** add the implementation of the method, move the method definition to the protected or private section.
 
+## Unit 9
+
+1. Which of the following statements is used to raise class-based exceptions? **Answer:** `RAISE EXCEPTION`.
+
+2. Which of the following blocks is used to catch and handle exceptions? **Answer:** `TRY... CATCH... ENDTRY`.
+
+3. A class-based exception can only be handled if the statement that raised it is enclosed in a TRY-ENDTRY control structure. **Answer:** true.
+
+4. `TRY-ENDTRY` structures can be nested to any depth. **Answer:** true.
+
+5. You can specify only two exception classes to the CATCH statement. **Answer:** false.
+
+6. If an exception is raised, the name of the exception class is displayed in the `__________` field in debugging mode. **Answer:** exception raised.
+
+7. Which of the following syntax additions is used to propagate an exception from a procedure? **Answer:** `RAISING`.
+
+8. For subclasses of `____________` the corresponding exceptions cannot be propagated explicitly using the `RAISING` addition. **Answer:** `CX_NO_CHECK`.
+
+9. Which of the following are ways of handling an exception? **Answer:** continue program, remove the cause of error, do not propagate an exception.
+
+10. Which of the following is used to jump back to the TRY statement? **Answer:** `RETRY`.
+
+11. Which of the following is a prerequisite for using the RESUME statement? **Answer:** the exception has to be caught with addition `BEFORE UNWIND`, the exception has to be propagated with addition `RESUMABLE( )`, the exception has to be raised with addition `RESUMABLE`.
+
 ### In More Detail...
 
 #### Unit 1
@@ -254,3 +278,27 @@ When you use ADT, you log on to an SAP back-end system and work directly with it
 There are two types of editors in the ABAP development tools: Editors for which there is a native Eclipse implementation for example, ABAP Editor, an Eclipse editor, to edit ABAP reports or ABAP classes Editors that are displayed in an in-place SAP graphical user interface (GUI), for example, ABAP transaction editor with the classic SAP GUI visualization appearing within the Eclipse environment. Read more in the task, Task Types of Editors, in the lesson, Developing Eclipse-Based ABAP Programs, in course BC401.
 
 Quick Fixes (for example, add missing method implementations), Method Extraction, Deleting Unused Variables, Renaming (for example, rename an attribute, a method, a variable, an interface), Changing Visibility (for example, turning local variables into attributes, making private components public). Read more in the task, Quick Fixes, in the lesson, Developing Eclipse-Based ABAP Programs, in course BC401.
+
+#### Unit 9
+
+Class-based exceptions are raised either by the `RAISE EXCEPTION` statement or by the runtime environment. Read more in the task, Use of the `RAISE EXCEPTION` Statement, in the lesson, Explaining Class-Based Exceptions, in course BC401.
+
+You handle the exception using the `CATCH` statement in the `TRY-ENDTRY` structure. Read more in the task, Class-Based Exception Handling, in the lesson, Explaining Class-Based Exceptions, in course BC401.
+
+Read more in the task, Downcasts with Interfaces, in the lesson, Integrating Class Models Using Interfaces, in course BC401.
+
+Like all control structures in ABAP Objects, you can nest `TRY-ENDTRY` structures to any depth. In particular, the `TRY` block, the `CATCH` block, and the `CLEANUP` block can contain complete `TRY-ENDTRY` structures themselves. Read more in the task, Class-Based Exception Handling, in the lesson, Explaining Class-Based Exceptions, in course BC401.
+
+Specify any number of exception classes in the `CATCH` statement. In this way, you define an exception handler for all these exception classes and their subclasses. Read more in the task, Class-Based Exception Handling, in the lesson, Explaining Class-Based Exceptions, in course BC401.
+
+If an exception is raised, the system displays name of the exception class in the Exception Raised field in debugging mode. Read more in the task, Class-Based Exceptions in the Debugger, in the lesson, Explaining Class-Based Exceptions, in course BC401.
+
+To propagate an exception from a procedure, you generally use the `RAISING` addition when you define the procedure interface. Read more in the task, Exception Propagation, in the lesson, Defining and Raising Exceptions, in course BC401.
+
+For subclasses of `CX_NO_CHECK`, you cannot propagate the corresponding exceptions explicitly using the RAISING addition. If you do not handle these exceptions in the processing block where they occur, they are automatically propagated. Read more in the task, The Hierarchy of Predefined Exception Classes, in the lesson, Defining and Raising Exceptions, in course BC401.
+
+Techniques to Handle an Exception Caught in a `CATCH` Statement: Continue the program behind an `ENDTRY` statement, Remove the cause of the error and start again, Raise and propagate one exception. Read more in the task, Exception Handling, in the lesson, efining and Raising Exceptions, in course BC401.
+
+When you handle an exception in a `CATCH` block, use the `RETRY` statement to go back to the `TRY` statement of the respective `TRY-ENDTRY` structure, for example, if the cause for the exception was removed during the handling. Read more in the task, The `RETRY` Statement, in the lesson, Implementing Advanced Exception Handling Techniques, in course BC401.
+
+The exception must be caught with `CATCH` statement using the addition `BEFORE UNWIND`. This ensures that the context of the exception is kept alive for a possible `RESUME`. If the exception is propagated, you must mark it as resumable on all hierarchy levels by using the `RAISING RESUMABLE ( ... )` addition with the name of the exception class inside the brackets. The exception must be raised with the `RAISE RESUMABLE ...` variant of the `RAISE EXCEPTION` statement. Read more in the task, Implementation of Resumable Exceptions, in the lesson, Implementing Advanced Exception Handling Techniques, in course BC401.

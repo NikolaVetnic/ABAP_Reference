@@ -5,6 +5,7 @@ Often used transactions:
 * `SE11` - ABAP Dictionary (create Database Tables, Data Elements, Domains)
 * `SE16` - Data Browser
 * `SE18` - BAdI Builder
+* `SE24` - Class Builder
 * `SE37` - Function Builder (create and analyze function modules)
 * `SE38` - ABAP Editor
 * `SE51` - Screen Painter
