@@ -38,6 +38,7 @@ Code snippets and cheat sheets used for learning ABAP programming.
 ## Links
 [ABAP Tips by Henrik Frank](http://www.henrikfrank.dk/abaptips/abapindex.htm)
 [Clean ABAP](https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md)
+[Hungarian Notation & Data References Vs Field Symbols](https://www.youtube.com/watch?v=JSMwmiknH5Q)
 
 ## Bibliography
 
