@@ -41,11 +41,10 @@ Code snippets and cheat sheets used for learning ABAP programming.
 [Hungarian Notation & Data References Vs Field Symbols](https://www.youtube.com/watch?v=JSMwmiknH5Q)  
 
 ## Articles
-[Consuming a REST API with ABAP](http://nikolapacekvetnic.rs/?p=1700)
-[Using Mylyn 3.23 with Eclipse ADT](http://nikolapacekvetnic.rs/?p=1685)
+[Consuming a REST API with ABAP](http://nikolapacekvetnic.rs/?p=1700)  
+[Using Mylyn 3.23 with Eclipse ADT](http://nikolapacekvetnic.rs/?p=1685)  
 
 ## Bibliography
 
-[O'Neill Brian. Getting Started with ABAP, 1st Edition. SAP PRESS, 2015](https://drive.google.com/file/d/1LFz36ssem7Nf19USjY3ylfqtzN-RAPcY/view?usp=sharing)
-
-[O'Neill Brian. ABAP - An Introduction, 2nd Edition. SAP PRESS, 2019](https://www.amazon.com/ABAP-Introduction-Beginners-Programming-Second/dp/1493218808)
+[O'Neill Brian. Getting Started with ABAP, 1st Edition. SAP PRESS, 2015](https://drive.google.com/file/d/1LFz36ssem7Nf19USjY3ylfqtzN-RAPcY/view?usp=sharing)  
+[O'Neill Brian. ABAP - An Introduction, 2nd Edition. SAP PRESS, 2019](https://www.amazon.com/ABAP-Introduction-Beginners-Programming-Second/dp/1493218808)  
