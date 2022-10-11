@@ -36,9 +36,9 @@ Code snippets and cheat sheets used for learning ABAP programming.
 - [a simple example of ALV grid using objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_08_AlvGridUsingObjects.md)
 
 ## Links
-[ABAP Tips by Henrik Frank](http://www.henrikfrank.dk/abaptips/abapindex.htm)
-[Clean ABAP](https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md)
-[Hungarian Notation & Data References Vs Field Symbols](https://www.youtube.com/watch?v=JSMwmiknH5Q)
+[ABAP Tips by Henrik Frank](http://www.henrikfrank.dk/abaptips/abapindex.htm)  
+[Clean ABAP](https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md)  
+[Hungarian Notation & Data References Vs Field Symbols](https://www.youtube.com/watch?v=JSMwmiknH5Q)  
 
 ## Articles
 [Consuming a REST API with ABAP](http://nikolapacekvetnic.rs/?p=1700)
