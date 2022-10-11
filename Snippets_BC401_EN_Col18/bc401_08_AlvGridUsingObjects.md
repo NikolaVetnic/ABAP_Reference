@@ -3,7 +3,7 @@
 Taken from [this website](https://henrikfrank.dk/abaptips/abap%20language/other%20stuff/alv%20grid%20using%20objects%20-%20simple%20example.html).
 
 Start off by creating a report, in my case it's `ZNV_OBJ_EX_ALV_GRID`. Next, start the `SE51` Screen Painter transaction and create a screen with number `0100`. Open the **Screen Painter** editor via **Layout** button and create a Custom Control on the screen, naming it `MY_CONTAINER`. Close the editor and add the following line into the code editor available via **Flow Logic** tab:
-```
+```ABAP
 	PROCESS BEFORE OUTPUT.
 		MODULE create_objects. " line to add.
 
@@ -12,7 +12,7 @@ Start off by creating a report, in my case it's `ZNV_OBJ_EX_ALV_GRID`. Next, sta
 ```
 
 The remaining code goes into the report itself:
-```
+```ABAP
 	*&---------------------------------------------------------------------*
 	*& Report znv_obj_ex_alv_grid
 	*&---------------------------------------------------------------------*
