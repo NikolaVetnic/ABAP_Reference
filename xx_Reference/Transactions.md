@@ -9,6 +9,7 @@ Often used transactions:
 * `SE37` - Function Builder (create and analyze function modules)
 * `SE38` - ABAP Editor
 * `SE51` - Screen Painter
+* `SE80` - Object Navigator
 * `SE91` - Message Maintenance
 * `ST22` - used for inspecting the short dumps
 

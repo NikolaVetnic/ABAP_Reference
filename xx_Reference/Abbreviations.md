@@ -1,5 +1,6 @@
 ## Abbreviations & Definitions
 
+* ABAP Workbench - collection of tools that are used by the ABAP developers to create various applications using ABAP language in the SAP ERP system
 * AS - Application Server
 * BAdIs - Business Add-Ins
 * BAPI - Business Application Programming Interface

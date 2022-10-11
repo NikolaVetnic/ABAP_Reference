@@ -12,7 +12,7 @@
 
 5. You can group all characteristics and behaviors of similar objects into one central class. **Answer:** true.
 
-## Unit 2
+### Unit 2
 
 1. The CLASS statement can be nested, that is, you can define a class within a class.**Answer:** false.
 
@@ -148,9 +148,15 @@
 
 11. Which of the following is a prerequisite for using the RESUME statement? **Answer:** the exception has to be caught with addition `BEFORE UNWIND`, the exception has to be propagated with addition `RESUMABLE( )`, the exception has to be raised with addition `RESUMABLE`.
 
-### In More Detail...
+## Unit 10
 
-#### Unit 1
+1. In ABAP Unit, the SETUP method is called before each individual test method. **Answer:** true.
+
+2. Which of the following statements about ABAP Unit tests are true? **Answer:** test classes are not generated in a production system, each test method is executed independently of all of the others.
+
+# In More Detail...
+
+## Unit 1
 
 The procedural programming model allows separation of data and functions. In an ABAP, procedural program, global variables contain data, while subroutines contain functions. Read more in the task, The Procedural Programming Model, in the lesson, Introduction to Object-Oriented Programming, in course BC401.
 
@@ -162,7 +168,7 @@ The different diagram types in UML represent different views of a system. Behavi
 
 Object-oriented programming views the real world as a collection of objects. Some of these objects are similar and can be described in the same way if they use the same characteristics and exhibit the same behavior. You can group all the characteristics and behaviors of these similar objects into one central class. Read more in the task, Classification of Objects, in the lesson, Analyzing and Designing with Unified Modeling Language (UML), in the course, BC401.
 
-#### Unit 2
+## Unit 2
 
 One of the characteristics of a class in object-oriented programming is that a class statement cannot be nested; that is, you cannot define a class within a class. However, you can define local auxiliary classes for global classes. Read more in this lesson, Creating Local Classes, Task Characteristics of a Class, in the course, BC401.
 
@@ -195,7 +201,7 @@ Read more in the task, Static Constructor of the lesson, Implementing Class Cons
 
 The instance constructor signature can only include importing parameters and exceptions. Read more in the task, Static Constructor of the lesson, Implementing Class Constructors in Local Classes, in course BC401.
 
-#### Unit 3
+## Unit 3
 
 The common components of the subclasses only need to be defined and implemented in the superclass and they are inherited by all the subclasses. The subclasses are in turn different specializations of their superclasses. Therefore, additions (extensions) or changes are permitted in the subclasses. Read more in the task, Characteristics of Generalization and Specialization, in the lesson, Implementing Inheritance, in the course, BC401.
 
@@ -215,7 +221,7 @@ After assigning a superclass type of reference to a subclass reference, clients 
 
 Commonly used elements only need to be stored once in a central location (in the superclass). These elements are then automatically available to all subclasses. Changes made at a later stage have an immediate effect on the subclasses. Implementing Polyphormism using inheritance provides the generic access – one call, multiple implementations. Read more in the task, Usage of Class Hierarchies, in the lesson, Implementing Downcast Using Inheritance, of course BC401.
 
-#### Unit 4
+## Unit 4
 
 You can access instance interface components only by using an object reference whose class implements the interface. But you can access static components by using the interface name. Read more in the task, Access to Interface Components, in the lesson, Defining and Implementing Local Interfaces, in course BC401.
 
@@ -229,7 +235,7 @@ An interface implementation strongly resembles regular inheritance. With regular
 
 In ABAP Objects, interfaces like regular superclasses can include other interfaces. As with regular inheritance, the interface hierarchies can be of any depth. Read more in the Compound Interface in Unified Modeling Language (UML) Notation, in the lesson, Integrating Class Models Using Interfaces, in course BC401.
 
-#### Unit 5
+## Unit 5
 
 Attributes and methods can be defined as interface components. Events can also be defined as interface components. Read more in the task, Event-Controlled Method Calls, in the lesson, Implementing Events in Local Classes, in course BC401.
 
@@ -243,7 +249,7 @@ Events are registered using the `SET HANDLER` statement. Registration is only ac
 
 The visibility of an event defines where the event can be handled: `PUBLIC` - Event can be handled anywhere, `PROTECTED` - Event can only be handled within its own class or its subclasses, `PRIVATE` - Event can only be handled within its own class. Read more in the task, Visibility Sections of Events, in the lesson, Implementing Events in Local Classes, in course BC401.
 
-#### Unit 6
+## Unit 6
 
 As with subroutines, use local classes or local interfaces only within the program in which they are defined and implemented. The CLASS statement is a local declarative statement in the program. Read more in the task, Definition of Global Classes, in the lesson, Creating Global Classes, in course BC401.
 
@@ -253,7 +259,7 @@ To redefine an inherited method, select the relevant method in the list and choo
 
 You can define local types in global classes. All components of the global class have access to these local types, but they are encapsulated if you try to access them from outside. The same applies for local interfaces in global classes. Read more in the task, Local Types in Global Classes, in the lesson, mplementing Inheritance in Global Classes, in course BC401.
 
-#### Unit 7
+## Unit 7
 
 The ALV Grid Control is a tool that you can use to display non-hierarchical lists in a standardized form. Read more in the task, The ALV Grid Control, in the lesson, Using the ABAP List Viewer (ALV), in course BC401.
 
@@ -271,7 +277,7 @@ The name of the BAdl must be investigated before you can implement the BAdI. Whe
 
 The code of a BAdI implementation is stored in the method of an automatically generated customer class. Read more in this lesson, Describing Business Add-Ins (BAdIs), Task BAdI Implementation, of the course, BC401.
 
-#### Unit 8
+## Unit 8
 
 When you use ADT, you log on to an SAP back-end system and work directly with its repository objects. Therefore, the development process is the same as when you use the ABAP Workbench, there is no check-out and check-in of the objects. Read more in the task, Creation of an ABAP Project, in the lesson, Developing Eclipse- Based ABAP Programs, in course BC401.
 
@@ -279,7 +285,7 @@ There are two types of editors in the ABAP development tools: Editors for which 
 
 Quick Fixes (for example, add missing method implementations), Method Extraction, Deleting Unused Variables, Renaming (for example, rename an attribute, a method, a variable, an interface), Changing Visibility (for example, turning local variables into attributes, making private components public). Read more in the task, Quick Fixes, in the lesson, Developing Eclipse-Based ABAP Programs, in course BC401.
 
-#### Unit 9
+## Unit 9
 
 Class-based exceptions are raised either by the `RAISE EXCEPTION` statement or by the runtime environment. Read more in the task, Use of the `RAISE EXCEPTION` Statement, in the lesson, Explaining Class-Based Exceptions, in course BC401.
 
@@ -302,3 +308,9 @@ Techniques to Handle an Exception Caught in a `CATCH` Statement: Continue the pr
 When you handle an exception in a `CATCH` block, use the `RETRY` statement to go back to the `TRY` statement of the respective `TRY-ENDTRY` structure, for example, if the cause for the exception was removed during the handling. Read more in the task, The `RETRY` Statement, in the lesson, Implementing Advanced Exception Handling Techniques, in course BC401.
 
 The exception must be caught with `CATCH` statement using the addition `BEFORE UNWIND`. This ensures that the context of the exception is kept alive for a possible `RESUME`. If the exception is propagated, you must mark it as resumable on all hierarchy levels by using the `RAISING RESUMABLE ( ... )` addition with the name of the exception class inside the brackets. The exception must be raised with the `RAISE RESUMABLE ...` variant of the `RAISE EXCEPTION` statement. Read more in the task, Implementation of Resumable Exceptions, in the lesson, Implementing Advanced Exception Handling Techniques, in course BC401.
+
+## Unit 10
+
+The `SETUP` method is an Instance method, which is executed before every single test method of the class. Read more in the task, Text Fixtures, in the lesson, Unit Testing with ABAP Unit, in course BC401.
+
+Typically, test coding is generated only in development and test systems. In production systems, test classes are excluded from the load versions to minimize the size of the loads. Each test method is executed independently. Read more in the tasks, Unit Testing and Generation of Test Code, in the lesson, Unit Testing with ABAP Unit, in course BC401.
