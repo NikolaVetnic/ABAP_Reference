@@ -40,6 +40,10 @@ Code snippets and cheat sheets used for learning ABAP programming.
 [Clean ABAP](https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md)
 [Hungarian Notation & Data References Vs Field Symbols](https://www.youtube.com/watch?v=JSMwmiknH5Q)
 
+## Articles
+[Consuming a REST API with ABAP](http://nikolapacekvetnic.rs/?p=1700)
+[Using Mylyn 3.23 with Eclipse ADT](http://nikolapacekvetnic.rs/?p=1685)
+
 ## Bibliography
 
 [O'Neill Brian. Getting Started with ABAP, 1st Edition. SAP PRESS, 2015](https://drive.google.com/file/d/1LFz36ssem7Nf19USjY3ylfqtzN-RAPcY/view?usp=sharing)
