@@ -2,15 +2,10 @@
 
 Original meeting notes (in Serbian):
 > sta da bude potpuno staticki, sta ima smisla da bude u instanci (da iinstanciramo zaposlenog), show nema smisla da bude instanca - to je potpuno staticki, mozda delete i update da budu i u instanci
-
-	za sve radnje mora da se selektuju data iz DB, mozda u ovom momentu bi imalo smisla da se koriste DAO klase, pojam buffering-a (buffer-ujemo, kad se krene rad sa programom da se ucita u internu tabelu da se ucita DB i da je uvek ucitan, da ne radimo uvek select) i da se uvek koristi ta internat tabela i na kraju se ona sacuva - dobar best practice 
-
-	u samoj logici programa, kao bafering da postoji globalna tabela koja se ucita pri pokretanju i onda se uvek pita da li je sadrzaj ucitan, poziva se metoda iz DAO-a, a ako tabela ima podatke nista, sve imamo, sve kasnije radimo sa DAO
-
-	LOOP table i ako su slogovi isti u obe preskoce se
-
-	DAO dakle sadrzi celu tabelu, sve podatke iz DB
-```
+> za sve radnje mora da se selektuju data iz DB, mozda u ovom momentu bi imalo smisla da se koriste DAO klase, pojam buffering-a (buffer-ujemo, kad se krene rad sa programom da se ucita u internu tabelu da se ucita DB i da je uvek ucitan, da ne radimo uvek select) i da se uvek koristi ta internat tabela i na kraju se ona sacuva - dobar best practice 
+> u samoj logici programa, kao bafering da postoji globalna tabela koja se ucita pri pokretanju i onda se uvek pita da li je sadrzaj ucitan, poziva se metoda iz DAO-a, a ako tabela ima podatke nista, sve imamo, sve kasnije radimo sa DAO
+> LOOP table i ako su slogovi isti u obe preskoce se
+> DAO dakle sadrzi celu tabelu, sve podatke iz DB
 
 Following is the reason behind the proposed solution.
 
