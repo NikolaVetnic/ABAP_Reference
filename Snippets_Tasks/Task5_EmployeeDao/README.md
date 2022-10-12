@@ -1,8 +1,7 @@
 # Object-oriented `EMPLOYEE` table task implementation utilizing DAOs and DB management class
 
 Original meeting notes (in Serbian):
-> ```
-	sta da bude potpuno staticki, sta ima smisla da bude u instanci (da iinstanciramo zaposlenog), show nema smisla da bude instanca - to je potpuno staticki, mozda delete i update da budu i u instanci
+> sta da bude potpuno staticki, sta ima smisla da bude u instanci (da iinstanciramo zaposlenog), show nema smisla da bude instanca - to je potpuno staticki, mozda delete i update da budu i u instanci
 
 	za sve radnje mora da se selektuju data iz DB, mozda u ovom momentu bi imalo smisla da se koriste DAO klase, pojam buffering-a (buffer-ujemo, kad se krene rad sa programom da se ucita u internu tabelu da se ucita DB i da je uvek ucitan, da ne radimo uvek select) i da se uvek koristi ta internat tabela i na kraju se ona sacuva - dobar best practice 
 
