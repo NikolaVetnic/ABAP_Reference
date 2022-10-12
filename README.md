@@ -35,6 +35,7 @@ Code snippets and cheat sheets used for learning ABAP programming.
 :large_orange_diamond: [Object-oriented `EMPLOYEE` table task implementation](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task1_ObjectOrientedEmployee/ZNV_CL_TASK1_EMPLOYEE.md) alongside [program that uses the mentioned `ZNV_CL_TASK1_EMPLOYEE` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task1_ObjectOrientedEmployee/ZNV_TASK1_EMPLOYEE_MAN_ADV.md)  
 :hash: ['Heroes & Monsters'](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task2_HeroesAndMonsters) object oriented programming assignment  
 :hash: [A simple example of ALV grid using objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_08_AlvGridUsingObjects.md)  
+:large_orange_diamond: [Object-oriented `EMPLOYEE` table task implementation utilizing DAOs and DB management class](https://github.com/NikolaVetnic/ABAP_Reference/tree/master/Snippets_Tasks/Task5_EmployeeDao)
 
 ### Web Programming
 :hash: [Consuming a REST API from within an ABAP program](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task3_RestApiConsumption/ZNV_DEMO_REST_API_W_URL_PARAM.md)  
