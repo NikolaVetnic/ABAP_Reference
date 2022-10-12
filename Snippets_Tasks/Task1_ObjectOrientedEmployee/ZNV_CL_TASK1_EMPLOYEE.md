@@ -1,3 +1,4 @@
+```ABAP
 CLASS znvcl_task1_employee DEFINITION
   PUBLIC
   FINAL
@@ -262,3 +263,4 @@ CLASS znvcl_task1_employee IMPLEMENTATION.
     d_salary = ip_salary.
   ENDMETHOD.
 ENDCLASS.
+```
