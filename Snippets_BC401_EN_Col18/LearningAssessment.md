@@ -154,6 +154,20 @@
 
 2. Which of the following statements about ABAP Unit tests are true? **Answer:** test classes are not generated in a production system, each test method is executed independently of all of the others.
 
+## Unit 11
+
+1. Static `_____________` cannot be abstract because they cannot be redefined. **Answer:** methods.
+
+2. You can prevent a class from being inherited from by defining it as final. **Answer:** true.
+
+3. An association means that at runtime an instance of one class stores references to objects of another class. **Answer:** true.
+
+4. If the visibility of the instance constructor is changed from private to protected, the visibility is extended to all of its subclasses. **Answer:** true.
+
+5. Which of the following are the advantages of a factory method? **Answer:** a factory method can have coding that is executed before the actual instantiation, a class can have more than one factory method with different implementations and signatures.
+
+6. Which of the following concepts is used to provide a class access to the private components of the other class? **Answer:** friendship.
+
 # In More Detail...
 
 ## Unit 1
@@ -314,3 +328,17 @@ The exception must be caught with `CATCH` statement using the addition `BEFORE U
 The `SETUP` method is an Instance method, which is executed before every single test method of the class. Read more in the task, Text Fixtures, in the lesson, Unit Testing with ABAP Unit, in course BC401.
 
 Typically, test coding is generated only in development and test systems. In production systems, test classes are excluded from the load versions to minimize the size of the loads. Each test method is executed independently. Read more in the tasks, Unit Testing and Generation of Test Code, in the lesson, Unit Testing with ABAP Unit, in course BC401.
+
+## Unit 11
+
+In an abstract class, you can define abstract methods among other things. This means that the abstract method cannot be implemented in that class. Instead, it is implemented in a subclass of the class. If the subclass of that class is not abstract, the abstract methods must be redefined and implemented in the subclass Static methods cannot be abstract because they cannot be redefined. Read more in the task, Abstract Classes, in the lesson, Implementing Advanced Object-Oriented Techniques, in course BC401.
+
+Prevent a class from being inherited by using the `FINAL` addition with the class statement. Read more in the task, Final Classes, in the lesson, Implementing Advanced Object-Oriented Techniques, in course BC401.
+
+Associations like aggregations and compositions are an important design principle of object-oriented programming. An association means that at runtime, an instance of one class stores references to objects of another class. Read more in the task, Navigation Methods and Chain Method Calls, in the lesson, Implementing Advanced Object-Oriented Techniques, in course BC401.
+
+If the instance constructor is protected, the visibility is extended to all of its subclasses, that is, the subclasses can also create instances of the class. Read more in the task, Visibility of the Instance Constructor, in the lesson, Implementing Advanced Object-Oriented Techniques, in course BC401.
+
+A factory method can have coding that executes before the actual instantiation. The method can perform checks, read data from the database, or set locks, before actually creating the instance. Classes can have more than one factory method. Each of the methods can have a different implementation and signature as well. The different factory method makes it possible to create instances of the same class based on different information. Read more in the task, Advantages of factory methods, in the lesson, Implementing the Singleton Pattern, in course BC401.
+
+In some cases, classes have to work together so closely that one class needs access to the other classes protected and private components. Or, one class might need to create instances of the other class regardless of the visibility of the constructor. In this case, use the concept of class friendship. Read more in the task, Definition of Friendship Relationships, in the lesson, Implementing Factory Classes Using Friendship, of course BC401.
