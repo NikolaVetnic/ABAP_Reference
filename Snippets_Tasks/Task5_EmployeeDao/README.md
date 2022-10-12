@@ -26,3 +26,7 @@ After consulting [this article](https://gocoding.org/table-buffering-in-sap-abap
 ## DAO
 
 Finally, DAO in my solution is a method of transport for the parameters picked up from the input form and composited into an instance of the appropriate class. In case of actions that only require `ID` it seemed redundant to create DAOs.
+
+# The Same Task Utilising a Local Class
+
+Check out the file [`znv_employee_man_w_lcl_dao.md`]() for details.
