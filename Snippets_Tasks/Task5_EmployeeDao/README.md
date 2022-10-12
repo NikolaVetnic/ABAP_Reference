@@ -29,4 +29,4 @@ Finally, DAO in my solution is a method of transport for the parameters picked u
 
 # The Same Task Utilising a Local Class
 
-Check out the file [`znv_employee_man_w_lcl_dao.md`]() for details.
+Check out the file [`znv_employee_man_w_lcl_dao.md`](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task5_EmployeeDao/znv_employee_man_w_lcl_dao.md) for details.
