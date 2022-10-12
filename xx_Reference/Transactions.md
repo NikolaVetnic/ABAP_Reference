@@ -12,6 +12,7 @@ Often used transactions:
 * `SE80` - Object Navigator
 * `SE91` - Message Maintenance
 * `ST22` - used for inspecting the short dumps
+* `SOST` - SAPconnect (for checking emails sent from within ABAP programs)
 
 ### Possible Entries in the OK Code Field
 
