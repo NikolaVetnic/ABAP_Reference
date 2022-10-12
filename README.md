@@ -37,7 +37,7 @@ Code snippets and cheat sheets used for learning ABAP programming.
 :hash: [A simple example of ALV grid using objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_08_AlvGridUsingObjects.md)  
 
 ### Web Programming
-:hash: [Consuming a REST API from within an ABAP program](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task3_RestApiConsumption/ZNV_EMAIL_SENDING_OO.md)  
+:hash: [Consuming a REST API from within an ABAP program](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task3_RestApiConsumption/ZNV_DEMO_REST_API_W_URL_PARAM.md)  
 :large_orange_diamond: [Sending an email the object-oriented way](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task4_SendingAnEmail/ZNV_EMAIL_SENDING_OO.md)  
 
 ## Links
