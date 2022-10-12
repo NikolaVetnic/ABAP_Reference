@@ -28,14 +28,17 @@ Code snippets and cheat sheets used for learning ABAP programming.
 -   [Working with ABAP Professionally](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/WorkingProfessionally.md)
 
 ## Highlighted Examples
+
 ### Object Oriented Programming
 :hash: [An example of a basic `COUNTER` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_01_znvcl_counter) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_02_znv_counter_class_usage)  
 :hash: [A `COUNTER_COMP` class using two counter objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_03_znvcl_counter_comp) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_04_znv_counter_comp_usage)  
-[Object-oriented `EMPLOYEE` table task implementation](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/C_0001_ZNVCL_TASK1_EMPLOYEE) alongside [program that uses the mentioned `ZNVCL_TASK1_EMPLOYEE` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/0001_ZNV_TASK1_EMPLOYEE_MAN_ADV)  
-['Heroes & Monsters'](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task2_HeroesAndMonsters) object oriented programming assignment  
-[A simple example of ALV grid using objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_08_AlvGridUsingObjects.md)  
-[Consuming a REST API from within an ABAP program](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task3_RestApiConsumption/ZNV_EMAIL_SENDING_OO.md)  
-[Sending an email the object-oriented way](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task4_SendingAnEmail/ZNV_EMAIL_SENDING_OO.md)  
+:large_orange_diamond: [Object-oriented `EMPLOYEE` table task implementation](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/C_0001_ZNVCL_TASK1_EMPLOYEE) alongside [program that uses the mentioned `ZNVCL_TASK1_EMPLOYEE` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/0001_ZNV_TASK1_EMPLOYEE_MAN_ADV)  
+:hash: ['Heroes & Monsters'](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task2_HeroesAndMonsters) object oriented programming assignment  
+:hash: [A simple example of ALV grid using objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_08_AlvGridUsingObjects.md)  
+
+### Web Programming
+:hash: [Consuming a REST API from within an ABAP program](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task3_RestApiConsumption/ZNV_EMAIL_SENDING_OO.md)  
+:large_orange_diamond: [Sending an email the object-oriented way](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task4_SendingAnEmail/ZNV_EMAIL_SENDING_OO.md)  
 
 ## Links
 [ABAP Tips by Henrik Frank](http://www.henrikfrank.dk/abaptips/abapindex.htm)  
