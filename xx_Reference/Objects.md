@@ -1,7 +1,7 @@
 ## ABAP Objects
 
 ABAP Objects is not a new language, but a systematic extension of ABAP. You can use ABAP Objects statements in procedural ABAP programs. ABAP Objects syntax example:
-```
+```ABAP
 	REPORT ... .
 
 	DATA:
