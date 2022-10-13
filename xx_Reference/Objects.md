@@ -52,4 +52,5 @@ Advantages of the OO approach in regards to procedural programming model:
 * [Class-Based Exceptions](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/ClassBasedExceptions.md)
 * [Unit Testing](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/Testing.md)
 * [Object-Oriented Design Patterns](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/Patterns.md)
+* [Using Runtime Type Identification (RTTI)](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/RTTI.md)
 
