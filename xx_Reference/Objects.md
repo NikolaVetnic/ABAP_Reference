@@ -42,7 +42,7 @@ Advantages of the OO approach in regards to procedural programming model:
 * simpler and more secure extension of the software
 
 ## Topics Covered in More Detail
-* [Classes](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/Classes.md?ts=4)
+* [Classes](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/Classes.md)
 * [Inheritance](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/Inheritance.md)
 * [Interfaces](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/Interfaces.md)
 * [Events](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects/Events.md)
