@@ -1,7 +1,7 @@
 ## Inheritance
 
 Example of inheritance implementation in ABAP:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			METHODS set_type
@@ -21,7 +21,7 @@ Example of inheritance implementation in ABAP:
 ```
 
 Example of method redefinition in ABAP:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			METHODS display_attributes.
@@ -46,7 +46,7 @@ In ABAP Objects, the constructor is not inherited like normal methods. Any class
 However, when implementing the subclass constructor, it is mandatory to call the constructor of the immediate superclass. If a subclass has not changed its instance constructor, the constructor is adopted from the superclass. The implementation is also inherited from the superclass.
 
 Example of a subclass constructor calling the superclass constructor:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			METHODS constructor IMPORTING
@@ -93,7 +93,7 @@ The following is a summary of static components and inheritance:
 If you assign a subclass reference to a superclass reference, this subclass ensures that all components that you can access syntactically after the cast assignment are actually available in the instance. The user can address only those methods and attributes from the subclass instance that they can from the superclass instance.
 
 Example in Java:
-```
+```ABAP
 	interface Animal {
 		public void animalSound();
 	}
@@ -112,7 +112,7 @@ Example in Java:
 ```
 
 The following example explains the static and dynamic type of variable:
-```
+```ABAP
 	DATA:
 		go_vehicle TYPE REF TO lcl_vehicle,
 		go_truck TYPE REF TO lcl_truck.
@@ -128,12 +128,12 @@ At runtime a reference variable can either be static or dynamic - in the previou
 A typical use for up-cast assignments is to prepare for generic access. Imagine a scenario where one list should hold all types of vehicles, be it cars, trucks or motorcycles - in such case the list would be a list of vehicles and such a list could hold all the class that inherit the vehicle class.
 
 When objects of different classes (`LCL_BUS`, `LCL_TRUCK` and `LCL_CAR`) are specified as type superclass references (`LCL_VEHICLE`), these objects can be stored in an internal table. The shared components of the subclass objects can then be accessed uniformly. For this example, you need the method `ADD_VEHICLE` to copy the references to the vehicle types into the internal table:
-```
+```ABAP
 	METHODS add_vehicle IMPORTING io_vehicle TYPE REF TO lcl_vehicle.
 ```
 
 In the following example, the up-cast assignment occurs when the vehicle reference is transferred to the formal parameter of `ADD_VEHICLE` method. The shared component is generically accessed within the loop around the internal table containing all of the vehicle references. The `DISPLAY_ATTRIBUTES` method was inherited from the `LCL_VEHICLE` superclass and may have been redefined:
-```
+```ABAP
 	CLASS lcl_rental DEFINITION.
 		PUBLIC SECTION.
 			METHODS add_vehicle IMPORTING io_vehicle TYPE REF TO lcl_vehicle.
@@ -159,7 +159,7 @@ In the following example, the up-cast assignment occurs when the vehicle referen
 ### Polymorphism
 
 Consider the following code:
-```
+```ABAP
 	" lcl_vehicle class
 	METHOD display_attributes.
 		DATA lo_vehicle TYPE REF TO lcl_vehicle.
@@ -186,7 +186,7 @@ Using dynamic function module calls, you can program generically in ABAP, even w
 ### Implementing Downcasts Using Inheritance
 
 Reference variables of the superclass can also refer to the subclass instances at runtime. You may copy this reference back to a reference variable of the subclass type:
-```
+```ABAP
 	DATA:
 		go_vehicle TYPE REF TO lcl_vehicle,
 		go_truck TYPE REF TO lcl_truck,
@@ -200,7 +200,7 @@ Reference variables of the superclass can also refer to the subclass instances a
 To assign a superclass reference to a subclass reference, you must use the downcast assignment operator `MOVE ... ?TO ...` or its short form `?=`. Downcast assignments are used when you need to address specific components of instances and keep the references of these components in variables that are typed on the superclass.
 
 In regards to error handling, consider the following example:
-```
+```ABAP
 	METHOD get_max_cargo.
 		DATA:
 			lo_vehicle TYPE REF TO lcl_vehicle,

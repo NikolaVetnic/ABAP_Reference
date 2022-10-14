@@ -17,7 +17,7 @@ Through this, all exception classes are subdivided into three groups. Depending 
 ### Class-Based Exception Handling
 
 You can handle an exception if the statement that raised it is enclosed inside a `TRY-ENDTRY` control structure:
-```
+```ABAP
 	TRY.
 		... " statements for which exceptions are to be handled
 		CATCH cx_... cx_... cx_... [INTO gx_exc1].
@@ -30,7 +30,7 @@ You can handle an exception if the statement that raised it is enclosed inside a
 ```
 
 Example syntax for handling predefined exceptions:
-```
+```ABAP
 	PARAMETERS:
 		pa_int1 TYPE i,
 		pa_int2 TYPE i.
@@ -64,7 +64,7 @@ To define global exception classes:
 9. define additional attributes in your exception class if necessary (e.g. to use in the exception texts)
 
 Use of the `RAISE EXCEPTION` statement:
-```
+```ABAP
 	" =-=-=-= raise exception with new exception object
 	RAISE EXCEPTION TYPE cx_invalid_planetype " create and raise in one statement
 		EXPORTING
@@ -87,7 +87,7 @@ When using the first variant (with new exception object), it is possible to prov
 ### Exception Texts
 
 All exception classes offer an optional parameter `TEXTID` in their constructors. Use this parameter if more than one message text is available in the exception class and you do not want to raise the exception with the default text:
-```
+```ABAP
 	" =-=-=-= using the default text (const_name = class_name)
 	RAISE EXCEPTION TYPE cx_invalid_planetype
 		EXPORTING
@@ -112,7 +112,7 @@ For each text defined on the Texts tab page, the Class Builder generates a publi
 ### Exception Propagation
 
 The procedure can propagate the exception to its caller, and the caller can then handle the exception or propagate it to its own caller. To propagate an exception use the `RAISING` addition when you define the procedure interface:
-```
+```ABAP
 	METHODS meth_name ... 
 		RAISING cx_... cx_... 
 	" =-=-=-= or 
@@ -147,7 +147,7 @@ After an exception was caught in a `CATCH` statement, you can handle it in many 
 ### The `RETRY` Statement
 
 When you handle an exception in a `CATCH` block, use the `RETRY` statement to go back to the `TRY` statement of the respective `TRY-ENDTRY` structure:
-```
+```ABAP
 	...
 	METHODS
 		constructor
@@ -189,7 +189,7 @@ Use the `RESUME` statement to resume a program immediately after the statement t
 The handler of a given exception checks whether, at runtime a given exception was raised and propagated resumable or not. All exception objects provide public instance attribute `IS_RESUMABLE`, which is set to `’X’` or `’ ’` by the framework. If you resume a non-resumable exception, you cause a runtime error (exception class `CX_SY_ILLEGAL_HANDLER`).
 
 In the following example the method `GET_TECH_ATTR` raises and propagates the exception; the constructor propagates the exception further. All raising and propagating is setup to be resumable. The main program handles the exception with `CATCH BEFORE UNWIND ...`, checks that the exception indeed is resumable, and issues the `RESUME` statement. The system resumes the execution of `GET_TECH_ATTR` immediately after the `RAISE RESUMABLE EXCEPTION` statement is executed:
-```
+```ABAP
 	" =-=-=-= class of object go_plane DEFINITION
 		METHODS:	
 			constructor
@@ -236,7 +236,7 @@ You raise class-based exceptions with one of the following variants of statement
 * `RAISE EXCEPTION <object_ref>` : this statement uses an existing exception object, namely whichever exception object `<object_ref>` points to. This exception object is either created directly, using a `CREATE OBJECT` statement or, more commonly, caught in a previous `CATCH ... INTO ...` statement and pass explicitly to the caller.
 
 In the example, the constructor catches exception `CX_EXC`, which is raised by the `GET_TECH_ATTR` method. The constructor analyzes the exception object, performs necessary adjustments, issues a warning, and so on. The constructor then decides to pass the exception to the main program, where the exception is handled again:
-```
+```ABAP
 	" =-=-=-= class of object go_plane DEFINITION
 		METHODS:	
 			constructor

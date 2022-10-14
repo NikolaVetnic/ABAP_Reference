@@ -1,7 +1,7 @@
 ## Object-Oriented Design Patterns
 
 Abstract classes and abstract methods:
-```
+```ABAP
 	CLASS lcl_... DEFINITION ABSTRACT. " cannot be instantiated
 		...
 	ENDCLASS.
@@ -14,7 +14,7 @@ Abstract classes and abstract methods:
 ```
 
 Final classes and methods:
-```
+```ABAP
 	CLASS lcl_... DEFINITION FINAL " other class cannot inherit from this one
 				[ INHERITING FROM ... ] .
 		...
@@ -30,7 +30,7 @@ Final classes and methods:
 ### Internal Tables with Object References
 
 Object references can be stored in internal tables which is used to implement associations. The following code block gives an example of how we should retrieve a specific object from such a list:
-```
+```ABAP
 	TYPES:
 		BEGIN OF gty_s_vehicle,
 			make TYPE string,
@@ -57,7 +57,7 @@ Object references can be stored in internal tables which is used to implement as
 The example explains how to retrieve a specific object from such a list. The object reference is stored in the table along with some key information (the make and model of the vehicle). The object reference can easily be retrieved through this key information. This technique implies a redundant storage of information as the key values are already stored in attributes of the object.
 
 Read access using public attributes:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			DATA:
@@ -84,7 +84,7 @@ The key information redundancy can be avoided by making the key attributes publi
 ### Other Patterns
 
 Navigation methods and chain method calls example (this technique is not restricted to the chaining of two methods - in more complicated object models, it is possible to chain any number of methods):
-```
+```ABAP
 	DATA:
 		go_rental TYPE REF TO lcl_rental,
 		go_vehicle TYPE REF TO lcl_vehicle.
@@ -97,7 +97,7 @@ Navigation methods and chain method calls example (this technique is not restric
 ```
 
 Creating objects with the `NEW` operator:
-```
+```ABAP
 	DATA:
 		go_vehicle TYPE REF TO lcl_Vehicle.
 	CREATE OBJECT go_vehicle
@@ -122,7 +122,7 @@ Creating objects with the `NEW` operator:
 ```
 
 It is possible to use the `NEW` operator at many expression positions, especially as an actual parameter of a method:
-```
+```ABAP
 	" =-=-=-= NEW at APPEND workarea position
 	DATA:
 		gt_vehicles TYPE TABLE OF REF TO lcl_vehicle.
@@ -150,7 +150,7 @@ It is possible to use the `NEW` operator at many expression positions, especiall
 ```
 
 You can use the expression `IS INSTANCE OF` to find out whether an object reference points to an instance of a particular class:
-```
+```ABAP
 	DATA:
 		gt_vehicles TYPE TABLE OF REF TO lcl_Vehicle,
 		go_vehicle TYPE REF TO lcl_vehicle,
@@ -164,7 +164,7 @@ You can use the expression `IS INSTANCE OF` to find out whether an object refere
 ```
 
 The control structure CASE TYPE OF allows you to distinguish between different possible types of an object reference:
-```
+```ABAP
 	DATA:
 		gt_vehicles TYPE TABLE OF REF TO lcl_vehicle,
 		go_vehicle TYPE REF TO lcl_vehicle,
@@ -183,7 +183,7 @@ The control structure CASE TYPE OF allows you to distinguish between different p
 ```
 
 We can restrict the visibility of the instance constructor. If the visibility of the instance constructor is restricted, the `CREATE OBJECT` statements to instantiate this class is only allowed in certain parts of the coding:
-```
+```ABAP
 	CLASS lcl_... DEFINITION CREATE PUBLIC / PROTECTED / PRIVATE.
 		...
 	ENDCLASS.

@@ -3,7 +3,7 @@
 With a BAdI (Business Add-Ins), an SAP application provides the enhancement option through an interface and an adapter class implementing that interface. The interface can be implemented by several users in the delivery chain, thus, multiple BAdI implementations are possible. Additionally, a BAdI implementation itself can provide another BAdI.
 
 When you define a BAdI, you must specify an interface (`IF_EX_<badi>`) with corresponding formally defined methods. The adapter class that is automatically generated during the interface definition (`CL_EX_<badi>`) has, among other capabilities, the function of calling all active implementations of the BAdI. When you have several active implementations, there is no predefined processing sequence:
-```
+```ABAP
 	INTERFACE IF_EX_<badi>. " BAdI interface
 		DATA: a1 ...
 
@@ -34,7 +34,7 @@ When you define a BAdI, you must specify an interface (`IF_EX_<badi>`) with corr
 ```
 
 The following block of code shows an example of a BAdI call:
-```
+```ABAP
 	REPORT <program_using_badi>.
 
 	DATA: gb_adapter TYPE REF TO IF_EX_<badi>.

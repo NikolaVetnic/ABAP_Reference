@@ -18,7 +18,7 @@ Advantages of unit testing:
 ABAP Unit tests are realized as local test classes with the required test methods in your application programs. You define local test classes by adding the `FOR TESTING` addition in the class definition. Further additions are used to classify the tests according to their time consumption and the impact on the data integrity.
 
 Definition of ABAP Unit Test classes:
-```
+```ABAP
 	CLASS lcl_mytests DEFINITION
 					FOR TESTING " test class definition
 					DURATION ... " time consumption (LOW, MEDIUM or HIGH)
@@ -37,7 +37,7 @@ Test methods are defined as instance methods without parameters (preferably priv
 A test method contains program code to be executed for testing, followed by a check of the results derived from the test code. The content of the variables to be tested is compared against expected values by calling standard check methods of service class `CL_ABAP_UNIT_ASSERT` (static methods `ASSERT_...`). If the respective values do not correspond to the expectation, the check method can enter a note, a warning, or even an error in the test log.
 
 Implementation of ABAP Unit Test methods:
-```
+```ABAP
 	CLASS lcl_mytests DEFINITION FOR TESTING ...
 		PRIVATE SECTION.
 			METHODS my_test_1 FOR TESTING.

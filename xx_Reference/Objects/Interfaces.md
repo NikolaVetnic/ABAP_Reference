@@ -5,7 +5,7 @@ Interfaces can be seen as superclasses that cannot be instantiated, do not conta
 In ABAP Objects, interfaces primarily serve to define uniform interface protocols for services. Various classes can implement these services in different ways, but you need to keep the same semantics.
 
 Generalization and specialization relationships using interfaces:
-```
+```ABAP
 	INTERFACE lif_partner.
 		METHODS display_partner.
 	ENDINTERFACE.
@@ -23,12 +23,12 @@ Generalization and specialization relationships using interfaces:
 ```
 
 Access to interface components:
-```
+```ABAP
 	DATA go_rental TYPE REF TO lcl_rental.
 ```
 
 Simplifying access to interface components with alias names:
-```
+```ABAP
 	INTERFACE lif_partner.
 		METHODS display_partner.
 		DATA gv_partner_id TYPE n LENGTH 10.
@@ -52,7 +52,7 @@ Simplifying access to interface components with alias names:
 ```
 
 An interface reference can only refer to instances of classes that have implemented the interface because interfaces themselves cannot be instantiated (a typical area of use for upcast assignments is preparation for generic access):
-```
+```ABAP
 	DATA:
 		go_rental TYPE REF TO lcl_rental,
 		go_partner TYPE REF TO lif_partner.
@@ -61,7 +61,7 @@ An interface reference can only refer to instances of classes that have implemen
 ```
 
 To assign an interface reference to a class reference where the class has implemented the interface, you must use the down-cast assignment operator `MOVE ... ?TO ...` or its short form `?=`:
-```
+```ABAP
 	METHOD book_flight.
 		DATA:
 			lo_carrier TYPE REF TO lcl_carrier,
@@ -77,7 +77,7 @@ To assign an interface reference to a class reference where the class has implem
 ```
 
 Interfaces like regular superclasses can include other interfaces. As with regular inheritance, the interface hierarchies can be of any depth. The including interface is a specialization of the included interface. The including interface is known as a compound interface, represents an extension of the included interface:
-```
+```ABAP
 	INTERFACE lif_partner.
 		METHODS display_partner.
 	ENDINTERFACE.
@@ -103,12 +103,12 @@ Interfaces like regular superclasses can include other interfaces. As with regul
 ```
 
 As with regular inheritance, the implementing class only needs to list the compound interface in order to integrate all components. Nevertheless, the components of the component interfaces keep their original names:
-```
+```ABAP
 	component_interface_name~component_name
 ```
 
 Addressing components in compound interfaces syntax:
-```
+```ABAP
 	DATA:
 		go_hotel TYPE REF TO lcl_hotel,
 		go_partner TYPE REF TO lif_partner,
