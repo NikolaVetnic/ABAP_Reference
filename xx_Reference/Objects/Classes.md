@@ -3,7 +3,7 @@
 Classes have **public** (usually methods and events, accessible from outside of a class) and **private** (data types and attributes, inaccessible from outside) components. 
 
 Class needs a `DEFINITION` and `IMPLEMENTATION`:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 	...
 	ENDCLASS.
@@ -16,7 +16,7 @@ Class needs a `DEFINITION` and `IMPLEMENTATION`:
 ### Attributes
 
 Attributes contain the data that can be stored in the objects of a class and can be elementary data objects, structured or table-type objects. They can also consist of data types (local or global) or reference types:
-```
+```ABAP
 	CLASS class_name DEFINITION.
 		...
 		TYPES: ... .
@@ -37,7 +37,7 @@ Attributes contain the data that can be stored in the objects of a class and can
 In class `DATA` statements, you can only use the `TYPE` addition to refer to data types. The `LIKE` addition is only allowed for local data objects or `SY` fields. The `READ-ONLY` addition indicates that a public attribute declared with `DATA` can be read from outside (however, the attribute can only be changed by methods in the same class). With `TYPE REF TO`, you can type an attribute as a reference. If you use the `TYPES` statement in the class definition, you are declaring a local type, which is specific to this local class.
 
 Attributes can be private (defined in the `PRIVATE SECTION`) and public (defined in the `PUBLIC SECTION`):
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 		...
@@ -56,7 +56,7 @@ Another division of attributes is in regards to whether they are static or not:
 ### Methods
 
 Method definition syntax:
-```
+```ABAP
 	CLASS classname DEFINITION.
 		...
 			METHODS method_name
@@ -79,7 +79,7 @@ Method definition syntax:
 Methods also support the `SY-SUBRC` return value, but only when you define the signature exceptions with the use of `EXCEPTIONS`. Use the `RAISING` addition in place of `EXCEPTIONS` to propagate class-based exceptions. The caller then handles these class-based exceptions without evaluating the `SY-SUBRC` return value.
 
 Methods can also be private or public:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			METHODS set_type IMPORTING iv_make  TYPE string
@@ -113,7 +113,7 @@ Methods can also be:
 * static methods - uses the `CLASS-METHODS` syntax keyword
 
 Example:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			METHODS set_type ... .
@@ -132,7 +132,7 @@ Example:
 ### Objects
 
 The statement `DATA go_vehicle1 TYPE REF TO lcl_vehicle` defines a reference variable - this variable can point to instances of the class `lcl_vehicle`. The initial value of a reference variable is an empty reference, that is, the reference points to nothing at all:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			...
@@ -159,7 +159,7 @@ The statement `DATA go_vehicle1 TYPE REF TO lcl_vehicle` defines a reference var
 Independent references are references that have not been defined within a class. If no independent reference points to an object it can no longer be accessed - all such objects are deleted by the garbage collector.
 
 To keep several objects from the same class in your program, you can define an internal table with one column that contains the object references for this class. To maintain the objects in the table, you can use statements for internal tables, such as `APPEND`, `READ`, or `LOOP`:
-```
+```ABAP
 	DATA:
 		go_vehicle  TYPE REF TO lcl_vehicle,
 		gt_vehicles TYPE TABLE OF REF TO lcl_vehicle.
@@ -169,7 +169,7 @@ To keep several objects from the same class in your program, you can define an i
 ```
 
 Example of aggregation:
-```
+```ABAP
 	DATA:
 		go_vehicle TYPE REF TO lcl_vehicle,
 		go_wheel   TYPE REF to lcl_wheel.
@@ -186,7 +186,7 @@ Example of aggregation:
 ### Accessing Methods and Attributes
 
 Syntax for calling instance methods:
-```
+```ABAP
 	CALL METHOD ref->method_name
 		EXPORTING  iv_par = val_ex ...
 		IMPORTING  ev_par = val_im ...
@@ -215,7 +215,7 @@ Syntax for calling instance methods:
 ```
 
 Syntax for static method calls:
-```
+```ABAP
 	CALL METHOD class_name=>method_name
 		EXPORTING ... EXCEPTIONS ... . " all as above
 
@@ -228,7 +228,7 @@ Syntax for static method calls:
 ```
 
 Methods that have a `RETURNING` parameter are described as functional methods. The `RETURNING` parameter must always be passed by value - `RETURNING VALUE(...)` - and not by reference:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			METHODS get_average_fuel
@@ -257,7 +257,7 @@ Methods that have a `RETURNING` parameter are described as functional methods. T
 ```
 
 You can access public attributes from outside the class in the same way as method calls:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			DATA:
@@ -282,7 +282,7 @@ You can access public attributes from outside the class in the same way as metho
 ### Constructors
 
 The instance constructor is a special instance method in a class and is always named `CONSTRUCTOR`. The constructor is automatically called at runtime with the `CREATE OBJECT` statement. The constructor signature can only include importing parameters and exceptions (no instances are created and no main memory space is occupied in case of exceptions):
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			METHODS
@@ -321,7 +321,7 @@ The instance constructor is a special instance method in a class and is always n
 These are special static methods and are always named `CLASS_CONSTRUCTOR`. The static constructor is executed only once per program. The static constructor is called by the system automatically before the class is first accessed and before the first execution of the following actions: `CREATE OBJECT` command, accessing the static attributes or calling static methods, registering the event handler method for an event in the class.
 
 Example:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			CLASS-METHODS
@@ -354,7 +354,7 @@ When you define static constructors, always consider the following points:
 ### Self-Reference
 
 You can address an object itself by using the predefined reference variable `ME` within its instance methods:
-```
+```ABAP
 	CLASS lcl_vehicle DEFINITION.
 		PUBLIC SECTION.
 			...
