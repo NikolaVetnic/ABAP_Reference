@@ -62,6 +62,8 @@ Results of actions taken are as follows:
 
 Original meeting notes (in Serbian):
 > Sledeci korak bi bio da se kreira View Cluster - ako bismo dodali dodali jos objekata/tabela u nas sistem, ako bismo zeleli sve da ih imamo u jednom app-u zapakujemo ih u View Cluster (svaki Generator zavrsi u View Cluster-u gde se ustvari podaci mogu kreirati bez da se izvrsava program).
+> 
+> View Cluster TCode - `SE54`
 
 ## 5.1 Solution
 
