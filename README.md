@@ -33,14 +33,18 @@ Code snippets and cheat sheets used for learning ABAP programming.
 ### Object Oriented Programming
 :hash: [An example of a basic `COUNTER` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_01_znvcl_counter) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_02_znv_counter_class_usage)  
 :hash: [A `COUNTER_COMP` class using two counter objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_03_znvcl_counter_comp) along with a [program that uses it](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_04_znv_counter_comp_usage)  
-:large_orange_diamond: [Object-oriented `EMPLOYEE` table task implementation](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task1_ObjectOrientedEmployee/ZNV_CL_TASK1_EMPLOYEE.md) alongside [program that uses the mentioned `ZNV_CL_TASK1_EMPLOYEE` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task1_ObjectOrientedEmployee/ZNV_TASK1_EMPLOYEE_MAN_ADV.md)  
-:hash: ['Heroes & Monsters'](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task2_HeroesAndMonsters) object oriented programming assignment  
+:large_orange_diamond: [Object-oriented `EMPLOYEE` table task implementation](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task0001_ObjectOrientedEmployee/ZNV_CL_TASK1_EMPLOYEE.md) alongside [program that uses the mentioned `ZNV_CL_TASK1_EMPLOYEE` class](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task1_ObjectOrientedEmployee/ZNV_TASK1_EMPLOYEE_MAN_ADV.md)  
+:hash: ['Heroes & Monsters'](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task0002_HeroesAndMonsters) object oriented programming assignment  
 :hash: [A simple example of ALV grid using objects](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_BC401_EN_Col18/bc401_08_AlvGridUsingObjects.md)  
-:large_orange_diamond: [Object-oriented `EMPLOYEE` table task implementation utilizing DAOs and DB management class](https://github.com/NikolaVetnic/ABAP_Reference/tree/master/Snippets_Tasks/Task5_EmployeeDao)
+:large_orange_diamond: [Object-oriented `EMPLOYEE` table task implementation utilizing DAOs and DB management class](https://github.com/NikolaVetnic/ABAP_Reference/tree/master/Snippets_Tasks/Task0005_EmployeeDao)
+
+### SAP GUI and Databases
+
+:large_orange_diamond: [Introduction to HCM, `EMPLOYEE` cont'd, Database Settings, Maintenance View, View Cluster](https://github.com/NikolaVetnic/ABAP_Reference/tree/master/Snippets_Tasks/Task0006_Various)
 
 ### Web Programming
-:hash: [Consuming a REST API from within an ABAP program](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task3_RestApiConsumption/ZNV_DEMO_REST_API_W_URL_PARAM.md)  
-:large_orange_diamond: [Sending an email the object-oriented way](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task4_SendingAnEmail/ZNV_EMAIL_SENDING_OO.md)  
+:hash: [Consuming a REST API from within an ABAP program](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task0003_RestApiConsumption/ZNV_DEMO_REST_API_W_URL_PARAM.md)  
+:large_orange_diamond: [Sending an email the object-oriented way](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/Snippets_Tasks/Task0004_SendingAnEmail/ZNV_EMAIL_SENDING_OO.md)  
 
 ## Links
 [ABAP Tips by Henrik Frank](http://www.henrikfrank.dk/abaptips/abapindex.htm)  
