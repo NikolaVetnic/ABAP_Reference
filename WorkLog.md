@@ -87,4 +87,8 @@
 
 `20 Oct 2022`: wasted much of the day due to login credentials not being setup; Michael and I managed to resolve it near the end of the work day.
 
-`21 Oct 2022`: 
+`21 Oct 2022`: completed the tasks given on the j&s-soft Balkan meeting on Monday, cont'd with **ABAP Workbench Foundations** e-book taken from Learning Hub.
+
+---
+
+ 
