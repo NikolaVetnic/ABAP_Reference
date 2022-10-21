@@ -11,14 +11,14 @@ Requires no key.
 The most basic table type (akin to transparent table), typically data is selected from a database and stored in a standard table. 
 
 Anytime you store data from a SELECT statement in a table created using inline data declarations, you store the data in a standard table:
-```
+```ABAP
 	SELECT *
 	INTO TABLE @DATA(results)
 	FROM sflight.
 ```
 
 The `SELECT` statement parts:
-```
+```ABAP
 	SELECT <fields> " which columns?
 	FROM <table> " which tables?
 	INTO <target> " where to?
@@ -26,20 +26,20 @@ The `SELECT` statement parts:
 ```
 
 Creating a standard table containing the same structure of the `sflight` table:
-```
+```ABAP
 	DATA: 
 		t_sflight TYPE STANDARD TABLE OF sflight.
 ```
 
 When using a structure based on a transparent table, that table is not created with any keys defined. Defining a key is optional, but a key is required to complete some of the commands that we will explore later in this section. A standard table can have a nonunique primary key added (no exception is thrown in case of inserting two rows with the same key). A key is defined by adding the KEY keyword followed by the fields that make up the key:
-```
+```ABAP
 	DATA: 
 		t_flight TYPE STANDARD TABLE OF sflight
 		WITH KEY carrid connid fldate.
 ```
 
 If you created a table using the LIKE keyword, you will not be able to define keys for that table. However, any keys defined in the variable being copied, would also exist in the variable defined using `LIKE` as shown below:
-```
+```ABAP
 	DATA:
 		t_flight TYPE STANDARD TABLE OF sflight
 		WITH KEY carrid connid fldate,
@@ -48,7 +48,7 @@ If you created a table using the LIKE keyword, you will not be able to define ke
 ```
 
 It is also possible to create tables of custom data structures without the use of a table type using `TYPE STANDARD TABLE OF` which can then be used to store results from a `SELECT` statement:
-```
+```ABAP
 	TYPES:
 	    BEGIN OF ynv_my_type,
 	        carrid TYPE sflight-carrid,
@@ -66,7 +66,7 @@ It is also possible to create tables of custom data structures without the use o
 #### `READ TABLE`
 
 It is possible to read a single record from a standard table using the `READ TABLE` keyword, thus reading either `INTO` a var or `ASSIGNING` a field symbol:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE STANDARD TABLE OF sflight,
 	    s_flight TYPE sflight.
@@ -86,7 +86,7 @@ It is possible to read a single record from a standard table using the `READ TAB
 ```
 
 Using inline data declarations (the first record’s index is 1, not 0):
-```
+```ABAP
 	SELECT *
 	FROM sflight
 	INTO TABLE @DATA(t_flights).
@@ -100,7 +100,7 @@ When you use the `INTO` keyword with a variable, a copy of the record is made an
 #### `LOOP AT`
 
 Just as `READ TABLE` is used to look at a single record from within a standard table, `LOOP AT` is used to cycle through all of the records within a standard table and insert them into a variable of field symbol:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE STANDARD TABLE OF sflight,
 	    s_flight TYPE sflight.
@@ -122,8 +122,10 @@ Just as `READ TABLE` is used to look at a single record from within a standard t
 	ENDLOOP.
 ```
 
+The statement `LOOP AT table_name INTO var_name. ... ENDLOOP.` is used to loop through the table rows and place them into `var_name` for access within the loop.
+
 Inline data declarations are again a possibility:
-```
+```ABAP
 	SELECT *
 	FROM sflight
 	INTO TABLE @DATA(t_flights).
@@ -141,7 +143,7 @@ Inline data declarations are again a possibility:
 #### `INSERT` and `MODIFY`
 
 When inserting it is necessary to use a structure of the same type as table:
-```
+```ABAP
 	DATA:
 	    s_flight_row TYPE sflight,
 	    t_flights TYPE STANDARD TABLE OF sflight.
@@ -154,7 +156,7 @@ When inserting it is necessary to use a structure of the same type as table:
 
 
 If there are two tables of the same structure, there’s a quick way to combine them without having to iterate through each record:
-```
+```ABAP
 	DATA:
 	    t_flights1 TYPE STANDARD TABLE OF sflight,
 	    t_flights2 TYPE STANDARD TABLE OF sflight,
@@ -171,7 +173,7 @@ If there are two tables of the same structure, there’s a quick way to combine 
 ```
 
 It is possible to change multiple rows of a standard table with `MODIFY` keyword by adding the `TRANSPORTING` and `WHERE` commands:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE STANDARD TABLE OF sflight,
 	    s_flight TYPE sflight.
@@ -193,7 +195,7 @@ It is possible to change multiple rows of a standard table with `MODIFY` keyword
 #### `DELETE`
 
 If you already have the row that you’re using in a local data structure, you can use that structure to indicate the row that needs to be deleted. The `DELETE TABLE` command uses the primary key of the structure to find and delete the corresponding row from the standard table. If no primary key is defined when the standard table is defined, then the key is made up of the entire row, meaning the structure must match an entire row of the table:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE STANDARD TABLE OF sflight.
 
@@ -209,7 +211,7 @@ If you already have the row that you’re using in a local data structure, you c
 ```
 
 When you have a key defined in the table, you can use a structure that only has the key defined to delete the corresponding record from the standard table:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE STANDARD TABLE OF sflight WITH KEY carrid connid fldate,
 	    s_flight TYPE sflight.
@@ -226,13 +228,13 @@ When you have a key defined in the table, you can use a structure that only has 
 ```
 
 You can also specify the key in the DELETE command itself:
-```
+```ABAP
 	DELETE TABLE t_flights WITH TABLE KEY 
 		carrid = 'AA' connid = 17 fldate = '20150107'.
 ```
 
 You can also delete rows in a standard table based on a WHERE clause:
-```
+```ABAP
 	DELETE t_flights WHERE carrid = ‘AA’ AND connid = 17.
 ```
 
@@ -243,7 +245,7 @@ Requires either unique or non-unique keys.
 A sorted table can be searched through at a quicker rate than a standard table, but will be slightly slower when inserting records than a standard table.
 
 When defining a sorted table, using a unique key is will cause an exception to occur if a record is inserted with that uses an existing key:
-```
+```ABAP
 	DATA:
 	    t_sorted_flights1 TYPE SORTED TABLE OF sflight
 	        WITH UNIQUE KEY carrid connid fldate,
@@ -251,7 +253,7 @@ When defining a sorted table, using a unique key is will cause an exception to o
 ```
 
 We can also sort standard tables using the `SORT` keyword (can’t sort a table of the sorted type):
-```
+```ABAP
 	DATA:
 	    t_flights TYPE STANDARD TABLE OF sflight.
     
@@ -263,7 +265,7 @@ We can also sort standard tables using the `SORT` keyword (can’t sort a table 
 ```
 
 An insert using a key example (using an index could cause sort order exception):
-```
+```ABAP
 	DATA:
 	    t_flights TYPE SORTED TABLE OF sflight
 	        WITH NON-UNIQUE KEY carrid connid fldate,
@@ -281,7 +283,7 @@ An insert using a key example (using an index could cause sort order exception):
 ```
 
 Changing rows using the sorted table’s primary key will always work, and the mass change `MODIFY` is acceptable as long as the field being changed is not part of the sorted table’s key:
-```
+```ABAP
 	MODIFY TABLE t_flights FROM s_flight. " uses primary key
 ```
 
@@ -291,7 +293,7 @@ because deleting rows will preserve the sorted order.
 #### `BINARY SEARCH`
 
 `BINARY SEARCH` searches through the (sorted) table much quicker than `READ TABLE` or `LOOP AT`:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE SORTED TABLE OF sflight
 	        WITH UNIQUE KEY carrid connid fldate.
@@ -313,12 +315,12 @@ because deleting rows will preserve the sorted order.
 #### `DELETE ADJACENT DUPLICATES FROM`
 
 Delete records with the same primary key value that are adjacent to each other (if no key is defined, the key will be the entire record):
-```
+```ABAP
 	DELETE ADJACENT DUPLICATES FROM t_flights.
 ```
 
 You can use the COMPARING command to define the specific fields that you want to use to find duplicates, or COMPARING ALL FIELDS to delete only records that completely match:
-```
+```ABAP
 	DELETE ADJACENT DUPLICATES FROM t_flights COMPARING ALL FIELDS.
 	...
 	DELETE ADJACTENT DUPLICATES FROM t_flights COMPARING connid fldate.
@@ -329,7 +331,7 @@ You can use the COMPARING command to define the specific fields that you want to
 Requires unique keys.
 
 The actual table contents are stored unsorted in memory, and a hash board is created that contains the unique keys for the data - the table can thus be sorted in any order without violating the hash board and unique key:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE HASHED TABLE OF sflight
 	        WITH UNIQUE KEY carrid connid fldate.
@@ -342,7 +344,7 @@ The actual table contents are stored unsorted in memory, and a hash board is cre
 ```
 
 Hashed tables can be read at a rate much faster than standard or sorted tables (requires the entire key):
-```
+```ABAP
 	DATA:
 	    t_flights TYPE HASHED TABLE OF sflight
 	        WITH UNIQUE KEY carrid connid fldate.
@@ -360,7 +362,7 @@ We can also use `READ TABLE...WITH KEY` instead of `WITH TABLE KEY` to avoid usi
 #### Inserting, Changing and Deleting Hashed Table Rows
 
 The only way to `INSERT` or `MODIFY` a row is by utilizing the table key:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE HASHED TABLE OF sflight
 	        WITH UNIQUE KEY carrid connid fldate,
@@ -395,7 +397,7 @@ Summary of the performance diferences among the different table types:
 ### Copying Table Data
 
 Using the assignment operator `=`:
-```
+```ABAP
 	DATA:
 	    t_table1 TYPE TABLE OF sflight,
 	    t_table2 TYPE TABLE OF sflight.
@@ -408,7 +410,7 @@ Using the assignment operator `=`:
 ```
 
 The following snippet copies all of the records in table `t_sflight` into table `t_flight_price`, even though table `t_flight_price` contains only a subset of the fields in `t_sflight`:
-```
+```ABAP
 	TYPES:
 	    BEGIN OF ynv_flight_price,
 	        carrid TYPE sflight-carrid,
@@ -428,7 +430,7 @@ The following snippet copies all of the records in table `t_sflight` into table 
 ### Displaying Data from Working Memory
 
 A common ABAP program is a report that will pull a selection of data from the database and display the results to the user. We can display the results to the user using an ALV grid:
-```
+```ABAP
 	DATA:
 	    t_flights TYPE STANDARD TABLE OF sflight,
 	    gr_alv TYPE REF TO cl_salv_table.
@@ -441,7 +443,7 @@ A common ABAP program is a report that will pull a selection of data from the da
 ```
 
 With inline data declarations:
-```
+```ABAP
 	SELECT * FROM sflight INTO TABLE @DATA(t_flights).
 
 	cl_salv_table=>factory( importing r_salv_table = DATA(gr_alv)

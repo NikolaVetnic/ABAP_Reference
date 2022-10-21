@@ -12,7 +12,7 @@
 
 5. You can group all characteristics and behaviors of similar objects into one central class. **Answer:** true.
 
-### Unit 2
+## Unit 2
 
 1. The CLASS statement can be nested, that is, you can define a class within a class.**Answer:** false.
 
@@ -167,6 +167,28 @@
 5. Which of the following are the advantages of a factory method? **Answer:** a factory method can have coding that is executed before the actual instantiation, a class can have more than one factory method with different implementations and signatures.
 
 6. Which of the following concepts is used to provide a class access to the private components of the other class? **Answer:** friendship.
+
+## Unit 12
+
+1. Which one of the following classes is used to identify the attributes of a structure using Run Time Type Identification? **Answer:** `CL_ABAP_STRUCTDESCR`.
+
+2. Which one of the following attributes of `CL_ABAP_STRUCTDESCR` is used to describe the individual components of any relevant structure? **Answer:** `COMPONENTS`.
+
+## Unit 13
+
+1. What should you do to use the persistence service for objects? **Answer:** you must create their types as persistent classes in the Class Builder.
+
+2. Which class-based exception is triggered if a persistent object of the same persistent class with the same key attributes already exists in the program? **Answer:** `CX_OS_OBJECT_EXISTING`.
+
+3. How can you create a new instance of a persistent class? **Answer:** by using the `CREATE_PERSISTENT` method of the class agent.
+
+4. How can you load a single persistent object back into a program? **Answer:** by using the `GET_PERSISTENT` method.
+
+5. How can you retrieve a larger set of persistent objects? **Answer:** by using the Query Service.
+
+## Unit 14
+
+1. In the case study, when we use one class to define the buffer for the waiting lists for all flights, what concept are we implementing? **Answer:** singleton class. 
 
 # In More Detail...
 
@@ -342,3 +364,25 @@ If the instance constructor is protected, the visibility is extended to all of i
 A factory method can have coding that executes before the actual instantiation. The method can perform checks, read data from the database, or set locks, before actually creating the instance. Classes can have more than one factory method. Each of the methods can have a different implementation and signature as well. The different factory method makes it possible to create instances of the same class based on different information. Read more in the task, Advantages of factory methods, in the lesson, Implementing the Singleton Pattern, in course BC401.
 
 In some cases, classes have to work together so closely that one class needs access to the other classes protected and private components. Or, one class might need to create instances of the other class regardless of the visibility of the constructor. In this case, use the concept of class friendship. Read more in the task, Definition of Friendship Relationships, in the lesson, Implementing Factory Classes Using Friendship, of course BC401.
+
+## Unit 12
+
+You can identify the attributes of a structure using the subclass `CL_ABAP_STRUCTDESCR` from RTTI. Read more in the task, Structured Type RTTI Descriptions, in the lesson, Using Runtime Type Identification (RTTI), in course BC401.
+
+The `CL_ABAP_STRUCTDESCR` class has a `COMPONENTS` attribute that you can use to describe the components of the relevant structure. Read more in the task, Structured Type RTTI Descriptions, in the lesson, Using Runtime Type Identification (RTTI), in course BC401.
+
+## Unit 13
+
+To use the persistence service for objects, you must create their types as persistent classes in Class Builder. The term persistent class indicates that the persistence service manages the instances of the class and their state. Read more in the task, Persistence Services, in the lesson, Implementing Persistent Objects, in course BC401.
+
+If a persistent object of the same persistence class with the same key attributes already exists in the program, the class-based exception `CX_OS_OBJECT_EXISTING` is triggered. Read more in the task, Creation of Persistent Objects, in the lesson, Implementing Persistent Objects, in course BC401.
+
+In the program, you need to define a reference variable with the type of the class actor and fill it with the reference from the static attribute `AGENT`. You can then create a new instance of the persistent class using its method `CREATE_PERSISTENT`. Read more in the task, Creation of Persistent Objects, in the lesson, Implementing Persistent Objects, in course BC401.
+
+You can load a single persistent object back into a program using the `GET_PERSISTENT` method. When doing so, you must pass the key values to the interface parameters so that you can uniquely restore the object. Read more in the task, Access to Persistent Objects, in the lesson, Implementing Persistent Objects, in course BC401.
+
+You can retrieve a larger set of persistent objects by using the Query Service. It is possible to provide a selection, much like the `WHERE`-clause of a `SELECT` statement, as well as the ordering criteria. Read more in the task, Access to Persistent Objects, in the lesson, Implementing Persistent Objects, in course BC401.
+
+## Unit 14
+
+You could simply define the buffer for the waiting lists in the main program as a normal internal table. However, you want to use one class in this case and therefore the singleton concept is used. Read more in the task, Requirements of an Object-Oriented Case Study, in the lesson, Developing a Comprehensive Object-Oriented Application, in course BC401.

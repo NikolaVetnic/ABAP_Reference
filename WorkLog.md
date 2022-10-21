@@ -67,4 +67,24 @@
 
 ---
 
-`10 Oct 2022`:
+`10 Oct 2022`: completed Unit 10 of **ABAP Objects** e-book.
+
+`11 Oct 2022`: completed Unit 11 of **ABAP Objects** e-book.
+
+`12 Oct 2022`: completed Unit 12 of **ABAP Objects** e-book.
+
+`13 Oct 2022`: completed Unit 13 of **ABAP Objects** e-book.
+
+`14 Oct 2022`: completed Unit 14 of **ABAP Objects** e-book; had several short meetings with j&s-soft Balkan team.
+
+---
+
+`17 Oct 2022`: worked on the employee assignment, had a meeting with j&s-soft Balkan team.
+
+`18 Oct 2022`: mostly worked with helping out colleagues from j&s-soft Balkan team.
+
+`19 Oct 2022`: had a short meeting with j&s-soft Balkan team; had tons of trouble with the VPN login after which Michael has reset all the login settings, which I have not managed to setup before the end of the day - will continue tomorrow.
+
+`20 Oct 2022`: wasted much of the day due to login credentials not being setup; Michael and I managed to resolve it near the end of the work day.
+
+`21 Oct 2022`: 

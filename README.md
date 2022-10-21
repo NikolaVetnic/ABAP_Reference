@@ -15,6 +15,7 @@ Code snippets and cheat sheets used for learning ABAP programming.
 -   [Error Handling](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ErrorHandling.md)
 -   [Flow Control](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/FlowControl.md)
 -   [Infotypes](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Infotypes.md)
+-   [Laravel Endpoint Naming](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/LaravelEndpointNaming.md)
 -   [Modularization](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Modularization.md)
 -   [Notes](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Notes.md)
 -   [Often Used Transactions](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Transactions.md)
