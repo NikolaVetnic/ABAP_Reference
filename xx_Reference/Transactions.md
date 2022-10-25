@@ -10,6 +10,7 @@ Often used transactions:
 * `SE38` - ABAP Editor
 * `SE51` - Screen Painter
 * `SE80` - Object Navigator
+* `SE84` - Information System
 * `SE91` - Message Maintenance
 * `ST22` - used for inspecting the short dumps
 * `SOST` - SAPconnect (for checking emails sent from within ABAP programs)

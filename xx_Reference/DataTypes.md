@@ -1,6 +1,14 @@
-## Data Types & Variables
+# Data Types & Variables
 
-### Numeric Data Types
+A formal variable description is called a data type. A variable or constant that is defined concretely by data type is called a data object.
+
+## Complete and Incomplete Data Types
+
+**Complete data types** are the built-in ABAP standard data types that already contain a type-specific, fixed-length specification are considered complete data types, such as `d`, `t`, `i`, `int8`, `f`, `string`, `xstring`, `decfloat16`, `decfloat34`.
+
+**Incomplete data types** are the standard types that do not contain a fixed length are considered incomplete data types. When they are used to define data objects, you need to specify the length of the variable. Examples include types such a s `c`, `n`, `x` and `p`.
+
+## Numeric Data Types
 
 Basic numeric data types:
 
@@ -14,7 +22,7 @@ Basic numeric data types:
 
 Declaration:
 
-```
+```ABAP
 	DATA:
 		ld_integer TYPE i VALUE 200,
 		ld_packed TYPE p DECIMALS 2 VALUE '3.115'.
@@ -22,7 +30,7 @@ Declaration:
 
 Type `p` (*packed*, packs two digits into each byte) is one of the most important and common ABAP data types. It can be used for business calculations where the result must be accurate. A variable of this type has no decimal places - if those are needed they are to be declared with `DECIMALS` addition.
 
-### Character Data Types
+## Character Data Types
 
 Basic character data types:
 
@@ -34,7 +42,7 @@ Basic character data types:
 
 Declaration:
 
-```
+```ABAP
 	DATA:
 		d_chars TYPE c LENGTH 5 VALUE 'fiver',
 		ld_single_char TYPE c VALUE 'A',
@@ -47,11 +55,11 @@ Type `d` is used to hold dates. In ABAP, a date is always stored internally in t
 
 Variables of type `t` are used to hold times. These are stored internally in the format `HHMMTT` and are always 6 characters in length (and therefore `LENGTH` is not specified).
 
-### Booleans in ABAP
+## Booleans in ABAP
 
 When working with Booleans, it is best to use the Boolean data objects `abap_true` and `abap_false`:
 
-```
+```ABAP
 	IF true_variable = abap_true.
 	...
 	DATA:
@@ -59,17 +67,17 @@ When working with Booleans, it is best to use the Boolean data objects `abap_tru
 		ld_boolean = abap_true.
 ```
 
-### Inline Data Declarations
+## Inline Data Declarations
 
 The data type is inferred based on how the variable is used when it is declared:
 
-```
+```ABAP
 	DATA(d_integer) = 10.
 ```
 
 Equivalent to:
 
-```
+```ABAP
 	DATA: d_integer TYPE integer.
 	d_integer = 10.
 ```
@@ -81,7 +89,7 @@ Literals are strings of characters without a name. Their values cannot be change
 ### Constants
 
 We recommend that you avoid using literals to specify values in your source code. Instead, define constants with those values and use the constants in place of literals:
-```
+```ABAP
 	CONSTANTS:
 		c_hello  TYPE string VALUE 'Hello World',
 		c_number TYPE i VALUE 123.

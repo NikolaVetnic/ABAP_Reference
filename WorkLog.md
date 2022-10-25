@@ -91,4 +91,6 @@
 
 ---
 
- 
+`24 Oct 2022`: completed Unit 1 of **ABAP Workbench Foundations** book; had a meeting with j&s-soft Balkan team.
+
+`25 Oct 2022`: completed Units 2 & 3 of **ABAP Workbench Foundations** book. 
