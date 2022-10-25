@@ -1,10 +1,10 @@
-## Tables
+# Tables
 
 Notes:
 * a working memory table - an internal table
 * you must always prefix your appending components with ZZ so that it doesn’t conflict with future SAP field names; yes, that’s right: two Zs, not just one like in append structure ID and program names
 
-### Standard Table
+## Standard Table
 
 Requires no key.
 
@@ -63,7 +63,27 @@ It is also possible to create tables of custom data structures without the use o
 	FROM sflight.
 ```
 
-#### `READ TABLE`
+It is also possible to use variables whose type refers to a structure in the ABAP dictionary (global structure type) or a structure type that is declared locally in the program. In this case, the variable basically matches the structure of a table row:
+```ABAP
+	DATA gs_flight TYPE sflight.
+```
+
+Local types are defined thusly:
+```ABAP
+	TYPES:
+		BEGIN OF ts_flightinfo,
+			carrid		TYPE s_carr_id,
+			carrname	TYPE s_carrname,
+			connid		TYPE s_conn_id,
+			fldate		TYPE s_date,
+			percentage	TYPE p LENGTH 3 DECIMALS 2,
+		END OF ts_flightinfo.
+
+	DATA
+		gs_flightinfo TYPE ts_flightinfo.
+```
+
+### `READ TABLE`
 
 It is possible to read a single record from a standard table using the `READ TABLE` keyword, thus reading either `INTO` a var or `ASSIGNING` a field symbol:
 ```ABAP
@@ -97,7 +117,7 @@ Using inline data declarations (the first record’s index is 1, not 0):
 
 When you use the `INTO` keyword with a variable, a copy of the record is made and stored in the variable. This means that changes to that variable will not affect the corresponding row in the table. Because you aren’t copying any data into memory, using the field symbol will lead to better.
 
-#### `LOOP AT`
+### `LOOP AT`
 
 Just as `READ TABLE` is used to look at a single record from within a standard table, `LOOP AT` is used to cycle through all of the records within a standard table and insert them into a variable of field symbol:
 ```ABAP
@@ -140,7 +160,7 @@ Inline data declarations are again a possibility:
 	ENDLOOP.
 ```
 
-#### `INSERT` and `MODIFY`
+### `INSERT` and `MODIFY`
 
 When inserting it is necessary to use a structure of the same type as table:
 ```ABAP
@@ -153,7 +173,6 @@ When inserting it is necessary to use a structure of the same type as table:
 
 	INSERT s_flight_row INTO TABLE t_flights.
 ```
-
 
 If there are two tables of the same structure, there’s a quick way to combine them without having to iterate through each record:
 ```ABAP
@@ -192,7 +211,7 @@ It is possible to change multiple rows of a standard table with `MODIFY` keyword
 		TRANSPORTING price.
 ```
 
-#### `DELETE`
+### `DELETE`
 
 If you already have the row that you’re using in a local data structure, you can use that structure to indicate the row that needs to be deleted. The `DELETE TABLE` command uses the primary key of the structure to find and delete the corresponding row from the standard table. If no primary key is defined when the standard table is defined, then the key is made up of the entire row, meaning the structure must match an entire row of the table:
 ```ABAP
@@ -238,7 +257,7 @@ You can also delete rows in a standard table based on a WHERE clause:
 	DELETE t_flights WHERE carrid = ‘AA’ AND connid = 17.
 ```
 
-### Sorted Table
+## Sorted Table
 
 Requires either unique or non-unique keys.
 
@@ -290,7 +309,7 @@ Changing rows using the sorted table’s primary key will always work, and the m
 There are no additional rules for deleting rows in a sorted table,
 because deleting rows will preserve the sorted order.
 
-#### `BINARY SEARCH`
+### `BINARY SEARCH`
 
 `BINARY SEARCH` searches through the (sorted) table much quicker than `READ TABLE` or `LOOP AT`:
 ```ABAP
@@ -312,7 +331,7 @@ because deleting rows will preserve the sorted order.
 	ENDIF.
 ```
 
-#### `DELETE ADJACENT DUPLICATES FROM`
+### `DELETE ADJACENT DUPLICATES FROM`
 
 Delete records with the same primary key value that are adjacent to each other (if no key is defined, the key will be the entire record):
 ```ABAP
@@ -326,7 +345,7 @@ You can use the COMPARING command to define the specific fields that you want to
 	DELETE ADJACTENT DUPLICATES FROM t_flights COMPARING connid fldate.
 ```
 
-### Hashed Table
+## Hashed Table
 
 Requires unique keys.
 
@@ -359,7 +378,7 @@ Hashed tables can be read at a rate much faster than standard or sorted tables (
 
 We can also use `READ TABLE...WITH KEY` instead of `WITH TABLE KEY` to avoid using the full primary key, but this read would ignore the hash table as if the table was a standard table. Same goes for `LOOP AT` keyword.
 
-#### Inserting, Changing and Deleting Hashed Table Rows
+### Inserting, Changing and Deleting Hashed Table Rows
 
 The only way to `INSERT` or `MODIFY` a row is by utilizing the table key:
 ```ABAP
@@ -384,7 +403,7 @@ Trying to insert a record that uses an existing key will not cause an exception,
 
 Deleting rows of a hashed table works just like as in standard and sorted tables.
 
-### Performance
+## Performance
 
 Summary of the performance diferences among the different table types:
 |Table Type|Standard|Sorted|Hash|
@@ -394,7 +413,7 @@ Summary of the performance diferences among the different table types:
 |`UPDATE`|Same|Same|Same|
 |`DELETE`|Same|Same|Same|
 
-### Copying Table Data
+## Copying Table Data
 
 Using the assignment operator `=`:
 ```ABAP
@@ -427,7 +446,7 @@ The following snippet copies all of the records in table `t_sflight` into table 
 	MOVE-CORRESPONDING t_sflight TO t_flight_price.
 ```
 
-### Displaying Data from Working Memory
+## Displaying Data from Working Memory
 
 A common ABAP program is a report that will pull a selection of data from the database and display the results to the user. We can display the results to the user using an ALV grid:
 ```ABAP
@@ -451,7 +470,7 @@ With inline data declarations:
 	gr_alv->display(  ).
 ```
 
-### Obsolete Working Memory Syntax
+## Obsolete Working Memory Syntax
 
 Any time you see a syntax error suggesting that you need to add `WITH HEADER LINE` to your table definition, it typically means that you’re using an outdated ABAP keyword and should use something different and more modern.
 
