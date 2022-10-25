@@ -257,6 +257,62 @@ You can also delete rows in a standard table based on a WHERE clause:
 	DELETE t_flights WHERE carrid = ‘AA’ AND connid = 17.
 ```
 
+## Internal Table
+
+An internal table is a data object in which you can keep several identically structured data records at runtime (table variable). The number of data records is restricted only by the capacity of specific system installations. The ABAP runtime system dynamically manages the size of the internal table.
+
+Typical uses of internal table:
+* storing of data from database tables or sequential files for future processing
+* preparation of data for screen or printer output (for example, sort)
+* preparation of data for using other services (for example, for method, function module, or subroutine calls)
+
+Definition of internal tables with local types example:
+```ABAP
+	TYPES:
+		BEGIN OF ts_type,
+			carrid TYPE s_carr_id,
+			connid TYPE s_conn_id,
+			... ,
+		END OF ts_type.
+
+	DATA
+		gt_itam TYPE STANDARD/SORTED/HASHED TABLE OF ts_type WITH (NON-)UNIQUE KEY...
+```
+
+Possible usage scenarios of internal tables:
+* `APPEND gs TO gt_itab.` - add to the end internal table
+* `INSERT gs INTO TABLE gt_itab <condition>.` - insert into table according to condition
+* `READ TABLE gt_itab INTO gs <condition>.` - get from table according to condition
+* `MODIFY TABLE gt_itab FROM gs <condition>.` - change table entry according to...
+* `DELETE gt_itab <condition>.`
+
+Possible scenarios of processing of sets of records:
+* `LOOP AT gt_it INTO gs <condition>. ... ENDLOOP.` - processing records one by one over the entire (or a part of) the internal table
+* `DELETE gt_it <condition>.` - deleting several records
+* `INSERT LINES OF gt_it1 <condition> INTO gt_it2 <condition>.` - inserting several rows from another internal table
+* `APPEND LINES OF gt_it1 <condition> TO gt_it2.` - appending several rows from another internal table
+
+Syntax example - reading by index:
+```ABAP
+	LOOP AT gt_flightinfo INTO gs_flightinfo FROM 1 TO 5.
+		WRITE: / gs_flightinfo-carrid, gs_flightinfo-connid.
+	ENDLOOP.
+	" =-=-=-=
+	READ TABLE gt_flightinfo INTO gs_flightinfo INDEX 3.
+	WRITE: / gs_flightinfo-carrid, gs_flightinfo-connid.
+```
+
+Syntax example - reading by key:
+```ABAP
+	LOOP AT gt_flightinfo INTO gs_flightinfo WHERE carrid = 'LH'.
+	WRITE: / gs_flightinfo-carrid, gs_flightinfo-connid.
+	" =-=-=-=
+	READ TABLE gt_flightinfo INTO gs_flightinfo WITH TABLE KEY carrid = 'LH' ... .
+	IF sy-subrc = 0.
+		WRITE: / gs_flightinfo-carrid, gs_flightinfo-connid.
+	ENDIF.
+```
+
 ## Sorted Table
 
 Requires either unique or non-unique keys.

@@ -66,6 +66,16 @@
 
 13. To define an instance method as opposed to a static method in a local class, the `METHODS` statement is used instead of `CLASS-METHODS`. **Answer:** true.
 
+## Unit 5
+
+1. Which of the following statements copies the content of the source structure to the target structure, one component at a time? **Answer:** `MOVE-CORRESPONDING`.
+
+2. Which of the following statements is used for defining local structure types? **Answer:** `TYPES`.
+
+3. Which of the following specifications are required in the definition of an internal table? **Answer:** line type, primary key, table kind.
+
+4. Which of the following is used for adding a row into an internal table? **Answer:** `APPEND`.
+
 # In More Detail...
 
 ## Unit 1
@@ -133,3 +143,13 @@ To create a static method using the Class Builder, simply enter the method name 
 Global classes are maintained with a special tool called the Class Builder. Read more in the lesson, Using Local Classes, Task: Local Classes, in the course BC400 (Unit 4, Lesson 8) or TAW10 Part I (Unit 10, Lesson 8).
 
 To define an instance method in a local class, as opposed to the static method, the `METHODS` statement is used instead of `CLASS-METHODS`. Read more in the lesson, Using Local Classes, Task: Syntax for Static Methods, in the course BC400 (Unit 4, Lesson 8) or TAW10 Part I (Unit 10, Lesson 8).
+
+## Unit 5
+
+The statement, `MOVE-CORRESPONDING`, copies the content of the source structure to the target structure, one component at a time. In this case, only those components that are available under the same name in both the source structure and the target structure are considered. All other components of the structures remain unchanged. Read more in the lesson, Using Structured Data Objects, Task: Use of Structured Data Objects, in the course BC400 (Unit 5, Lesson 1) or TAW10 Part I (Unit 11, Lesson 1).
+
+Use the `TYPES` statement to define local structure types. Read more in the lesson, Using Structured Data Objects Task Definition of Structures with Local Types, in the course BC400 (Unit 5, Lesson 1) or TAW10 Part I (Unit 11, Lesson 1).
+
+The required specifications in the definition of an internal table are: Line type, Primary key, Table kind. Read more in the lesson, Using Internal Tables, Task: Properties of Internal Tables, in the course BC400 (Unit 5, Lesson 2) or TAW10 Part I (Unit 11, Lesson 2).
+
+`APPEND` appends the content of a structure to an internal table, and this operation can only be used with standard tables. Read more in the lesson, Using Internal Tables, Task: Statements for Accessing Single Records of Internal Tables, in the course BC400 (Unit 5, Lesson 2) or TAW10 Part I (Unit 11, Lesson 2).
