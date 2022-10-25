@@ -297,7 +297,8 @@ Syntax example - reading by index:
 	LOOP AT gt_flightinfo INTO gs_flightinfo FROM 1 TO 5.
 		WRITE: / gs_flightinfo-carrid, gs_flightinfo-connid.
 	ENDLOOP.
-	" =-=-=-=
+```
+```ABAP
 	READ TABLE gt_flightinfo INTO gs_flightinfo INDEX 3.
 	WRITE: / gs_flightinfo-carrid, gs_flightinfo-connid.
 ```
@@ -306,7 +307,8 @@ Syntax example - reading by key:
 ```ABAP
 	LOOP AT gt_flightinfo INTO gs_flightinfo WHERE carrid = 'LH'.
 	WRITE: / gs_flightinfo-carrid, gs_flightinfo-connid.
-	" =-=-=-=
+```
+```ABAP
 	READ TABLE gt_flightinfo INTO gs_flightinfo WITH TABLE KEY carrid = 'LH' ... .
 	IF sy-subrc = 0.
 		WRITE: / gs_flightinfo-carrid, gs_flightinfo-connid.
