@@ -38,6 +38,34 @@
 
 5. Which of the following is the system command you can enter in the command field of a screen to start the debugger? **Answer:** `/h`.
 
+## Unit 4
+
+1. What are the uses of modularization? **Answer:** to provide a better overview of program layout, to encapsulate a function that is required many times within a program for multiple use, to implement the central maintainability of a function within a program, to make a function available across the system.
+
+2. Which of the following is the name of the assignment of actual parameters to formal parameters when calling a subroutine? **Answer:** parameter passing.
+
+3. Which of the following is the name of variables defined in the main program? **Answer:** global data objects.
+
+4. Which of the following elements does the interface of a function module contain? **Answer:** `EXPORT` parameter, `CHANGING` parameter. 
+
+5. Which of the following is the tab page that you can switch to implement the function module, after defining the corresponding interface? **Answer:** source code.
+
+6. After defining the corresponding `IMPORTING` and `EXPORTING` parameters, you can switch to the **Source code** tab page to implement the functions of the function module. **Answer:** true.
+
+7. Data in the SAP system can be accessed by means of a Business Application Programming Interface (BAPI). **Answer:** true.
+
+8. Which of the following can be used as a visibility option for an attribute? **Answer:** `public`, `private`.
+
+9. Static Methods are called using the `CALL CLASS METHOD` statement. **Answer:** false.
+
+10. When you identify a method as a static method, it can be called directly without the need to generate an instance of the class first. **Answer:** true.
+
+11. To create a static method, all you need to do is enter its name in the Constructor list. **Answer:** false.
+
+12. Which of the following special tools maintains global classes? **Answer:** Class Builder.
+
+13. To define an instance method as opposed to a static method in a local class, the `METHODS` statement is used instead of `CLASS-METHODS`. **Answer:** true.
+
 # In More Detail...
 
 ## Unit 1
@@ -77,3 +105,31 @@ Specify the three-digit message number and the message class when using the `MES
 In nested loops, sy-index always contains the loop pass number of the loop in which it is located. In the `DO` and `WHILE` loops, the sy-index system field contains the number of the current loop pass. Therefore, you should only query this system field within a loop. Read more in the lesson, Using Basic ABAP Statement, Task: Loop Constructs, in the course BC400 (Unit 3, Lesson 2) or TAW10 Part I (Unit 9, Lesson 2).
 
 To start the debugger from a screen, enter `/h` in the command field, and press Enter. Read more in the lesson, Analyzing Programs with the ABAP Debugger, Task: Debugging Mode at Runtime, in the course BC400 (Unit 3, Lesson 3) or TAW10 Part I (Unit 9, Lesson 3).
+
+## Unit 4
+
+A modularization unit encapsulates a function. You can use most of the modularization units in more than one program. Therefore, they are often termed as reuse units. The improvement in transparency is a result of the program becoming more function-oriented. Modularization makes it easier to maintain programs, because you only need to make changes to the modularization unit, and not at various points in the main program. Read more in the lesson, Explaining Modularization, Task: Modularization Techniques, in the course BC400 (Unit 4, Lesson 1) or TAW10 Part I (Unit 10, Lesson 1).
+
+The assignment of actual parameters to formal parameters when calling a subroutine is called parameter passing. Read more in the lesson, Defining and Calling Subroutines, Task: Parameter Definition for Subroutines, in the course BC400 (Unit 4, Lesson 2) or TAW10 Part I (Unit 10, Lesson 2).
+
+Variables defined in the main program are global data objects. They are visible and can be addressed in the entire main program, as well as in every subroutine called. Read more in the lesson, Defining and Calling Subroutines, Task: Local and Global Data Objects, in the course BC400 (Unit 4, Lesson 2) or TAW10 Part I (Unit 10, Lesson 2).
+
+Each function module has an interface with parameters for importing or exporting data. The interface of the function module consists of the import, export, changing parameters, and exceptions. Read more in the lesson, Calling Function Modules, Task: Examination of a Function Module, in the course BC400 (Unit 4, Lesson 3) or TAW10 Part I (Unit 10, Lesson 3).
+
+After defining the corresponding `IMPORTING` and `EXPORTING` parameters, you can switch to the Source code tab page to implement the functions of the function module. Read more in the lesson, Creating Function Modules, Task: Source Code Editing, in the course BC400 (Unit 4, Lesson 4) or TAW10 Part I (Unit 10, Lesson 4).
+
+After defining the corresponding `IMPORTING` and `EXPORTING` parameters, you can switch to the Source code tab page to implement the functions of the function module. Read more in the lesson, Creating Function Modules, Task: Source Code Editing, in the course BC400 (Unit 4, Lesson 4) or TAW10 Part I (Unit 10, Lesson 4).
+
+The Business Object Repository (BOR) in the SAP system contains business objects types. A business object type is a program that behaves like a class. It represents an SAP table or a table hierarchy. A business object has BAPIs as methods. You can call these BAPIs to access the corresponding tables. A BAPI is a means of accessing data in the SAP system. Read more in the lesson, Describing Business Application Programming Interfaces (BAPIs), Task: Business Application Programming Interface (BAPI), in the course BC400 (Unit 4, Lesson 5) or TAW10 Part I (Unit 10, Lesson 5).
+
+Attributes are normally encapsulated in the class by defining them `PRIVATE`, and can therefore only be read or changed using methods of the same class. Classes allow you to make specific attributes visible to users of the class, if defined `PUBLIC`. Read more in the lesson, Calling Methods of Global Classes Task Example of Access Options for a Global Class, in the course BC400 (Unit 4, Lesson 6) or TAW10 Part I (Unit 10, Lesson 6).
+
+You use the `CALL METHOD` statement to call a method, and you then specify the method. With static methods, this specification comprises the name of the class and the method, separated by the static component selector “=>” (double-headed arrow). Read more in the lesson, Calling Methods of Global Classes, Task: Static Methods, in the course BC400 (Unit 4, Lesson 6) or TAW10 Part I (Unit 10, Lesson 6).
+
+You don't need to generate an instance to test a static method. You can execute the static method immediately. Read more in the lesson, Calling Methods of Global Classes, Task: Global Class Documentation and Testing, in the course BC400 (Unit 4, Lesson 6) or TAW10 Part I (Unit 10, Lesson 6).
+
+To create a static method using the Class Builder, simply enter the method name in the Method list on the Method tab page. Read more in the lesson, Creating Global Classes and Static Methods, Task: Creation of Static Methods, in the course BC400 (Unit 4, Lesson 7) or TAW10 Part I (Unit 10, Lesson 7).
+
+Global classes are maintained with a special tool called the Class Builder. Read more in the lesson, Using Local Classes, Task: Local Classes, in the course BC400 (Unit 4, Lesson 8) or TAW10 Part I (Unit 10, Lesson 8).
+
+To define an instance method in a local class, as opposed to the static method, the `METHODS` statement is used instead of `CLASS-METHODS`. Read more in the lesson, Using Local Classes, Task: Syntax for Static Methods, in the course BC400 (Unit 4, Lesson 8) or TAW10 Part I (Unit 10, Lesson 8).
