@@ -1,11 +1,13 @@
 ## Transactions
 
 Often used transactions:
+* `BAPI` - BAPI
 * `SE01` - Transport Organizer
 * `SE11` - ABAP Dictionary (create Database Tables, Data Elements, Domains)
 * `SE16` - Data Browser
 * `SE18` - BAdI Builder
 * `SE24` - Class Builder
+* `SE36` - Logical Databases
 * `SE37` - Function Builder (create and analyze function modules)
 * `SE38` - ABAP Editor
 * `SE51` - Screen Painter

@@ -8,9 +8,16 @@ Notes:
 
 Requires no key.
 
-The most basic table type (akin to transparent table), typically data is selected from a database and stored in a standard table. 
+The most basic table type (akin to transparent table), typically data is selected from a database and stored in a standard table. Use the Open SQL statement `SELECT` to program database read access:
+```ABAP
+	SELECT <fields> FROM <table> INTO <target> WHERE <condition>.
+	" <fields> which columns
+	" <table> which tables
+	" <target> where to?
+	" <conition> which rows?
+``` 
 
-Anytime you store data from a SELECT statement in a table created using inline data declarations, you store the data in a standard table:
+Anytime you store data from a `SELECT` statement in a table created using inline data declarations, you store the data in a standard table - this technique is called an *array fetch* and it in effect copies the selected part of the database directly into an internal table instead of doing so row-by-row:
 ```ABAP
 	SELECT *
 	INTO TABLE @DATA(results)
@@ -81,6 +88,16 @@ Local types are defined thusly:
 
 	DATA
 		gs_flightinfo TYPE ts_flightinfo.
+```
+
+### Data Retreival from Client-Specific Tables
+
+A database table is classified as a client-specific table if it has a client field (data type `CLNT`) as the first key column and contains client-specific entries. If you select data from a client-specific table without specifying the client, only data records from the current client are read (a restriction to the current client is automatically added to the `WHERE` clause of the `SELECT` statement). 
+
+If you want to read data from an explicitly specified client, specify the client name in the `WHERE` clause. However, the `CLIENT SPECIFIED` addition must be made after the `FROM` clause:
+```ABAP
+	SELECT * FROM spfli CLIENT SPECIFIED
+		INTO ... WHERE  mandt = 402 AND carrid = 'AA'.
 ```
 
 ### `READ TABLE`
@@ -256,6 +273,26 @@ You can also delete rows in a standard table based on a WHERE clause:
 ```ABAP
 	DELETE t_flights WHERE carrid = ‘AA’ AND connid = 17.
 ```
+
+### Join Mechanism
+
+There is often a requirement to read data from various tables and display it on one table. In general, the technique with the best performance for this task is a table join.
+
+An example of joining tables `SPFLI` (flight info) and `SCARR` (carrier info) - direct join implementation in the program (ABAP Join):
+```ABAP
+	SELECT ...
+		FROM spfli INNER JOIN scarr
+		ON spfli~carrid = scarr~carrid
+		WHERE ...
+```
+
+## Transparent Table
+
+A transparent table in the ABAP Dictionary is the description of the corresponding database table which contains the actual data used by the application. The fields of the transparent table form columns in the corresponding database table with identical names. Data elements, which you already know as globally defined elementary data types, are normally used for describing individual fields. Data elements refer to domains for their technical properties.
+
+The definition of a transparent table appears to be very similar to the definition of a global structure type. Transparent tables can be used in the same way as structure types in programming. For example, transparent tables can be used to define a structured data object (structure variable), for typing an interface parameter, or as the line type of a global or a local table type. Only the list of fields is important. Other properties of the transparent table, such as the key definition or the technical properties, are irrelevant when it is being used as a data type.
+
+In addition to the properties related to the database, there is another difference between transparent tables and structure types. A transparent table is a list of elementary fields, whereas the components of a structure type can themselves be structured again (nested structures). The components of a structure can even be typed with a table type (deep structures).
 
 ## Internal Table
 
@@ -536,4 +573,26 @@ An alternative to specifying a structure as a new table is to use the keyword `O
 
 Using square brackets when accessing a table is completely unnec- essary as long as you are avoiding the dreaded short form ABAP. The square brackets are meant to indicate that you’re trying to access the table data and not the table header.
 
-Short form access is used with the `READ TABLE` and `LOOP AT` commands to read or loop at the table in to a structure of the same name instead of saving the data in another structure or field symbol. This can make the code very hard to read, because there is no difference between the table name and structure. 
+Short form access is used with the `READ TABLE` and `LOOP AT` commands to read or loop at the table in to a structure of the same name instead of saving the data in another structure or field symbol. This can make the code very hard to read, because there is no difference between the table name and structure.
+
+## Database Access Authorization Checks
+
+Authorization check is implemented in code as follows:
+```ABAP
+	AUTHORITY CHECK
+		OBJECT 'S_CARRID'
+			ID 'CARRID' FIELD iv_carrid
+			ID 'ACTVT'  FIELD '03'.		" data is checked in the master record for current user
+
+	IF sy-subrc = 0.
+		SELECT ...
+	ELSE.
+		< reaction to missing authorization >
+	ENDIF.
+```
+
+For the authorization check in the program, you specify the authorization that is to be checked in the master record of the current user. You specify the authorization by specifying the authorization object, its fields, and the appropriate field values. Refer to the syntax shown in the figure.
+
+In this example, the user authorization for access to the `S_CARRID` object is checked; field `CARRID` (airline) contains the airline entered by the user, and field `ACTVT` (activity) contains the value `’03’` (display).
+
+After the `AUTHORITY-CHECK` statement, check return code `SY-SUBRC` and implement the further processing of your program accordingly.

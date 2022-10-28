@@ -76,6 +76,30 @@
 
 4. Which of the following is used for adding a row into an internal table? **Answer:** `APPEND`.
 
+## Unit 6
+
+1. Which of the following is the tool that you can use to create a transparent table? **Answer:** ABAP Dictionary.
+
+2. When using the transparent table as a data type, other properties, such as the key definition or the technical properties, are relevant. **Answer:** false.
+
+3. Which of the following are the types of reuse components that encapsulate database access? **Answer:** function modules, Business Application Programming Interfaces (BAPIs), methods of local classes.
+
+4. The `SELECT` clause determines which lines are read into the target structure and processed using the statement block which you specify in the loop body. **Answer:** false.
+
+5. Which of the following additions to a `SELECT` statement would you use to append rows to an internal table instead of overwriting the existing rows? **Answer:** `APPENDING TABLE`.
+
+6. If you select data from client-specific tables without specifying the client, data records from the current and all other clients are read. **Answer:** false.
+
+7. Which of the following will allow the database to search the entire table, or at least a very large part of the table for the required entries? **Answer:** sequential search.
+
+8. Which of the following should you specify when defining a table join? **Answer:** join tables, join conditions, join columns.
+
+9. If an ABAP program reads a buffered table, the database interface tries to get the required data from the SAP table buffer. **Answer:** true.
+
+10. Which of the following statements are contained within Open SQL? **Answer:** `UPDATE`, `INSERT`, `SELECT`.
+
+11. At runtime, which of the following statements can you use to check whether the actual user has the authorization required for executing the function in the user master record? **Answer:** `AUTHORITY-CHECK`.
+
 # In More Detail...
 
 ## Unit 1
@@ -153,3 +177,27 @@ Use the `TYPES` statement to define local structure types. Read more in the less
 The required specifications in the definition of an internal table are: Line type, Primary key, Table kind. Read more in the lesson, Using Internal Tables, Task: Properties of Internal Tables, in the course BC400 (Unit 5, Lesson 2) or TAW10 Part I (Unit 11, Lesson 2).
 
 `APPEND` appends the content of a structure to an internal table, and this operation can only be used with standard tables. Read more in the lesson, Using Internal Tables, Task: Statements for Accessing Single Records of Internal Tables, in the course BC400 (Unit 5, Lesson 2) or TAW10 Part I (Unit 11, Lesson 2).
+
+## Unit 6
+
+The developer can use a data model as the basis for implementing appropriate table definitions (transparent tables), including their relationships with each other in the ABAP Dictionary. Read more in the lesson, Explaining Data Models, Task: Data Model Overview, in the course BC400 (Unit 6, Lesson 1) or TAW10 Part I (Unit 12, Lesson 1).
+
+Transparent tables can be used in the same way as structure types in programming. For example, transparent tables can be used to define a structured data object. Only the list of fields is important. Other properties of the transparent table, such as the key definition or the technical properties, are irrelevant when it is being used as a data type. Read more in the lesson, Explaining Data Models, Task: Structures in the ABAP Dictionary, in the course BC400 (Unit 6, Lesson 1) or TAW10 Part I (Unit 12, Lesson 1).
+
+Before you program direct access to database tables, look for reuse components that handle the read process, such as Logical Databases, Function Modules, BAPIs, Methods of global classes. Read more in the lesson, Retrieving Single Database Records, Task: Types of Reuse Components that Encapsulate Database Access, in the course BC400 (Unit 6, Lesson 2) or TAW10 Part I (Unit 12, Lesson 2).
+
+The `SELECT` clause names the fields of the table that are to be read. Read more in the lesson, Retrieving Single Database Records, Task: SELECT Statement Clauses, in the course BC400 (Unit 6, Lesson 2) or TAW10 Part I (Unit 12, Lesson 2).
+
+With array fetch, any content that might be present in the internal table is overwritten. If you want to append rows instead of overwriting, use the `APPENDING TABLE` addition. Read more in the lesson, Retrieving Multiple Database Records, Task: Data Retrieval Using an Array Fetch, in the course BC400 (Unit 6, Lesson 3) or TAW10 Part I (Unit 12, Lesson 3).
+
+If you select data from a client-specific table without specifying the client, only data records from the current client are read (a restriction to the current client is automatically added to the `WHERE` clause of the `SELECT` statement by the Database interface). Read more in the lesson, Describing Other Aspects of Database, Task: Data Retrieval from Client-Specific Tables, in the course BC400 (Unit 6, Lesson 4) or TAW10 Part I (Unit 12, Lesson 4).
+
+In the worst-case scenario, the entire table, or at least a very large part of the table, must be searched for the required entries. This is referred to as a sequential search, and the wait time for the database access can be very long. Read more in the lesson, Describing Other Aspects of Database Access, Task: Access Through Non-Key Fields, in the course BC400 (Unit 6, Lesson 4) or TAW10 Part I (Unit 12, Lesson 4).
+
+Specify the following details when defining a table join: Join tables, Join conditions, Join columns. Read more in the lesson, Describing Other Aspects of Database Access, Task: Table Join Definition, in the course BC400 (Unit 6, Lesson 4) or TAW10 Part I (Unit 12, Lesson 4).
+
+If an ABAP program reads a buffered table, the database interface first tries to get the required data from the SAP table buffer. If the required data is not yet in the SAP table buffer, the database is accessed. Afterwards the database interface also stores the read data in the SAP table buffer. Read more in the lesson, Describing Other Aspects of Database Access, Task: SAP Table Buffer, in the course BC400 (Unit 6, Lesson 4) or TAW10 Part I (Unit 12, Lesson 4).
+
+In addition to the `SELECT` statement, Open SQL contains the `UPDATE`, `INSERT`, `DELETE`, and `MODIFY` statements. Read more in the lesson, Describing Other Aspects of Database Access, Task: Write Access to the Database, in the course BC400 (Unit 6, Lesson 4) or TAW10 Part I (Unit 12, Lesson 4).
+
+At runtime, use the `AUTHORITY-CHECK` statement to check whether the user has the authorization required to execute the function being called in the user master record. Read more in the lesson, Implementing Authorization Checks, Task: Authorization Check (Principle), in the course BC400 (Unit 6, Lesson 5) or TAW10 Part I (Unit 12, Lesson 5).

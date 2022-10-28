@@ -93,4 +93,18 @@
 
 `24 Oct 2022`: completed Unit 1 of **ABAP Workbench Foundations** book; had a meeting with j&s-soft Balkan team.
 
-`25 Oct 2022`: completed Units 2-5 of **ABAP Workbench Foundations** book. 
+`25 Oct 2022`: completed Units 2-4 of **ABAP Workbench Foundations** book.
+
+`26 Oct 2022`: completed Unit 5 of **ABAP Workbench Foundations** book; had a meeting with j&s-soft Balkan team.
+
+`27 Oct 2022`: completed Units 6-7 of **ABAP Workbench Foundations** book.
+
+`28 Oct 2022`:
+
+---
+
+`31 Oct 2022`: 
+
+## November 2022
+
+`01 Nov 2022`:
