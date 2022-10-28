@@ -4,8 +4,8 @@ Code snippets and cheat sheets used for learning ABAP programming.
 
 ## Topics Covered in More Detail
 
--   [ABAP - Procedural Programming](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ABAP.md)
--   [ABAP - Object Oriented Programming](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects.md)
+-   [ABAP Procedural Programming](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/ABAP.md)
+-   [ABAP Object Oriented Programming](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Objects.md)
 -	[ABAP Syntax - Overview of Old and New Practices](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Syntax.md)
 -   [ABAP Workbench](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Workbench.md)
 -   [Abbreviations](https://github.com/NikolaVetnic/ABAP_Reference/blob/master/xx_Reference/Abbreviations.md)
