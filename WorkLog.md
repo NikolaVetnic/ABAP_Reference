@@ -99,12 +99,14 @@
 
 `27 Oct 2022`: completed Units 6-7 of **ABAP Workbench Foundations** book.
 
-`28 Oct 2022`:
+`28 Oct 2022`: completed Units 8-9 of **ABAP Workbench Foundations** book.
 
 ---
 
-`31 Oct 2022`: 
+`31 Oct 2022`: completed Units 10-11 of **ABAP Workbench Foundations** book.
 
 ## November 2022
 
-`01 Nov 2022`:
+`01 Nov 2022`: completed **ABAP Workbench Foundations** book.
+
+`02 Nov 2022`: 

@@ -18,3 +18,4 @@ Various notes:
 - SAP term for a table is **transparent table** - a transparent table is defined in the data dictionary and stored in your database system
 - **input help**: within SAP GUI you can choose `F4` to display possible input values (one can also call up the input help for a field using the button immediately to the right of the selected field)
 - extensive information on **subroutines** may be found in **BC400_EN_Col18** book from the Learning Hub
+- solution to the JavaFX problem (last post): [https://answers.sap.com/questions/12960323/javafx-13-and-eclipse.html](https://answers.sap.com/questions/12960323/javafx-13-and-eclipse.html)

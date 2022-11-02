@@ -100,6 +100,58 @@
 
 11. At runtime, which of the following statements can you use to check whether the actual user has the authorization required for executing the function in the user master record? **Answer:** `AUTHORITY-CHECK`.
 
+## Unit 7
+
+1. Which of the following can you use to adapt the default list interface to your own needs? **Answer:** Menu Painter.
+
+2. Which of the following are standard functionality on a selection screen? **Answer:** type check, variants, value entry.
+
+3. Which of the following statements is used for defining an input variable? **Answer:** `PARAMETERS`.
+
+4. Which of the following are the characteristics of an event block? **Answers:** ends by beginning the next processing block, existence not absolutely necessary.
+
+## Unit 8
+
+1. Which of the following can you use to start screen processing? **Answer:** dialog transaction.
+
+2. Which of the following should be assigned to a screen field to make input mandatory? **Answer:** required.
+
+3. Which of the following statements is true regarding the implementation of data transport? **Answer:** the `TABLES` statement serves as the interface for data transport between the program and the screen.
+
+## Unit 9
+
+1. Which of the following is the Container Class that is used to link the EnjoySAP control with the control area on the screen? **Answer:** `CL_GUI_CUSTOM_CONTAINER`.
+
+2. Which of the following are methods of global class `CL_GUI_ALV_GRID`? **Answer:** `CONSTRUCTOR`, `SET_TABLE_FOR_FIRST_DISPLAY`, `REFRESH_TABLE_DISPLAY`.
+
+## Unit 10
+
+1. What starts the screen sequence defined in the window of a Web Dynpro Component? **Answer:** web dynpro application.
+
+2. What can be defined inside of a Web Dynpro component? **Answer:** view, component controller, window.
+
+3. What is used to transport data between the central component controller and the individual view controllers? **Answer:** context mapping.
+
+## Unit 11
+
+1. Which of the following statements about the Code Inspector are true? **Answer:** you can create a check variant to define the details of what to check, standard inspection is carried out when check is performed through context menu from the Object Navigator, you can define check variants, object sets, and inspections using transaction SCI.
+
+2. Which aspects does the Code Inspector take into consideration when examining a program? **Answer:** typical semantic errors (for example, `AUTHORITY-CHECK` statement without subsequent `SY-SUBRC` check), performance (for example, nested `SELECT` statements), security (for example, cross-client data accesses).
+
+## Unit 12
+
+1. Which of the following statements are true? **Answer:** ABAP Development Tools (ADTs) are an alternative to the ABAP Workbench, ADTs enable cross-platform development by integrating ABAP and non-ABAP development tools in a single powerful integrated development environment.
+
+2. Only ABAP development tools should be used for ABAP development. **Answer:** false.
+
+## Unit 13
+
+1. What is a repair of an SAP repository object in a customer system called? **Answer:** modification.
+
+2. Which of the following are the options for adjusting the SAP software to customer requirements? **Answer:** customizing, enhancements, development.
+
+3. Which of the following are enhancement types? **Answer:** menu exit, screen exit.
+
 # In More Detail...
 
 ## Unit 1
@@ -201,3 +253,55 @@ If an ABAP program reads a buffered table, the database interface first tries to
 In addition to the `SELECT` statement, Open SQL contains the `UPDATE`, `INSERT`, `DELETE`, and `MODIFY` statements. Read more in the lesson, Describing Other Aspects of Database Access, Task: Write Access to the Database, in the course BC400 (Unit 6, Lesson 4) or TAW10 Part I (Unit 12, Lesson 4).
 
 At runtime, use the `AUTHORITY-CHECK` statement to check whether the user has the authorization required to execute the function being called in the user master record. Read more in the lesson, Implementing Authorization Checks, Task: Authorization Check (Principle), in the course BC400 (Unit 6, Lesson 5) or TAW10 Part I (Unit 12, Lesson 5).
+
+## Unit 7
+
+You can use the Menu Painter to adapt the default list interface to your own needs. Read more in the lesson, Implementing ABAP Lists, Task: Standard List Functions, in the course BC400 (Unit 7, Lesson 1) or TAW10 Part I (Unit 13, Lesson 1).
+
+The selection screen has the following standard functions: Texts in several languages, Automatic type checking, Complex selections for intervals, comparative conditions, and patterns, Field documentation for input fields, Search help associated with the Dictionary type, Saving of selection screens as variants. Read more in the lesson, Implementing Selection Screens Task Standard Functions of the Selection Screen, in the course BC400 (Unit 7, Lesson 2) or TAW10 Part I (Unit 13, Lesson 2).
+
+An input variable is defined with a `PARAMETERS` statement instead of a `DATA` statement. The definition of such an input variable creates a variable in the system and generates a selection screen with a corresponding input option. Read more in the lesson, Implementing Selection Screens, Task: Single-Value Input, in the course BC400 (Unit 7, Lesson 2) or TAW10 Part I (Unit 13, Lesson 2).
+
+Characteristics of an Event Block are: Introduced with an event keyword. It ends by the beginning of the next processing block, Cannot be nested, Existence is not absolutely necessary, Sequence of event blocks is unimportant. Read more in the lesson, Implementing Events of ABAP Reports, Task: Event Block Characteristics, in the course BC400 (Unit 7, Lesson 3) or TAW10 Part I (Unit 13, Lesson 3).
+
+## Unit 8
+
+Use a dialog transaction to trigger screen processing. Read more in the lesson, Creating Screens, Task: Runtime Architecture of the Screen Flow Control, in the course BC400.
+
+To make input mandatory, assign the Required attribute to a screen field. Read more in the lesson, Creating Input and Output Fields, Task Maintenance of the Attributes of a Screen Element, in the course BC400.
+
+You use the TABLES statement to define a structure variable of the same type and name with reference to the specified Dictionary structure within the program. This structure variable then serves as the interface between the program and the screen. Read more in the lesson, Implementing Data Transport, Task: The TABLES Structure as an Interface to the Screen, in the course BC400.
+
+## Unit 9
+
+An SAP Container Control (container), such as `CL_GUI_CUSTOM_CONTAINER`, is used to link the EnjoySAP control and the control area on the screen. The EnjoySAP control is embedded in the container, which in turn is integrated in the control area. Read more in the lesson, Using the SAP List Viewer, Task: Runtime Architecture of the ALV Grid Control, in the course BC400.
+
+The `CL_GUI_ALV_GRID` global class has numerous methods that can be called for the corresponding grid control functions. The methods `CONSTRUCTOR`, `SET_TABLE_FOR_FIRST_DISPLAY` and `REFRESH_TABLE_DISPLAY` are some of them. Read more in the lesson, Using the SAP List Viewer, Task: Important Methods for the Grid Control Class , in the course BC400.
+
+## Unit 10
+
+The screen sequence defined in the window is started by way of the Web Dynpro application. Read more in the lesson, Describing Web Dynpro ABAP, Task: Application Example, in the course BC400.
+
+A component contains one or several windows and has its own controller, the `COMPONENTCONTROLLER`. Windows embed one or more views and define navigation options between them (view sequences). Read more in the lesson, Describing Web Dynpro ABAP, Task: Web Dynpro Component, in the course BC400.
+
+Data is transported between the central component controller and the individual view controllers using context mapping. Read more in the lesson, Implementing Data Transport in Web Dynpro, Task: Data Transport, in the course BC400.
+
+## Unit 11
+
+When you initiate a check from inside the ABAP Editor, the Code Inspector uses a default check variant with a predefined set of checks to be performed. You can overwrite this default check variant by creating a new check variant. Calling the Code Inspector from the context menu of the object list will make use of the `DEFAULT` variant. To define individual checks (check variants, object sets, inspections), start the Code Inspector with transaction code SCI. Read more in the lesson, Improving the Quality of ABAP Code with the Code Inspector, Task: Definition of Check Variants, Object Sets, and Inspections, in the course BC400 (Unit 11, Lesson 1) or TAW10 Part I (Unit 14, Lesson 1).
+
+The most important check categories are as follows: General Checks, Performance Checks, Security Checks, Syntax Check and Generation, Programming Conventions, Search Functions. Read more in the lesson, Improving the Quality of ABAP Code with the Code Inspector, Task: Check Categories, in the course BC400 (Unit 11, Lesson 1) or TAW10 Part I (Unit 14, Lesson 1).
+
+## Unit 12
+
+ABAP Development Tools (ADTs) are an alternative to the ABAP Workbench. ADTs also enable cross-platform development by integrating ABAP and non- ABAP development tools in a single powerful integrated development environment. In addition, ADTs are tightly integrated with SAP HANA studio, SAPUI5 tools, and JAVA. Read more in the lesson, Describing ABAP Development Tools for SAP NetWeaver, Task: Benefits of Eclipse, in the course BC400.
+
+As an ABAP programmer, you can develop ABAP programs with Eclipse- based ABAP development tools as an alternative to using the ABAP Workbench. Read more in the lesson, Describing ABAP Development Tools for SAP NetWeaver, Task: Business Example, in the course BC400.
+
+## Unit 13
+
+Repairing an SAP repository in a customer system is also called a modification. Read more in the lesson, Adjusting the SAP Standard Software, Task: Comparison of Terms, in the course BC400.
+
+Customizing, Enhancements and Customer developments are options for adjusting the SAP software. Read more in the lesson, Adjusting the SAP Standard Software, Task: Adjustment Options for SAP Standard Software to Meet Customer Requirements, in the course BC400.
+
+In addition to program exits, the following enhancement types exist: Menu Exits and Screen Exits. Read more in the lesson, Adjusting the SAP Standard Software, Task: Other Enhancement Types, in the course BC400.
