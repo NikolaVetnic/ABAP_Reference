@@ -47,3 +47,89 @@ In the second part, we’ll create a projection view (the `VDM type` is `Consump
 The first step to developing any app is the creation of a data model, followed by the creation of actual database tables for persisting transactional or master data.
 
 ![Figure 4.7](img/AbapRestful_Figure4.7.jpg)
+
+##### Database Tables
+
+New database tables can be cre- ated in Eclipse using a source code editor:
+1. Open the ABAP perspective.
+2. In the ABAP project, select the package node in which you want to create the table via the Project Explorer view.
+3. Open the context menu by right-clicking on the package and selecting `New Other
+ABAP Repository Object` → `Dictionary` → `Database Table`.
+4. The database table creation wizard will open. You must enter a `Name` and `Description`. We’ll create a table for purchase documents called `ZNV_PURCHDOC` and a table for purchase document items called `ZNV_PURCHDOCITEM`.
+5. The database table source code editor opens, where you can add fields to the table and configure its properties.
+
+You can define technical as well as semantic attributes of the table with the help of annotations. For instance, with the `@EndUserText.label` annotation, you can provide meaningful and translatable labels and descriptions for objects and fields. For fields, this annotation will only be considered if the field has no data element assigned; otherwise, the field label is taken from the data element. For simplicity, we’ve only created a data element for the `purchasedocument` field (`znv_purchdocdtel`) since this data element is required for later referencing the field via a foreign key annotation in the purchase document items table. The other fields are typed using built-in ABAP types, like `abap.char(4)`.
+
+Definition of `ZNV_PURCHDOC` table is given in the listing below:
+```ABAP
+@EndUserText.label : 'Purchase Document'
+@AbapCatalog.enhancementCategory : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table znv_purchdoc {
+  key client               : abap.clnt not null;
+  key purchasedocument     : znv_purchdocdtel not null;
+  @EndUserText.label : 'Description'
+  description              : abap.sstring(128);
+  @EndUserText.label : 'Approval Status'
+  status                   : abap.char(1);
+  @EndUserText.label : 'Priority'
+  priority                 : abap.char(1);
+  @EndUserText.label : 'Purchasing Organisation'
+  purchasingorganisation   : abap.char(4);
+  @EndUserText.label : 'Purchase Document Image URL'
+  purchasedocumentimageurl : abap.sstring(255);
+  crea_date_time           : timestampl;
+  crea_uname               : uname;
+  lchg_date_time           : timestampl;
+  lchg_uname               : uname;
+}
+```
+
+In contrast to the purchase documents table, the database table definition has a compound primary key consisting of the `purchasedocumentitem` ID and the `purchasedocument` ID. Purchase document items and purchase documents tables are connected via a foreign key relationship on the `purchasedocument` ID field. The table contains fields for the price of an item and the quantity to purchase as well as fields for the corresponding currency and unit of measure. Those fields are connected using semantic annotations: `@Semantics.amount.currencyCode` for monetary values and `@Semantics.quantity.unitOfMeasure` for quantities.
+
+The database table definition for purchase document items is given below:
+```ABAP
+@EndUserText.label : 'Purchase Document Item'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table znv_purchdocitem {
+  key client                   : abap.clnt not null;
+  key purchaseddocumentitem    : abap.char(10) not null;
+  @AbapCatalog.foreignKey.keyType : #KEY
+  @AbapCatalog.foreignKey.screenCheck : true
+  key purchasedocument         : znv_purchdocdtel not null
+    with foreign key [1..*,1] znv_purchdoc
+      where client = znv_purchdocitem.client
+        and purchasedocument = znv_purchdocitem.purchasedocument;
+  @EndUserText.label : 'Description'
+  description                  : abap.sstring(128);
+  @EndUserText.label : 'Price'
+  @Semantics.amount.currencyCode : 'znv_purchdocitem.currency'
+  price                        : abap.curr(13,2);
+  @EndUserText.label : 'Currency'
+  currency                     : abap.cuky;
+  @EndUserText.label : 'Quantity'
+  @Semantics.quantity.unitOfMeasure : 'znv_purchdocitem.quantityunit'
+  quantity                     : abap.quan(13,2);
+  @EndUserText.label : 'Unit'
+  quantityunit                 : abap.unit(3);
+  @EndUserText.label : 'Vendor'
+  vendor                       : abap.sstring(32);
+  @EndUserText.label : 'Vendor Type'
+  vendortype                   : abap.sstring(32);
+  @EndUserText.label : 'Purchase Document Item Image URL'
+  purchasedocumentitemimageurl : abap.sstring(255);
+  crea_date_time               : timestampl;
+  crea_uname                   : uname;
+  lchg_date_time               : timestampl;
+  lchg_uname                   : uname;
+}
+```
+
+#### 4.1.3 Creating Basic Interface Core Data Services Views
+
+text
